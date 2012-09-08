@@ -48,7 +48,7 @@ param L := 7 ;
 param N := 100 ;
 
 option solver loqo;
-
+option solver_msg 0;
 option loqo_options "iterlim=5000";
 
 solve;
