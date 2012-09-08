@@ -16,8 +16,8 @@ param L;
 # discretization
 param N;
 
-# mass
-param m {1..N-1}, default 1;
+# mass (default mass of each section)
+param m {1..N-1}, default 1.0 / ( N - 1 );
 
 # gravity
 param g, default 1;
@@ -42,7 +42,7 @@ param xa := 0 ;
 param ya := 0 ;
 
 param xb := 4 ;
-param yb := 2 ;
+param yb := 0 ;
 
 param L := 7 ;
 param N := 100 ;

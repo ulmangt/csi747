@@ -1,0 +1,9 @@
+Part A
+
+x: 2.000 y: -2.615
+
+Part B
+
+x: 2.000 y: -2.854
+
+The lowest point of the chain is approximately 0.239 units lower.

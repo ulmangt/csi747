@@ -1,6 +1,6 @@
 import csv
 
-f = csv.reader( open( 'problem2.out', 'r' ), delimiter=',' )
+f = csv.reader( open( 'problem4b.out', 'r' ), delimiter=',' )
 
 lowx = None
 lowy = None
