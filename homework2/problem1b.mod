@@ -23,12 +23,12 @@ param dx = ( xb - xa ) / N;
 var y {0..N};
 
 # y' (derivative) at fixed x points
-var yp {0..N};
+var yp {1..N};
 
-minimize energy: sum {j in 1..N} ( ( ( ( y[j-1]*sqrt(1+yp[j-1]^2) ) + ( y[j]*sqrt(1+yp[j]^2 ) ) ) / 2.0 ) * dx ) ;
+minimize energy: sum {j in 1..N} ( ( (  y[j] + y[j-1] ) / 2.0 ) * sqrt(1+yp[j]^2) * dx ) ;
 
-s.t. deriv {j in 1..N} : y[j] = ( ( yp[j] + yp[j-1] ) / 2.0 ) * dx + y[j-1] ;
-s.t. length : sum {j in 0..N} sqrt( 1 + ( yp[j] )^2 ) * dx = L ;
+s.t. deriv {j in 1..N} : y[j] = dx * yp[j] + y[j-1];
+s.t. length : sum {j in 1..N} sqrt( 1 + yp[j]^2 ) * dx = L ;
 
 s.t. leftfixed : y[0] = ya ;
 s.t. rightfixed : y[N] = yb ;
@@ -53,6 +53,11 @@ solve;
 
 # output for GNU plot
 for {j in 0..N} {
-  printf "%f, %f, %f\n", xa + dx * j, y[j], yp[j] ;
+  if ( j == 0 ) then {
+    printf "%f, %f, 0.0\n", xa + dx * j, y[j] ;
+  }
+  else {
+    printf "%f, %f, %f\n", xa + dx * j, y[j], yp[j] ;
+  }
 }
 
