@@ -45,7 +45,7 @@ param xb := 4 ;
 param yb := 0 ;
 
 param L := 7 ;
-param N := 100 ;
+param N := 150 ;
 
 # mass of the link in the center of the chain
 # is the normal mass of the link PLUS 1 lb

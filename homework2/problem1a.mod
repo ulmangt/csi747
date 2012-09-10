@@ -14,10 +14,10 @@ param yb;
 param L;
 
 # discretization
-param N;
+param N ;
 
 # step size in x
-param dx = ( xb - xa ) / N;
+param dx = ( xb - xa ) /  N ;
 
 # y (height) at fixed x points
 var y {0..N};
@@ -43,7 +43,7 @@ param xb := 4 ;
 param yb := 2 ;
 
 param L := 7 ;
-param N := 100 ;
+param N := 150 ;
 
 option solver loqo;
 

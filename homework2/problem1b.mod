@@ -43,7 +43,7 @@ param xb := 4 ;
 param yb := 2 ;
 
 param L := 7 ;
-param N := 100 ;
+param N := 150 ;
 
 option solver loqo;
 
