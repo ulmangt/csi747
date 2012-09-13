@@ -33,6 +33,10 @@ s.t. length : sum {j in 0..N} sqrt( 1 + ( yp[j] )^2 ) * dx = L ;
 s.t. leftfixed : y[0] = ya ;
 s.t. rightfixed : y[N] = yb ;
 
+# I think there may need to be additional constraints on yp[0]
+# and yp[N] because they have only one "deriv" constraint each
+# instead of two at the other points. I'm not sure what it
+# should be, however
 
 data;
 
