@@ -11,7 +11,7 @@ param capacity {MACHINE} >= 0;
 param cost {MACHINE,PART} >= 0;
 param time {MACHINE,PART} >= 0;
 
-var plan {MACHINE,PART} >= 0;
+var plan {MACHINE,PART} integer >= 0;
 
 minimize total_cost: sum {p in PART,m in MACHINE} ( cost[m,p] * plan[m,p] );
 

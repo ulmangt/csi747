@@ -1,0 +1,40 @@
+SNOPT 7.2-8 : Optimal solution found.
+9 iterations, objective 260
+: required_production.lb required_production.body required_production.ub    :=
+1            10                      10                   Infinity
+2            40                      40                   Infinity
+3            60                      60                   Infinity
+4            20                      20                   Infinity
+5            20                      20                   Infinity
+6            30                      30                   Infinity
+;
+
+: available_capacity.lb available_capacity.body available_capacity.ub    :=
+1        -Infinity                 80                      80
+2        -Infinity                 30                      30
+3        -Infinity                 70                     160
+;
+
+total_cost = 260
+
+plan :=
+1 1    0
+1 2    0
+1 3   50
+1 4    0
+1 5    0
+1 6   30
+2 1    0
+2 2   20
+2 3   10
+2 4    0
+2 5    0
+2 6    0
+3 1   10
+3 2   20
+3 3    0
+3 4   20
+3 5   20
+3 6    0
+;
+
