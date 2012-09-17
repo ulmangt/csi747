@@ -1,0 +1,12 @@
+MINOS 5.51: optimal solution found.
+3 iterations, objective 99920000
+audience = 99920000
+
+:     time.lb   time    time.ub      time.rc      :=
+mag       2      15.2   Infinity   3.20142e-10
+radio     0     120          120   0
+tv       10      30.4   Infinity   1.01863e-10
+;
+
+
+The optimal soltuon (assuming 1 person-week = 5 person-days and partial page magazine ads are allowed) is 120 minutes of radio, 30.4 minutes of TV time, and 15.2 pages of magazine adds for a total of 99.92 million viewers.

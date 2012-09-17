@@ -1,0 +1,18 @@
+LOQO 6.07: iterlim=5000
+LOQO 6.07: optimal solution (9 QP iterations, 9 evaluations)
+primal objective 117999999.6
+  dual objective 118000000.2
+
+"option abs_boundtol 1.4166638528934072e-07;"
+or "option rel_boundtol 1.4166638528934072e-08;"
+will change deduced dual values.
+
+audience = 1.18e+08
+
+:     time.lb       time        time.ub        time.rc         :=
+mag       0       5.41964e-07   Infinity   -250000
+radio     0     400             Infinity        -0.00029524
+tv       10      10             Infinity    -7e+05
+;
+
+The optimal soltuon is 400 minutes of radio and 10 minutes of TV time for a total of 118 million viewers.

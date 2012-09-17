@@ -1,0 +1,13 @@
+LOQO 6.07: iterlim=5000
+LOQO 6.07: optimal solution (10 QP iterations, 10 evaluations)
+primal objective 91999999.91
+  dual objective 92000000.16
+audience = 9.2e+07
+
+:   time.lb time   time.ub      time.rc      :=
+mag     0     20   Infinity   -0.00543291
+tv     10     40   Infinity   -0.00159394
+;
+
+
+The optimal soltuon is 20 magazine pages and 40 minutes of TV time for a total of 92 million viewers.

@@ -1,0 +1,19 @@
+LOQO 6.07: iterlim=5000
+LOQO 6.07: optimal solution (8 QP iterations, 8 evaluations)
+primal objective 97999997.89
+  dual objective 98000000.85
+
+"option abs_boundtol 4.731496680676628e-06;"
+or "option rel_boundtol 4.731496680676628e-07;"
+will change deduced dual values.
+
+audience = 9.8e+07
+
+time [*] :=
+mag  80
+ tv  10
+;
+
+
+The optimal soltuon is 80 magazine pages and 10 minutes of TV time for a total of 98 million viewers.
+

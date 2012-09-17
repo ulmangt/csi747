@@ -8,7 +8,7 @@ param cost {MEDIA} >= 0;
 param reach {MEDIA} >= 0;
 param min_time {MEDIA} >= 0;
 param max_time {MEDIA} >= 0;
-param person_weeks {MEDIA} >= 0;
+param person_day {MEDIA} >= 0;
 
 param budget;
 param personell;
@@ -25,23 +25,23 @@ s.t. max_time_limit {m in MEDIA}: time[m] <= max_time[m];
 s.t. budget_limit: sum {m in MEDIA} ( time[m] * cost[m] ) <= budget;
 
 # personell limit
-s.t. personell_limit: sum {m in MEDIA} ( time[m] * person_weeks[m] ) <= personell;
+s.t. personell_limit: sum {m in MEDIA} ( time[m] * person_day[m] ) <= personell;
 
 data;
 
 set MEDIA := tv mag radio;
 
-param budget := 1000000;
-param personell := 100;
+### values assume 1 person-week = 5 person-days ###
 
-param:     cost     reach  person_weeks  min_time     max_time :=
-  tv      20000   1800000             1       10      Infinity
-  mag     10000   1000000             3        2      Infinity
+param budget := 1000000;
+param personell := 500;
+
+param:     cost     reach    person_day  min_time     max_time :=
+  tv      20000   1800000             5       10      Infinity
+  mag     10000   1000000            15        2      Infinity
   radio    2000    250000             1        0           120 ;
 
-option solver loqo;
-
-option loqo_options "iterlim=5000";
+option solver minos;
 
 solve;
 
