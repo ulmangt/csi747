@@ -42,4 +42,6 @@ plan :=
 
 The production plan is similar. Machine 3 now produces about 4 units of Part 2 (where before it produced nothing). Machine 2 produces Parts 2 and 3 in slightly different quantities. Machine 1 produces significantly less of Part 3.
 
+Also, because the constraints no longer have integer valued coefficients, the optimal solution is no longer integer valued.
+
 All available time is used on Machines 1 and 2. Only 60.8182 minutes are used on Machine 3.
