@@ -1,0 +1,25 @@
+MINOS 5.51: optimal solution found.
+3 iterations, objective 2.478491141
+:         enough_nutrients.lb enough_nutrients.body enough_nutrients.ub    :=
+calcium            800                800                 Infinity
+calories          3000               3000                 Infinity
+protein             70                 82.1795            Infinity
+vitamin_a          500               1192                 Infinity
+;
+
+total_cost = 2.47849
+
+lbs [*] :=
+  bread  0
+cabbage  0
+gelatin  0
+   meat  0
+   milk  0.815393
+ potato  8.64165
+;
+
+
+The optimal diet is a 8.64165 lbs of potatoes and 0.815393 lbs of milk.
+
+This proves just enough calcium (800 mg.) and calories (3000), a small excess of protein (82.1795 g.), and a large excess of vitamin A (1192 I.U.).
+

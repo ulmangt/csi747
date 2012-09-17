@@ -43,9 +43,7 @@ param:       nutrient_min :=
   calcium             800
   vitamin_a           500 ;
 
-option solver loqo;
-
-option loqo_options "iterlim=5000";
+option solver minos;
 
 solve;
 
