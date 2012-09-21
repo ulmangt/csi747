@@ -57,7 +57,7 @@ US_3-MONTH_T-BILLS US_GOVN_LONG_BONDS SP_500 WILSHIRE_5000 NASDAQ_COMPOSITE LEHM
 1994  1.045  0.889  1.012  0.999  0.968  0.965  1.078  0.990 1.000
 ;
 
-param return := 1.05;
+param return := 1.10;
 
 option solver minos;
 
