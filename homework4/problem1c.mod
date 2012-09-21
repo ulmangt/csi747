@@ -8,16 +8,18 @@ set ASSETS;
 param historic_data {YEARS,ASSETS};
 param return;
 
-param average_return {i in ASSETS} = sum {y in YEARS} ( historic_data[y,i] ) / card( YEARS );
 
-# calculate sample covariance
-param covariance {j in ASSETS, k in ASSETS} = sum {y in YEARS} ( ( historic_data[y,j] - average_return[j] ) * ( historic_data[y,k] - average_return[k] ) ) / ( card( YEARS ) - 1 );
+var x {ASSETS} >= 0;
+var u {YEARS};
+var r {YEARS};
 
-var portfolio {ASSETS} >= 0;
+minimize risk: sum { t in YEARS } ( u[t] ) ;
 
-minimize risk: sum {i in ASSETS} ( sum {j in ASSETS} ( portfolio[i] * covariance[i,j] * portfolio[j] ) ) ;
+s.t. constraint1 { t in YEARS } : -u[t] <= r[t] - return <= u[t] ;
 
-s.t. desired_return : sum { i in ASSETS } ( average_return[i] * portfolio[i] ) = return;
+s.t. constraint2 { t in YEARS } : sum { n in ASSETS } ( x[n] * historic_data[t,n] ) = r[t]; 
+
+s.t. constraint3 : sum { n in ASSETS } ( x[n] * r
 
 s.t. total_assets : sum { i in ASSETS } ( portfolio[i] ) <= 1;
 
