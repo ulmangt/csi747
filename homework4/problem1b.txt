@@ -1,0 +1,81 @@
+MINOS 5.51: optimal solution found.
+7 iterations, objective 0.003195466269
+Nonlin evals: obj = 15, grad = 14.
+average_return [*] :=
+                                 EAFE  1.14123
+                                 GOLD  1.12895
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX  1.09177
+                     NASDAQ_COMPOSITE  1.12132
+                               SP_500  1.11977
+                   US_3-MONTH_T-BILLS  1.07814
+                   US_GOVN_LONG_BONDS  1.09291
+                        WILSHIRE_5000  1.12364
+;
+
+covariance [*,*]
+:                                          EAFE           GOLD        :=
+EAFE                                     0.0554227    -0.0140334
+GOLD                                    -0.0140334     0.127085
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX    0.00439524   -0.0114928
+NASDAQ_COMPOSITE                         0.0244854    -0.0164401
+SP_500                                   0.0219286    -0.01854
+US_3-MONTH_T-BILLS                      -0.00131503    0.000841911
+US_GOVN_LONG_BONDS                       0.0110356    -0.0140692
+WILSHIRE_5000                            0.023101     -0.0166115
+
+# $1 = LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX
+:                                            $1      NASDAQ_COMPOSITE    :=
+EAFE                                     0.00439524      0.0244854
+GOLD                                    -0.0114928      -0.0164401
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX    0.00648942      0.00762531
+NASDAQ_COMPOSITE                         0.00762531      0.0500062
+SP_500                                   0.00748928      0.0329036
+US_3-MONTH_T-BILLS                       0.000274413    -0.000321093
+US_GOVN_LONG_BONDS                       0.0114705       0.0118171
+WILSHIRE_5000                            0.00710501      0.0370835
+
+:                                          SP_500    US_3-MONTH_T-BILLS    :=
+EAFE                                     0.0219286       -0.00131503
+GOLD                                    -0.01854          0.000841911
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX    0.00748928       0.000274413
+NASDAQ_COMPOSITE                         0.0329036       -0.000321093
+SP_500                                   0.0282829        0.000104747
+US_3-MONTH_T-BILLS                       0.000104747      0.000927742
+US_GOVN_LONG_BONDS                       0.0113317       -8.47965e-05
+WILSHIRE_5000                            0.0296622        6.08139e-05
+
+:                                     US_GOVN_LONG_BONDS  WILSHIRE_5000    :=
+EAFE                                       0.0110356        0.023101
+GOLD                                      -0.0140692       -0.0166115
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX      0.0114705        0.00710501
+NASDAQ_COMPOSITE                           0.0118171        0.0370835
+SP_500                                     0.0113317        0.0296622
+US_3-MONTH_T-BILLS                        -8.47965e-05      6.08139e-05
+US_GOVN_LONG_BONDS                         0.0231523        0.0105883
+WILSHIRE_5000                              0.0105883        0.031913
+;
+
+desired_return.lb = 1.1
+desired_return.body = 1.1
+desired_return.ub = 1.1
+
+total_assets.lb = -Infinity
+total_assets.body = 1
+total_assets.ub = 1
+
+risk = 0.00319547
+
+portfolio [*] :=
+                                 EAFE  0.128292
+                                 GOLD  0.106887
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX  0.318264
+                     NASDAQ_COMPOSITE  0
+                               SP_500  0
+                   US_3-MONTH_T-BILLS  0.358693
+                   US_GOVN_LONG_BONDS  0
+                        WILSHIRE_5000  0.087863
+;
+
+With 10% return, the lowest risk portfolio still contains 35% relatively safe treasury bonds, 31% Lehman Brothers bonds, and a mix of other assets.
+
+The overall risk assumed is about four times greater (0.003 versus 0.0007).
