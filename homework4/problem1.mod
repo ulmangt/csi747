@@ -10,7 +10,8 @@ param return;
 
 param average_return {i in ASSETS} = sum {y in YEARS} ( historic_data[y,i] ) / card( YEARS );
 
-param covariance {j in ASSETS, k in ASSETS} = sum {y in YEARS} ( ( historic_data[y,j] - average_return[j] ) * ( historic_data[y,k] - average_return[k] ) ) / card( YEARS );
+# calculate sample covariance
+param covariance {j in ASSETS, k in ASSETS} = sum {y in YEARS} ( ( historic_data[y,j] - average_return[j] ) * ( historic_data[y,k] - average_return[k] ) ) / ( card( YEARS ) - 1 );
 
 var portfolio {ASSETS} >= 0;
 
@@ -23,7 +24,7 @@ s.t. total_assets : sum { i in ASSETS } ( portfolio[i] ) = 1;
 data;
 
 
-set YEARS := 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993;
+set YEARS := 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994;
 set ASSETS := US_3-MONTH_T-BILLS US_GOVN_LONG_BONDS SP_500 WILSHIRE_5000 NASDAQ_COMPOSITE LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX EAFE GOLD; 
 
 param historic_data:
@@ -54,7 +55,7 @@ US_3-MONTH_T-BILLS US_GOVN_LONG_BONDS SP_500 WILSHIRE_5000 NASDAQ_COMPOSITE LEHM
 
 param return := 1.05;
 
-option solver loqo;
+option solver minos;
 
 solve;
 
