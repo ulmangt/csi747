@@ -1,0 +1,3 @@
+The EAFE asset provides the largest average return at 1.14123. Because the model is based on expected values, it clearly cannot provide a larger return than investing everything in the asset with the largest average return.
+
+Thus, the largest return the model can provide is 1.14123.
