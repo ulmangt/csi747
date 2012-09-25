@@ -97,4 +97,4 @@ LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX  0.0653141
 
 I modfied my model by adding a NONE asset, which represents not investing. It is assumed that this always provides no return or loss with no variance. Without this option, the problem is infeasible because all other assets produce greater than 1.05 percent return.
 
-With this additional option, the lowest risk portfolio wiht exactly 1.05 percent return is approximately 50% Tresury Bonds, 40% uninvested, and 10% in other assets.
+With this additional option, the lowest risk portfolio with exactly 1.05 percent return is approximately 50% Tresury Bills, 40% uninvested, and 10% in other assets.

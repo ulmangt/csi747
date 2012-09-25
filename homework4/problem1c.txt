@@ -1,0 +1,51 @@
+MINOS 5.51: optimal solution found.
+26 iterations, objective 0.2969318241
+average_return [*] :=
+                                 EAFE  1.14123
+                                 GOLD  1.12895
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX  1.09177
+                     NASDAQ_COMPOSITE  1.12132
+                                 NONE  1
+                               SP_500  1.11977
+                   US_3-MONTH_T-BILLS  1.07814
+                   US_GOVN_LONG_BONDS  1.09291
+                        WILSHIRE_5000  1.12364
+;
+
+total_assets.lb = -Infinity
+total_assets.body = 1
+total_assets.ub = 1
+
+risk = 0.296932
+
+u [*] :=
+1973  0.00309418    1979  0.0405156     1985  0.0115759     1991 -1.57362e-16
+1974  1.10461e-16   1980  0.0300657     1986  4.39468e-17   1992  0.0263303
+1975  0.0100998     1981  0.0229259     1987  0.012848      1993  0.0199172
+1976  0.0100116     1982  0.0322539     1988  0.00924573    1994  0.0306585
+1977  0.0137404     1983  0.00248288    1989  0.00535858
+1978 -9.34859e-18   1984  0.0032874     1990  0.0125202
+;
+
+r [*] :=
+1973 1.04691   1978 1.05      1983 1.05248   1988 1.04075   1993 1.03008
+1974 1.05      1979 1.09052   1984 1.05329   1989 1.05536   1994 1.01934
+1975 1.0399    1980 1.08007   1985 1.06158   1990 1.03748
+1976 1.03999   1981 1.07293   1986 1.05      1991 1.05
+1977 1.03626   1982 1.08225   1987 1.03715   1992 1.02367
+;
+
+x [*] :=
+                                 EAFE  0.00419503
+                                 GOLD  0.0237998
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX  0.0590959
+                     NASDAQ_COMPOSITE  0.0220184
+                                 NONE  0.401441
+                               SP_500  0
+                   US_3-MONTH_T-BILLS  0.48945
+                   US_GOVN_LONG_BONDS  0
+                        WILSHIRE_5000  0
+;
+
+
+The optimal portfolio with the linear model is similar to the quadratic model. Both invest heavily in Treasury Bills (around 50%), leave about 40% uninvested, and invest about 10% in other assets. The exact percentages change slightly, and the linear model invests 2% in NASDAQ where the quadratic model invested none.

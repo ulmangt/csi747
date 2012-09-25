@@ -1,0 +1,50 @@
+MINOS 5.51: optimal solution found.
+31 iterations, objective 0.9088104369
+average_return [*] :=
+                                 EAFE  1.14123
+                                 GOLD  1.12895
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX  1.09177
+                     NASDAQ_COMPOSITE  1.12132
+                                 NONE  1
+                               SP_500  1.11977
+                   US_3-MONTH_T-BILLS  1.07814
+                   US_GOVN_LONG_BONDS  1.09291
+                        WILSHIRE_5000  1.12364
+;
+
+total_assets.lb = -Infinity
+total_assets.body = 1
+total_assets.ub = 1
+
+risk = 0.90881
+
+u [*] :=
+1973  0.0138467     1979  0.0899795     1985  0.105897      1991 -8.91108e-18
+1974  0.0283067     1980  0.0218776     1986  0.122291      1992  0.0853503
+1975 -1.24944e-16   1981  0.0621728     1987  0.00400306    1993  0.0255347
+1976  0.0189365     1982  0.0733368     1988  0.0167679     1994  0.0898895
+1977  0.0184411     1983  0.0149791     1989  0.000520364
+1978  0.0149683     1984  0.0138721     1990  0.0878395
+;
+
+r [*] :=
+1973 1.08615   1978 1.11497   1983 1.08502   1988 1.08323   1993 1.12553
+1974 1.07169   1979 1.18998   1984 1.08613   1989 1.10052   1994 1.01011
+1975 1.1       1980 1.12188   1985 1.2059    1990 1.01216
+1976 1.08106   1981 1.03783   1986 1.22229   1991 1.1
+1977 1.08156   1982 1.17334   1987 1.096     1992 1.01465
+;
+
+x [*] :=
+                                 EAFE  0.162026
+                                 GOLD  0.115407
+LEHMAN_BROTHERS_CORPORATE_BONDS_INDEX  0.423612
+                     NASDAQ_COMPOSITE  0
+                                 NONE  0
+                               SP_500  0
+                   US_3-MONTH_T-BILLS  0.298956
+                   US_GOVN_LONG_BONDS  0
+                        WILSHIRE_5000  0
+;
+
+The lowest risk portfolio with 1.10 percent return is similar to the quadratic model. It invest slightly less heavily in Treasury Bills and more heavily in Lehman Brothers. It also invests nothin in Wilshire 5000 where the quadratic model invested 8%.
