@@ -26,19 +26,19 @@ var v {j in 1..n} = ( h[j] - h[j-1] ) / ( tf / n );
 var v_avg {j in 1..n-1} = ( v[j] + v[j+1] ) / 2;
 
 # acceleration of rocket
-var a {j in 1..n-1} = ( v[j] - v[j+1] ) / ( tf / n );
+var a {j in 1..n-1} = ( v[j+1] - v[j] ) / ( tf / n );
 
 # thrust of rocket
 var T {j in 0..n} >= 0;
 
 # mass of rocket
-var m {j in 0..n};
-
-# average derivative of mass at m[1] through m[n-1]
-var d_m_avg {j in 1..n-1} = ( m[j] + m[j+1] ) / 2;
+var m {j in 0..n} >= mempty;
 
 # derivative of mass with respect to time
 var d_m {j in 1..n} = ( m[j] - m[j-1] ) / ( tf / n );
+
+# average derivative of mass at m[1] through m[n-1]
+var d_m_avg {j in 1..n-1} = ( d_m[j] + d_m[j+1] ) / 2;
 
 # air resistance acting against rocket
 var R {j in 0..n};
