@@ -74,6 +74,6 @@ display tf;
 display altitude;
 
 printf "# time height velocity acceleration mass thrust air_resistance"
-for {j in 2..n} {
-  printf "%f %f %f %f %f %f %f\n", ( tf / n ) * j, h[j-1], v_avg[j], a[j], m[j-1], T[j-1], R[j-1] ;
+for {j in 1..n-1} {
+  printf "%f %f %f %f %f %f %f\n", ( tf / n ) * j, h[j], v_avg[j], a[j], m[j], T[j], R[j] ;
 }
