@@ -11,7 +11,7 @@ param m0 := 3; #initial mass (measured in units)
 param mempty := 0.01;# mass of the rocket without the fuel
 
 # discretization
-param n := 50;
+param n := 70;
 
 # final moment of time
 var tf >= 80, <=220, := 200;
@@ -29,16 +29,16 @@ var v_avg {j in 1..n-1} = ( v[j] + v[j+1] ) / 2;
 var a {j in 1..n-1} = ( v[j+1] - v[j] ) / ( tf / n );
 
 # thrust of rocket
-var T {j in 0..n} >= 0;
+var T {j in 0..n} >= 0, <= Tmax;
 
 # mass of rocket
-var m {j in 0..n} >= mempty;
+var m {j in 0..n} >= mempty, <= m0;
 
 # derivative of mass with respect to time
 var d_m {j in 1..n} = ( m[j] - m[j-1] ) / ( tf / n );
 
 # average derivative of mass at m[1] through m[n-1]
-var d_m_avg {j in 1..n-1} = ( d_m[j] + d_m[j+1] ) / 2;
+#var d_m_avg {j in 1..n-1} = ( d_m[j] + d_m[j+1] ) / 2;
 
 # air resistance acting against rocket
 var R {j in 0..n};
@@ -53,7 +53,7 @@ s.t. newton {j in 1..n-1}: m[j] * a[j] = T[j] - R[j] - m[j] * g;
 s.t. air_resistance {j in 1..n-1}: R[j] = sigma * ( v_avg[j] )^2 * exp( -h[j] / d );
 
 # trust of the rocket is proportional to the amount of fuel being burned
-s.t. thrust {j in 1..n-1}: T[j] = -c * d_m_avg[j];
+s.t. thrust {j in 1..n-1}: T[j] = -c * d_m[j];
 
 # initial conditions
 s.t. initial_height: h[0] = 0;
