@@ -11,7 +11,7 @@ param m0 := 3; #initial mass (measured in units)
 param mempty := 0.01;# mass of the rocket without the fuel
 
 # discretization
-param n := 200;
+param n := 50;
 
 # final moment of time
 var tf >= 80, <=220, := 200;
@@ -47,10 +47,10 @@ maximize altitude: h[n];
 s.t. newton {j in 2..n}: m[j] * a[j] = T[j] - R[j] - m[j] * g;
 
 # where air reistance is defined as follows
-s.t. air_resistance {j in 2..n}: sigma * ( v_avg[j] )^2 * exp( -h[j] / d );
+s.t. air_resistance {j in 2..n}: R[j] = sigma * ( v_avg[j] )^2 * exp( -h[j] / d );
 
 # and the trust of the rocket is proportional to the amount of fuel being burned
-s.t. thrust {j in 1..n}: -c * d_m[j];
+s.t. thrust {j in 1..n}: T[j] = -c * d_m[j];
 
 option solver loqo;
 
