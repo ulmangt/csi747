@@ -1,25 +1,29 @@
-unset key
-NX=1; NY=2;
-DX=0.01; DY=0.01; SX=0.85; SY=0.25
-
-set bmargin DX; set tmargin DX; set lmargin DY; set rmargin DY
-
-set size SX*NX+DX*1.5,SY*NY+DY*1.8
-
-set multiplot
-
-set size SX,SY
-set origin DX, DY;
-
-plot "homework5a.data" using 1:2 with lines
+set term x11 0
 set xlabel "time"
 set ylabel "height"
+plot "homework5a.data" using 1:2 with lines
 
-set origin DX, DY+SY;
-unset xtics
-
-plot "homework5a.data" using 1:3 with lines
+set term x11 1
 set xlabel "time"
 set ylabel "velocity"
+plot "homework5a.data" using 1:3 with lines
 
-unset multiplot
+set term x11 2
+set xlabel "time"
+set ylabel "acceleration"
+plot "homework5a.data" using 1:4 with lines
+
+set term x11 3
+set xlabel "time"
+set ylabel "mass"
+plot "homework5a.data" using 1:5 with lines
+
+set term x11 4
+set xlabel "time"
+set ylabel "thrust"
+plot "homework5a.data" using 1:6 with lines
+
+set term x11 5
+set xlabel "time"
+set ylabel "air resistance"
+plot "homework5a.data" using 1:7 with lines
