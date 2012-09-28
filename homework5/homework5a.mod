@@ -23,16 +23,19 @@ var h {j in 0..n} >= 0;
 var v {j in 1..n} = ( h[j] - h[j-1] ) / ( tf / n );
 
 # average velocity at h[1] through h[n-1]
-var v_avg {j in 2..n} = ( v[j] + v[j-1] ) / 2;
+var v_avg {j in 1..n-1} = ( v[j] + v[j+1] ) / 2;
 
 # acceleration of rocket
-var a {j in 2..n} = ( v[j] - v[j-1] ) / ( tf / n );
+var a {j in 1..n-1} = ( v[j] - v[j+1] ) / ( tf / n );
 
 # thrust of rocket
 var T {j in 0..n} >= 0;
 
 # mass of rocket
 var m {j in 0..n};
+
+# average derivative of mass at m[1] through m[n-1]
+var d_m_avg {j in 1..n-1} = ( m[j] + m[j+1] ) / 2;
 
 # derivative of mass with respect to time
 var d_m {j in 1..n} = ( m[j] - m[j-1] ) / ( tf / n );
@@ -44,13 +47,18 @@ var R {j in 0..n};
 maximize altitude: h[n];
 
 # constrained by Newton's second law (F=MA)
-s.t. newton {j in 2..n}: m[j] * a[j] = T[j] - R[j] - m[j] * g;
+s.t. newton {j in 1..n-1}: m[j] * a[j] = T[j] - R[j] - m[j] * g;
 
 # where air reistance is defined as follows
-s.t. air_resistance {j in 2..n}: R[j] = sigma * ( v_avg[j] )^2 * exp( -h[j] / d );
+s.t. air_resistance {j in 1..n-1}: R[j] = sigma * ( v_avg[j] )^2 * exp( -h[j] / d );
 
-# and the trust of the rocket is proportional to the amount of fuel being burned
-s.t. thrust {j in 1..n}: T[j] = -c * d_m[j];
+# trust of the rocket is proportional to the amount of fuel being burned
+s.t. thrust {j in 1..n-1}: T[j] = -c * d_m_avg[j];
+
+# initial conditions
+s.t. initial_height: h[0] = 0;
+s.t. initial_velocity: v[1] = 0;
+s.t. initial_mass: m[0] = m0;
 
 option solver loqo;
 
@@ -64,3 +72,8 @@ display T;
 display R;
 display tf;
 display altitude;
+
+printf "# time height velocity acceleration mass thrust air_resistance"
+for {j in 2..n} {
+  printf "%f %f %f %f %f %f %f\n", ( tf / n ) * j, h[j-1], v_avg[j], a[j], m[j-1], T[j-1], R[j-1] ;
+}
