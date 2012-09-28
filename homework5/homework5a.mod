@@ -11,7 +11,7 @@ param m0 := 3; #initial mass (measured in units)
 param mempty := 0.01;# mass of the rocket without the fuel
 
 # discretization
-param n := 70;
+param n := 140;
 
 # final moment of time
 var tf >= 80, <=220, := 200;
@@ -60,7 +60,12 @@ s.t. initial_height: h[0] = 0;
 s.t. initial_velocity: v[1] = 0;
 s.t. initial_mass: m[0] = m0;
 
+#s.t. neg_d_m {j in 1..n}: d_m[j] <= 0;
+#s.t. neg_d_m_avg {j in 1..n-1}: d_m_avg[j] <= 0;
+
 option solver loqo;
+
+option loqo_options "iterlim=20000";
 
 solve;
 

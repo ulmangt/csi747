@@ -1,3 +1,5 @@
+set nokey
+
 set term x11 0
 set xlabel "time"
 set ylabel "height"
