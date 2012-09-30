@@ -26,8 +26,8 @@ param n := 20;
 var tf >= 0, <=30, := 3;
 
 # position of ball
-var x {j in 0..n};
-var y {j in 0..n};
+var x {j in 0..n} := 1;
+var y {j in 0..n} := 1;
 var z {j in 0..n} = 0.1 * ( x[j]^2 + y[j]^2 );
 
 # derivative with respect to time of ball position
