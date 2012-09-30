@@ -39,6 +39,9 @@ var vx {j in 1..n} = ( x[j] - x[j-1] ) / ( tf / n );
 var vy {j in 1..n} = ( y[j] - y[j-1] ) / ( tf / n );
 var vz {j in 1..n} = ( z[j] - z[j-1] ) / ( tf / n );
 
+# norm of velocity vector
+var v_norm {j in 1..n} = sqrt( vx[j]^2 + vy[j]^2 + vz[j]^2 );
+
 # average velocity at x[1] through x[n-1]
 var vx_avg {j in 1..n-1} = ( vx[j] + vx[j+1] ) / 2;
 var vy_avg {j in 1..n-1} = ( vy[j] + vy[j+1] ) / 2;
@@ -56,9 +59,16 @@ var az {j in 1..n-1} = ( vz[j+1] - vz[j] ) / ( tf / n );
 var norm_n_sq {j in 0..n} = dx[j]^2 + dy[j]^2 + 1;
 
 # normal force
-var Nz {j in 1..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / ( norm_n_sq[j]^2 ) )
+var Nz {j in 1..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / ( norm_n_sq[j]^2 ) );
 var Nx {j in 1..n-1} = -dx[j] * Nz[j];
 var Ny {j in 1..n-1} = -dy[j] * Nz[j];
+
+# norm of normal force
+var N_norm {j in 1..n-1} = sqrt( Nx[j]^2 + Ny[j]^2 + Nz[j]^2 );
+
+# resistane force
+var Fx {j in 1..n-1} = -mu * N_norm[j] * ( vx[j] / v_norm[j] );
+var Fy {j in 1..n-1} = -mu * N_norm[j] * ( vy[j] / v_norm[j] );
 
 minimize final_velocity: 
 
@@ -68,3 +78,23 @@ s.t. final_position_x: x[n] = xf;
 s.t. final_position_y: y[n] = yf;
 
 s.t. bounding_box {j in 0..n}: 4 * x[j] + y[j] <= 16;
+
+# Newton's laws F = ma
+s.t. newton_x {j in 1..n-1}: Nx[j] + Fx[j] = m * ax[j];
+s.t. newton_y {j in 1..n-1}: Ny[j] + Fy[j] = m * ay[j];
+
+option solver loqo;
+
+option loqo_options "iterlim=20000";
+
+solve;
+
+display x;
+display y;
+display z;
+
+printf "# time x y z\n";
+for {j in 0..n} {
+  printf "%f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j] ;
+}
+
