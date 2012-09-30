@@ -26,8 +26,10 @@ param n := 20;
 var tf >= 0, <=30, := 3;
 
 # position of ball
-var x {j in 0..n} := 1;
-var y {j in 0..n} := 1;
+# set the initial values to form an evenly spaced line between
+# the start and end positions (arbitrary, but reasonable initial values)
+var x {j in 0..n} := j * ( xf - x0 ) / n;
+var y {j in 0..n} := j * ( yf - y0 ) / n;
 var z {j in 0..n} = 0.1 * ( x[j]^2 + y[j]^2 );
 
 # derivative with respect to time of ball position
@@ -38,47 +40,40 @@ var dy {j in 0..n} = 0.2 * y[j];
 var norm_n_sq {j in 0..n} = dx[j]^2 + dy[j]^2 + 1;
 
 # velocity of ball
-# unlike rocket problem, vx[j] represents velocity when ball is at x[j]
-# (see position_x and position_y constraints)
-# non-zero initial values are important for model to avoid errors
-# evalutating model at initial conditions
-var vx {j in 0..n} := 1;
-var vy {j in 0..n} := 1;
-var vz {j in 0..n} := 1;
+var vx {j in 1..n} = ( x[j] - x[j-1] ) / ( tf / n );
+var vy {j in 1..n} = ( y[j] - y[j-1] ) / ( tf / n );
+var vz {j in 1..n} = ( z[j] - z[j-1] ) / ( tf / n );
+
+var v_avg_x {j in 1..n-1} = ( vx[j] + vx[j+1] ) / 2;
+var v_avg_y {j in 1..n-1} = ( vy[j] + vy[j+1] ) / 2;
+var v_avg_z {j in 1..n-1} = ( vz[j] + vz[j+1] ) / 2;
 
 # norm of velocity vector
-var v_norm {j in 0..n} = sqrt( vx[j]^2 + vy[j]^2 + vz[j]^2 );
+var v_norm {j in 1..n} = sqrt( vx[j]^2 + vy[j]^2 + vz[j]^2 );
+var v_avg_norm {j in 1..n-1} = sqrt( v_avg_x[j]^2 + v_avg_y[j]^2 + v_avg_z[j]^2 );
 
 # acceleration of ball
 # (see velocity_x and velocity_y constraints)
-var ax {j in 0..n-1} := 1;
-var ay {j in 0..n-1} := 1;
-var az {j in 0..n-1} := 1;
+var ax {j in 1..n-1} = ( vx[j+1] - vx[j] ) / ( tf / n );
+var ay {j in 1..n-1} = ( vy[j+1] - vy[j] ) / ( tf / n );
+var az {j in 1..n-1} = ( vz[j+1] - vz[j] ) / ( tf / n );
 
 # normal force
-var Nz {j in 0..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / norm_n_sq[j] );
-var Nx {j in 0..n-1} = -dx[j] * Nz[j];
-var Ny {j in 0..n-1} = -dy[j] * Nz[j];
+var Nz {j in 1..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / norm_n_sq[j] );
+var Nx {j in 1..n-1} = -dx[j] * Nz[j];
+var Ny {j in 1..n-1} = -dy[j] * Nz[j];
 
 # norm of normal force
-var N_norm {j in 0..n-1} = sqrt( Nx[j]^2 + Ny[j]^2 + Nz[j]^2 );
+var N_norm {j in 1..n-1} = sqrt( Nx[j]^2 + Ny[j]^2 + Nz[j]^2 );
 
 # resistance force
-var Fx {j in 0..n-1} = -mu * N_norm[j] * ( vx[j] / v_norm[j] );
-var Fy {j in 0..n-1} = -mu * N_norm[j] * ( vy[j] / v_norm[j] );
+var Fx {j in 1..n-1} = -mu * N_norm[j] * ( v_avg_x[j] / v_avg_norm[j] );
+var Fy {j in 1..n-1} = -mu * N_norm[j] * ( v_avg_y[j] / v_avg_norm[j] );
 
 minimize final_velocity: vx[n]^2 + vy[n]^2 + vz[n]^2;
 
 s.t. initial_position_x: x[0] = x0;
 s.t. initial_position_y: y[0] = y0;
-
-s.t. position_x {j in 1..n}: x[j-1] + vx[j-1] * ( tf / n ) = x[j];
-s.t. position_y {j in 1..n}: y[j-1] + vy[j-1] * ( tf / n ) = y[j];
-s.t. position_z {j in 1..n}: z[j-1] + vz[j-1] * ( tf / n ) = z[j];
-
-s.t. velocity_x {j in 1..n}: vx[j-1] + ax[j-1] * ( tf / n ) = vx[j];
-s.t. velocity_y {j in 1..n}: vy[j-1] + ay[j-1] * ( tf / n ) = vy[j];
-s.t. velocity_z {j in 1..n}: vz[j-1] + az[j-1] * ( tf / n ) = vz[j];
 
 s.t. final_position_x: x[n] = xf;
 s.t. final_position_y: y[n] = yf;
@@ -86,8 +81,8 @@ s.t. final_position_y: y[n] = yf;
 s.t. bounding_box {j in 0..n}: 4 * x[j] + y[j] <= 16;
 
 # Newton's laws F = ma
-s.t. newton_x {j in 0..n-1}: Nx[j] + Fx[j] = m * ax[j];
-s.t. newton_y {j in 0..n-1}: Ny[j] + Fy[j] = m * ay[j];
+s.t. newton_x {j in 1..n-1}: Nx[j] + Fx[j] = m * ax[j];
+s.t. newton_y {j in 1..n-1}: Ny[j] + Fy[j] = m * ay[j];
 
 option solver loqo;
 
@@ -101,6 +96,11 @@ display z;
 
 printf "# time x y z vx vy vz speed\n";
 for {j in 0..n} {
-  printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], vx[j], vy[j], vz[j], v_norm[j] ;
+  if ( j == 0 || j == n ) then {
+    printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], 0, 0, 0, 0 ;
+  }
+  else {
+    printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], v_avg_x[j], v_avg_y[j], v_avg_z[j], v_avg_norm[j] ;
+  }
 }
 
