@@ -20,7 +20,7 @@ param xf := 1;
 param yf := -2;
 
 # discretization factor
-param n := 50;
+param n := 30;
 
 # final moment of time
 var tf >= 0, <=30, := 3;
@@ -45,7 +45,7 @@ var vy {j in 0..n};
 var vz {j in 0..n};
 
 # norm of velocity vector
-var v_norm {j in 1..n} = sqrt( vx[j]^2 + vy[j]^2 + vz[j]^2 );
+var v_norm {j in 0..n} = sqrt( vx[j]^2 + vy[j]^2 + vz[j]^2 );
 
 # acceleration of ball
 # (see velocity_x and velocity_y constraints)
@@ -87,6 +87,13 @@ s.t. bounding_box {j in 0..n}: 4 * x[j] + y[j] <= 16;
 s.t. newton_x {j in 0..n-1}: Nx[j] + Fx[j] = m * ax[j];
 s.t. newton_y {j in 0..n-1}: Ny[j] + Fy[j] = m * ay[j];
 
+# Make the initial velocity guess be a putt which aims
+# directly from the initial ball position to the hole
+let tf := 3;
+let vx[0] := ( xf - x0 ) / tf;
+let vy[0] := ( yf - y0 ) / tf;
+let vz[0] := 0;
+
 option solver loqo;
 
 option loqo_options "iterlim=20000";
@@ -97,8 +104,8 @@ display x;
 display y;
 display z;
 
-printf "# time x y z\n";
+printf "# time x y z vx vy vz speed\n";
 for {j in 0..n} {
-  printf "%f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j] ;
+  printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], vx[j], vy[j], vz[j], v_norm[j] ;
 }
 
