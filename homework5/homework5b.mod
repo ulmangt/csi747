@@ -40,18 +40,20 @@ var norm_n_sq {j in 0..n} = dx[j]^2 + dy[j]^2 + 1;
 # velocity of ball
 # unlike rocket problem, vx[j] represents velocity when ball is at x[j]
 # (see position_x and position_y constraints)
-var vx {j in 0..n};
-var vy {j in 0..n};
-var vz {j in 0..n};
+# non-zero initial values are important for model to avoid errors
+# evalutating model at initial conditions
+var vx {j in 0..n} := 1;
+var vy {j in 0..n} := 1;
+var vz {j in 0..n} := 1;
 
 # norm of velocity vector
 var v_norm {j in 0..n} = sqrt( vx[j]^2 + vy[j]^2 + vz[j]^2 );
 
 # acceleration of ball
 # (see velocity_x and velocity_y constraints)
-var ax {j in 0..n-1};
-var ay {j in 0..n-1};
-var az {j in 0..n-1};
+var ax {j in 0..n-1} := 1;
+var ay {j in 0..n-1} := 1;
+var az {j in 0..n-1} := 1;
 
 # normal force
 var Nz {j in 0..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / ( norm_n_sq[j]^2 ) );
@@ -86,13 +88,6 @@ s.t. bounding_box {j in 0..n}: 4 * x[j] + y[j] <= 16;
 # Newton's laws F = ma
 s.t. newton_x {j in 0..n-1}: Nx[j] + Fx[j] = m * ax[j];
 s.t. newton_y {j in 0..n-1}: Ny[j] + Fy[j] = m * ay[j];
-
-# Make the initial velocity guess be a putt which aims
-# directly from the initial ball position to the hole
-let tf := 3;
-let vx[0] := ( xf - x0 ) / tf;
-let vy[0] := ( yf - y0 ) / tf;
-let vz[0] := 0;
 
 option solver loqo;
 
