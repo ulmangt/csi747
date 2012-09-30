@@ -37,17 +37,35 @@ var vx {j in 1..n} = ( x[j] - x[j-1] ) / ( tf / n );
 # y coordinate of velocity
 var vy {j in 1..n} = ( y[j] - y[j-1] ) / ( tf / n );
 
+# z coordinate of velocity
+var vz {j in 1..n} = ( z[j] - z[j-1] ) / ( tf / n );
+
 # x average velocity at x[1] through x[n-1]
 var vx_avg {j in 1..n-1} = ( vx[j] + vx[j+1] ) / 2;
 
 # y average velocity at y[1] through y[n-1]
 var vy_avg {j in 1..n-1} = ( vy[j] + vy[j+1] ) / 2;
 
+# z average velocity at z[1] through z[n-1]
+var vz_avg {j in 1..n-1} = ( vz[j] + vz[j+1] ) / 2;
+
+# norm (length) of velocity
+var v_avg_norm {j in 1..n-1} = sqrt( vx_avg[j]^2 + vy_avg[j]^2 + vz_avg[j]^2 );
+
 # x coordinate of acceleration
 var ax {j in 1..n-1} = ( vx[j+1] - vx[j] ) / ( tf / n );
 
 # y coordinate of acceleration
 var ay {j in 1..n-1} = ( vy[j+1] - vy[j] ) / ( tf / n );
+
+# z coordinate of acceleration
+var az {j in 1..n-1} = ( vz[j+1] - vz[j] ) / ( tf / n );
+
+# x normal force (from derivative of putting green function)
+var Nx {j in 0..n} = -0.2 * x[j];
+
+# y normal force (from derivative of putting green function)
+var Ny {j in 0..n} = -0.2 * y[j];
 
 minimize final_velocity: 
 
