@@ -91,7 +91,7 @@ s.t. newton_y {j in 0..n-1}: Ny[j] + Fy[j] = m * ay[j];
 
 option solver loqo;
 
-option loqo_options "iterlim=2000";
+option loqo_options "iterlim=8000";
 
 solve;
 
