@@ -70,10 +70,11 @@ var N_norm {j in 1..n-1} = sqrt( Nx[j]^2 + Ny[j]^2 + Nz[j]^2 );
 var Fx {j in 1..n-1} = -mu * N_norm[j] * ( vx[j] / v_norm[j] );
 var Fy {j in 1..n-1} = -mu * N_norm[j] * ( vy[j] / v_norm[j] );
 
-minimize final_velocity: 
+minimize final_velocity: vx[n]^2 + vy[n]^2 + vz[n]^2;
 
 s.t. initial_position_x: x[0] = x0;
 s.t. initial_position_y: y[0] = y0;
+
 s.t. final_position_x: x[n] = xf;
 s.t. final_position_y: y[n] = yf;
 
