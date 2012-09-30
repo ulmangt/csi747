@@ -20,7 +20,7 @@ param xf := 1;
 param yf := -2;
 
 # discretization factor
-param n := 20;
+param n := 50;
 
 # final moment of time
 var tf >= 0, <=30, := 3;
@@ -96,8 +96,11 @@ display z;
 
 printf "# time x y z vx vy vz speed\n";
 for {j in 0..n} {
-  if ( j == 0 || j == n ) then {
-    printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], 0, 0, 0, 0 ;
+  if ( j == 0 ) then {
+    printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], vx[1], vy[1], vz[1], v_norm[1] ;
+  }
+  else if ( j == n ) then {
+    printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], vx[n], vy[n], vz[n], v_norm[n] ;
   }
   else {
     printf "%f %f %f %f %f %f %f %f\n", ( tf / n ) * j, x[j], y[j], z[j], v_avg_x[j], v_avg_y[j], v_avg_z[j], v_avg_norm[j] ;
