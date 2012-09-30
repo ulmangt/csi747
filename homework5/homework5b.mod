@@ -2,6 +2,9 @@ reset;
 
 model;
 
+# gravitational force in ft/s^2 
+param g  := 32.174;
+
 # mass of golf ball
 param m := 0.01;
 
@@ -22,50 +25,40 @@ param n := 50;
 # final moment of time
 var tf >= 0, <=30, := 3;
 
-# x coordinate of the ball
+# position of ball
 var x {j in 0..n};
-
-# y coordinate of the ball
 var y {j in 0..n};
-
-# z coordinate of ball is determined by shape of putting green
 var z {j in 0..n} = 0.1 * ( x[j]^2 + y[j]^2 );
 
-# x coordinate of velocity
+# derivative with respect to time of ball position
+var dx {j in 0..n} = 0.2 * x[j];
+var dy {j in 0..n} = 0.2 * y[j];
+
+# velocity of ball
 var vx {j in 1..n} = ( x[j] - x[j-1] ) / ( tf / n );
-
-# y coordinate of velocity
 var vy {j in 1..n} = ( y[j] - y[j-1] ) / ( tf / n );
-
-# z coordinate of velocity
 var vz {j in 1..n} = ( z[j] - z[j-1] ) / ( tf / n );
 
-# x average velocity at x[1] through x[n-1]
+# average velocity at x[1] through x[n-1]
 var vx_avg {j in 1..n-1} = ( vx[j] + vx[j+1] ) / 2;
-
-# y average velocity at y[1] through y[n-1]
 var vy_avg {j in 1..n-1} = ( vy[j] + vy[j+1] ) / 2;
-
-# z average velocity at z[1] through z[n-1]
 var vz_avg {j in 1..n-1} = ( vz[j] + vz[j+1] ) / 2;
 
-# norm (length) of velocity
+# norm of velocity (speed)
 var v_avg_norm {j in 1..n-1} = sqrt( vx_avg[j]^2 + vy_avg[j]^2 + vz_avg[j]^2 );
 
-# x coordinate of acceleration
+# acceleration of ball
 var ax {j in 1..n-1} = ( vx[j+1] - vx[j] ) / ( tf / n );
-
-# y coordinate of acceleration
 var ay {j in 1..n-1} = ( vy[j+1] - vy[j] ) / ( tf / n );
-
-# z coordinate of acceleration
 var az {j in 1..n-1} = ( vz[j+1] - vz[j] ) / ( tf / n );
 
-# x normal force (from derivative of putting green function)
-var Nx {j in 0..n} = -0.2 * x[j];
+# unit normal vector
+var norm_n_sq {j in 0..n} = dx[j]^2 + dy[j]^2 + 1;
 
-# y normal force (from derivative of putting green function)
-var Ny {j in 0..n} = -0.2 * y[j];
+# normal force
+var Nz {j in 1..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / ( norm_n_sq[j]^2 ) )
+var Nx {j in 1..n-1} = -dx[j] * Nz[j];
+var Ny {j in 1..n-1} = -dy[j] * Nz[j];
 
 minimize final_velocity: 
 
