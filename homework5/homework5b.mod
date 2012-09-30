@@ -34,7 +34,7 @@ var z {j in 0..n} = 0.1 * ( x[j]^2 + y[j]^2 );
 var dx {j in 0..n} = 0.2 * x[j];
 var dy {j in 0..n} = 0.2 * y[j];
 
-# unit normal vector
+# squared normal vector norm
 var norm_n_sq {j in 0..n} = dx[j]^2 + dy[j]^2 + 1;
 
 # velocity of ball
@@ -56,7 +56,7 @@ var ay {j in 0..n-1} := 1;
 var az {j in 0..n-1} := 1;
 
 # normal force
-var Nz {j in 0..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / ( norm_n_sq[j]^2 ) );
+var Nz {j in 0..n-1} = m * ( ( g - ax[j] * dx[j] - ay[j] * dy[j] + az[j] ) / norm_n_sq[j] );
 var Nx {j in 0..n-1} = -dx[j] * Nz[j];
 var Ny {j in 0..n-1} = -dy[j] * Nz[j];
 
