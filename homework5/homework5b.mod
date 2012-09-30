@@ -20,7 +20,7 @@ param xf := 1;
 param yf := -2;
 
 # discretization factor
-param n := 30;
+param n := 20;
 
 # final moment of time
 var tf >= 0, <=30, := 3;
@@ -91,7 +91,7 @@ s.t. newton_y {j in 0..n-1}: Ny[j] + Fy[j] = m * ay[j];
 
 option solver loqo;
 
-option loqo_options "iterlim=20000";
+option loqo_options "iterlim=2000";
 
 solve;
 
