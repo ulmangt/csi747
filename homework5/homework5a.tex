@@ -44,7 +44,7 @@ Finally, the overall thrust of the rocket is inversely proportional to the rate 
 
 \section{Discretization}\label{Discretization}
 
-To model the above equations in AMPL, the problem was divided into \(n\) time steps with variable \(tf\) representing the unknown final time. Velocity was modeled as the difference in rocket height at adjacent steps divided by the time difference between steps. Acceleration was similarly modeled and indexed such that indices for height and acceleration corresponded to values for the same time step. Velocity values were averaged to arrive at velocity values correpsonding to the same time steps as the height and acceleration values.
+To model the above equations in AMPL, the problem was divided into \(n\) time steps with variable \(tf\) representing the unknown final time. Velocity was modeled as the difference in rocket height at adjacent steps divided by the time difference between steps. Acceleration was similarly modeled and indexed such that indices for height and acceleration corresponded to values for the same time step. Velocity values were averaged to arrive at velocity values corresponding to the same time steps as the height and acceleration values.
 
 \section{AMPL Model}\label{AMPL Model}
 
@@ -672,5 +672,11 @@ R [*] :=
 
 \end{verbatim}
 \normalsize
+
+\section{Discussion}\label{Discussion}
+
+As indicated by the results above, the rocket reaches its maximum altitude of \(121643\) feet after \(177.751\) seconds. The rate of climb is relatively constant throughout the ascent, only falling off in the last 20 seconds, as indicated by the height and velocity plots.
+
+As the mass and thrust plots indicate, the majority of the rocket's fuel is burnt early in the ascent when the air resistance is strongest. I believe the jitter observed in the thrust (and thus the acceleration) plots is due to the discretization of the problem. As can be seen in the mass plot, the solution expends mass in discrete bursts, which causes the thrust and acceleration to fluctuate.
 
 \end{document}
