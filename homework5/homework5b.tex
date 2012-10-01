@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Putting Problem}
+\author{Geoffrey Ulman\\
+        Homework 5\\
+        CSI747}
+\date{October 2012}
+\maketitle
+
+\section{Physics Equations}\label{Physics Equations}
+
+Let \(u(t)\) describe the position of a golf ball at time \(t\). Let \(v(t)\) describe the velocity of the golf ball, \(a(t)\) describe the acceleration, \(N(t)\) describe the normal vector force, and \(F(t)\) describe the rolling resistance force acting on the golf ball at time \(t\).
+
+\begin{equation}\label{eq_normal}
+n = \left( -\frac{df}{dx},-\frac{df}{dy}, 1 \right)
+\end{equation}
+
+If the surface is continuously differentiable, then the direction of the normal vector to the surface is given by equation \ref{eq_normal}.
+
+\begin{equation}\label{eq_normal_norm}
+\|n\|^2 = \left( \frac{df}{dx} \right)^2 + \left( \frac{df}{dy} \right)^2 + 1
+\end{equation}
+
+Thus, the squared norm of the normal vector is given by equation \ref{eq_normal_norm}.
+
+Using the normal vector definitions above, and applying Newton second law (force equals mass times acceleration) in the \(x\), \(y\), and \(z\) directions, we can describe the normal force acting on the ball via equation \ref{normalforce}.
+
+\begin{eqnarray}\label{normalforce}
+N_x = &- \frac{df}{dx} N_z \nonumber \\
+N_y = &- \frac{df}{dy} N_z \nonumber \\
+N_z = &m \frac{  \|g\| - a_x \frac{df}{dx} - a_y \frac{df}{dy}  +a_z  }{\|n\|^2}
+\end{eqnarray}
+
+\end{document}
