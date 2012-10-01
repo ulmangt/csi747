@@ -11,7 +11,7 @@ param m0 := 3; #initial mass (measured in units)
 param mempty := 0.01;# mass of the rocket without the fuel
 
 # discretization
-param n := 400;
+param n := 300;
 
 # final moment of time
 var tf >= 80, <=220, := 200;
