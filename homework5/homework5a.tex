@@ -15,6 +15,31 @@
 
 \section{Physics Equations}\label{Physics Equations}
 
-Blah
+Let \(h(t)\) describe the height of a rocket at time \(t\), \(v(t)\) describe its velocity, \(a(t)\) its acceleration, \(T(t)\) the thrust produced by its engine, \(m(t)\) its mass, and \(R(t)\) the force of air resistance acting on the rocket.
+
+\begin{eqnarray}\label{eq1}
+v(t) = \frac{dh(t)}{dt} \nonumber \\
+a(t) = \frac{dv(t)}{dt}
+\end{eqnarray}
+
+Equation \ref{eq1} describes the relationship between \(h(t)\), \(v(t)\), and \(a(t)\) (which comes from basic calculus and the definition of velocity and acceleration).
+
+\begin{equation}\label{eq2}
+m(t)a(t) = T(t) - R(t) - m(t)g
+\end{equation}
+
+Newton's second law states that the net force on an object is equal to its mass times its acceleration. This allows us to describe the relationship between the gravitational, thrust, and air resistance forces acting on the rocket (where \(g\) is the acceleration due to gravity). This relationship is described by equation \ref{eq2}.
+
+\begin{equation}\label{eq3}
+R(t) = \sigma v(t)^2 e^{\frac{-h(t)}{d}}
+\end{equation}
+
+The force of air resistance \(R(t)\) is proportional to the square of the velocity of the rocket with a proportionality constant \(\sigma\) and decays exponentially with height \(h(t)\) (\(d\) is an air density adjustment parameter). This force is described by equation \ref{eq3}.
+
+\begin{equation}\label{eq4}
+T(t) = -c \frac{dm(t)}{dt}
+\end{equation}
+
+Finally, the overall thrust of the rocket is inversely proportional to the rate of change in the rocket's mass (as fuel is consumed) with proportionality constant \(c\). This relationship is described by equation \ref{eq4}.
 
 \end{document}
