@@ -94,6 +94,13 @@ display x;
 display y;
 display z;
 
+display vx[1];
+display vy[1];
+display vz[1];
+
+display v_norm[1];
+display v_norm[n];
+
 printf "# time x y z vx vy vz speed\n";
 for {j in 0..n} {
   if ( j == 0 ) then {
