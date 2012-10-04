@@ -22,7 +22,7 @@ function [ xs iter steps ] = gradient( func, grad_hessian_func, guess, epsilon, 
     fsx = func( xs );
     
     % iteration counter
-    iter = 1;
+    iter = 0;
     
     % store steps
     steps = xs;

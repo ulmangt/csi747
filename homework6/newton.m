@@ -22,7 +22,7 @@ function [ xs iter steps ] = newton( func, grad_hessian_func, guess, epsilon, et
     fsx = func( xs );
     
     % iteration counter
-    iter = 1;
+    iter = 0;
     
     % store steps
     steps = xs;
@@ -34,15 +34,16 @@ function [ xs iter steps ] = newton( func, grad_hessian_func, guess, epsilon, et
         
         % while relaxed hessian is not positive definite, increase lambda_s
         % (as determined by smallest eigenvalue being negative)
-        while min( eig( hessian + lambda_s * eye( dim ) ) ) < 0
-           lambda_s = lambda_s * 10; 
-        end
-        
         relaxed_hessian = hessian + lambda_s * eye( dim );
+        
+        while min( eig( relaxed_hessian ) ) < 0
+           lambda_s = lambda_s * 10;
+           relaxed_hessian = hessian + lambda_s * eye( dim );
+        end
         
         % solve linear system ( quadratic aproximation to function)
         % to find next newton step
-        dxs = ( -grad \ relaxed_hessian )';
+        dxs = linsolve( relaxed_hessian, -grad );
         
         % initial value of step size
         as = 1.0;
@@ -65,7 +66,7 @@ function [ xs iter steps ] = newton( func, grad_hessian_func, guess, epsilon, et
         
         % update iteration counter and output status
         iter = iter + 1;
-        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f as: %f\n', iter, fsx, norm( grad ), as );
+        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f as: %f lambda: %f\n', iter, fsx, norm( grad ), as, lambda_s );
         disp( str );
     end
 end
