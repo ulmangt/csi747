@@ -3,12 +3,12 @@ function [ xs iter ] = newton( func, grad_hessian_func, guess, epsilon, eta )
 %   Detailed explanation goes here
 
     % if no epsilon was provided, set a default
-    if nargs < 4
+    if nargin < 4
         epsilon = 0.0001;
     end
 
     % if no eta was provided, set a default
-    if nargs < 5
+    if nargin < 5
         eta = 0.5;
     end
     
