@@ -1,1 +1,1 @@
-[xs iterations] = newton( @func_1, @grad_hessian_func_1, [1 1]' );
+[xs iterations] = newton( @func_1, @grad_hessian_func_1, [1 1]' )
