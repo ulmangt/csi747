@@ -4,12 +4,12 @@ function [ xs iter ] = newton( func, grad_hessian_func, guess, epsilon, eta )
 
     % if no epsilon was provided, set a default
     if nargin < 4
-        epsilon = 0.0001;
+        epsilon = 0.001;
     end
 
     % if no eta was provided, set a default
     if nargin < 5
-        eta = 1.0;
+        eta = 0.2;
     end
     
     % set the current solution to the initial guess
@@ -43,7 +43,7 @@ function [ xs iter ] = newton( func, grad_hessian_func, guess, epsilon, eta )
         dxs = ( -grad \ relaxed_hessian )';
         
         % initial value of step size
-        as = 1;
+        as = 1.0;
         
         % decrease step size until a sufficient decrease in function
         % value is achieved (how much is sufficient is controlled by eta
@@ -60,7 +60,7 @@ function [ xs iter ] = newton( func, grad_hessian_func, guess, epsilon, eta )
         
         % update iteration counter and output status
         iter = iter + 1;
-        str = sprintf( 'Iteration: %d Gradient: %f as: %f\n', iter, norm( grad ), as );
+        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f as: %f\n', iter, fsx, norm( grad ), as );
         disp( str );
     end
 end
