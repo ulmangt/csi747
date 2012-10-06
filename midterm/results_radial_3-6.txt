@@ -1,0 +1,361 @@
+1.1807 -0.007775531438
+5.5864 -0.007771671979
+0.7987 -0.007770834265
+0.7791 -0.007772261297
+2.1635 -0.007769727179
+0.5534 -0.007768074924
+0.2453 -0.007767699723
+1.5544 -0.007771301887
+1.5056 -0.007768399693
+0.2278 -0.007768624079
+0.9310 -0.007773827905
+0.9055 -0.007775469803
+3.6170 -0.007774524376
+0.9781 -0.007771681567
+1.1686 -0.007772842499
+0.8071 -0.007769430182
+0.8477 -0.007766603172
+0.1505 -0.007765912570
+1.3610 -0.007772643982
+0.8689 -0.007768848975
+1.0467 -0.007766365401
+0.0535 -0.007768436728
+1.8167 -0.007772837196
+1.2585 -0.007764820398
+0.1995 -0.007771292231
+1.1910 -0.007775962747
+0.0286 -0.007769701654
+1.6987 -0.007775088326
+1.9652 -0.007774235743
+4.1087 -0.007776821617
+0.1420 -0.007769263042
+0.6144 -0.007776105235
+3.4369 -0.007775975393
+2.7948 -0.007772813741
+0.3221 -0.007769616366
+0.7250 -0.007768620995
+3.8847 -0.007773060713
+1.1493 -0.007773916344
+0.2454 -0.007765675543
+1.7258 -0.007769911943
+2.1096 -0.007777043277
+3.0245 -0.007775997475
+0.2448 -0.007766226403
+1.3016 -0.007770846370
+0.8645 -0.007771454854
+1.6931 -0.007767890880
+0.9307 -0.007768965994
+0.9678 -0.007769590039
+5.4573 -0.007772127829
+1.6610 -0.007772919793
+0.7339 -0.007771007706
+0.2686 -0.007771910600
+0.6044 -0.007774823931
+1.1623 -0.007771475069
+1.2653 -0.007774199114
+0.0304 -0.007770420614
+0.1691 -0.007770473529
+2.4600 -0.007776475400
+1.8381 -0.007775612809
+5.0572 -0.007775109899
+1.3088 -0.007771226072
+0.8154 -0.007765550880
+0.5116 -0.007766843091
+2.7139 -0.007770912129
+1.2145 -0.007768431270
+0.2061 -0.007767317968
+1.6789 -0.007773511678
+1.5139 -0.007769455916
+3.6369 -0.007773470205
+2.8977 -0.007777332957
+0.7483 -0.007777740231
+0.0558 -0.007768989548
+0.8081 -0.007775223901
+0.3198 -0.007775586514
+0.6758 -0.007772231083
+2.0206 -0.007769180782
+1.1931 -0.007763863398
+0.4367 -0.007765359265
+2.1065 -0.007773966342
+0.5757 -0.007774918641
+0.0973 -0.007768971914
+0.1975 -0.007768663329
+0.3521 -0.007771778364
+0.1356 -0.007772012332
+2.0289 -0.007778113547
+3.5502 -0.007773218726
+0.4901 -0.007773470716
+1.2618 -0.007769506991
+Error rate on Training Data.
+Value 1.0439 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.5473 Predicted 1.0 Actual 1.0
+Value 1.4592 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.2576 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.4749 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.1318 Predicted 1.0 Actual 1.0
+Value 1.7089 Predicted 1.0 Actual 1.0
+Value 1.0338 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.1200 Predicted 1.0 Actual 1.0
+Value 1.3109 Predicted 1.0 Actual 1.0
+Value 1.8953 Predicted 1.0 Actual 1.0
+Value 2.0890 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 2.0243 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0572 Predicted 1.0 Actual 1.0
+Value 1.0738 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.3653 Predicted 1.0 Actual 1.0
+Value 1.2439 Predicted 1.0 Actual 1.0
+Value 1.0093 Predicted 1.0 Actual 1.0
+Value 1.0110 Predicted 1.0 Actual 1.0
+Value 1.5202 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.6911 Predicted 1.0 Actual 1.0
+Value 1.6893 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.2496 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0217 Predicted 1.0 Actual 1.0
+Value 1.7548 Predicted 1.0 Actual 1.0
+Value 1.4031 Predicted 1.0 Actual 1.0
+Value 1.7817 Predicted 1.0 Actual 1.0
+Value 1.4710 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.3834 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.6880 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.3637 Predicted 1.0 Actual 1.0
+Value 1.8632 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.7077 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.6233 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0834 Predicted 1.0 Actual 1.0
+Value 1.6244 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0141 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.1045 Predicted 1.0 Actual 1.0
+Value 1.2321 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.3410 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0136 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.2541 Predicted 1.0 Actual 1.0
+Value 1.3886 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.2992 Predicted 1.0 Actual 1.0
+Value 1.6028 Predicted 1.0 Actual 1.0
+Value 1.2381 Predicted 1.0 Actual 1.0
+Value 1.0399 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value 1.2778 Predicted 1.0 Actual 1.0
+Value 2.0722 Predicted 1.0 Actual 1.0
+Value 1.1674 Predicted 1.0 Actual 1.0
+Value 1.0000 Predicted 1.0 Actual 1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.9789 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.2241 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.3577 Predicted -1.0 Actual -1.0
+Value -1.6202 Predicted -1.0 Actual -1.0
+Value -1.0888 Predicted -1.0 Actual -1.0
+Value -1.0598 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.3533 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.4646 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.8613 Predicted -1.0 Actual -1.0
+Value -1.5374 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0969 Predicted -1.0 Actual -1.0
+Value -1.5555 Predicted -1.0 Actual -1.0
+Value -2.1300 Predicted -1.0 Actual -1.0
+Value -1.2840 Predicted -1.0 Actual -1.0
+Value -1.3290 Predicted -1.0 Actual -1.0
+Value -1.3857 Predicted -1.0 Actual -1.0
+Value -1.1142 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0356 Predicted -1.0 Actual -1.0
+Value -1.2478 Predicted -1.0 Actual -1.0
+Value -1.2041 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.2413 Predicted -1.0 Actual -1.0
+Value -1.6271 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.9032 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.5137 Predicted -1.0 Actual -1.0
+Value -1.0781 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.3905 Predicted -1.0 Actual -1.0
+Value -1.5271 Predicted -1.0 Actual -1.0
+Value -1.5205 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.5185 Predicted -1.0 Actual -1.0
+Value -1.7168 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.2058 Predicted -1.0 Actual -1.0
+Value -1.6479 Predicted -1.0 Actual -1.0
+Value -1.3203 Predicted -1.0 Actual -1.0
+Value -1.2585 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.2112 Predicted -1.0 Actual -1.0
+Value -1.0090 Predicted -1.0 Actual -1.0
+Value -1.7599 Predicted -1.0 Actual -1.0
+Value -1.3583 Predicted -1.0 Actual -1.0
+Value -1.0294 Predicted -1.0 Actual -1.0
+Value -1.1087 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.1232 Predicted -1.0 Actual -1.0
+Value -1.7210 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.3707 Predicted -1.0 Actual -1.0
+Value -1.1058 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0731 Predicted -1.0 Actual -1.0
+Value -1.8966 Predicted -1.0 Actual -1.0
+Value -1.6909 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.0000 Predicted -1.0 Actual -1.0
+Value -1.5655 Predicted -1.0 Actual -1.0
+Error Rate: 0.000 Train Interval: (0.000, 0.000)
+Error rate on Testing Data.
+Value 0.5243 Predicted 1.0 Actual 1.0
+Value 0.6136 Predicted 1.0 Actual 1.0
+Value 1.3923 Predicted 1.0 Actual 1.0
+Value 1.0866 Predicted 1.0 Actual 1.0
+Value 0.7845 Predicted 1.0 Actual 1.0
+Value 0.9701 Predicted 1.0 Actual 1.0
+Value 1.4872 Predicted 1.0 Actual 1.0
+Value 1.4905 Predicted 1.0 Actual 1.0
+Value 0.9723 Predicted 1.0 Actual 1.0
+Value 0.7545 Predicted 1.0 Actual 1.0
+Value 0.9973 Predicted 1.0 Actual 1.0
+Value 0.7322 Predicted 1.0 Actual 1.0
+Value 0.3159 Predicted 1.0 Actual 1.0
+Value 0.8608 Predicted 1.0 Actual 1.0
+Value 0.9313 Predicted 1.0 Actual 1.0
+Value 1.7014 Predicted 1.0 Actual 1.0
+Value 1.6005 Predicted 1.0 Actual 1.0
+Value 0.3044 Predicted 1.0 Actual 1.0
+Value 1.2837 Predicted 1.0 Actual 1.0
+Value 1.1674 Predicted 1.0 Actual 1.0
+Value 0.4739 Predicted 1.0 Actual 1.0
+Value 1.4960 Predicted 1.0 Actual 1.0
+Value 1.4583 Predicted 1.0 Actual 1.0
+Value 1.6569 Predicted 1.0 Actual 1.0
+Value 0.2397 Predicted 1.0 Actual 1.0
+Value 1.4183 Predicted 1.0 Actual 1.0
+Value 0.7534 Predicted 1.0 Actual 1.0
+Value 0.6509 Predicted 1.0 Actual 1.0
+Value 0.5401 Predicted 1.0 Actual 1.0
+Value 1.4533 Predicted 1.0 Actual 1.0
+Value 1.0105 Predicted 1.0 Actual 1.0
+Value 1.2938 Predicted 1.0 Actual 1.0
+Value 1.0618 Predicted 1.0 Actual 1.0
+Value -0.9413 Predicted -1.0 Actual 1.0
+Value 0.5615 Predicted 1.0 Actual 1.0
+Value 0.8326 Predicted 1.0 Actual 1.0
+Value 0.7660 Predicted 1.0 Actual 1.0
+Value 0.8322 Predicted 1.0 Actual 1.0
+Value 1.6289 Predicted 1.0 Actual 1.0
+Value 1.4981 Predicted 1.0 Actual 1.0
+Value 1.3596 Predicted 1.0 Actual 1.0
+Value -2.2063 Predicted -1.0 Actual -1.0
+Value -0.4977 Predicted -1.0 Actual -1.0
+Value -0.9095 Predicted -1.0 Actual -1.0
+Value -0.1949 Predicted -1.0 Actual -1.0
+Value -1.5418 Predicted -1.0 Actual -1.0
+Value -1.3021 Predicted -1.0 Actual -1.0
+Value -0.9572 Predicted -1.0 Actual -1.0
+Value -0.9854 Predicted -1.0 Actual -1.0
+Value -0.8718 Predicted -1.0 Actual -1.0
+Value -0.7721 Predicted -1.0 Actual -1.0
+Value -1.6865 Predicted -1.0 Actual -1.0
+Value -0.8921 Predicted -1.0 Actual -1.0
+Value -1.5808 Predicted -1.0 Actual -1.0
+Value -1.2990 Predicted -1.0 Actual -1.0
+Value -0.6678 Predicted -1.0 Actual -1.0
+Value -0.2632 Predicted -1.0 Actual -1.0
+Value -1.6277 Predicted -1.0 Actual -1.0
+Value -1.3447 Predicted -1.0 Actual -1.0
+Value -1.7949 Predicted -1.0 Actual -1.0
+Value 0.5063 Predicted 1.0 Actual -1.0
+Value -1.3063 Predicted -1.0 Actual -1.0
+Value -1.0398 Predicted -1.0 Actual -1.0
+Value -2.1038 Predicted -1.0 Actual -1.0
+Value -0.8736 Predicted -1.0 Actual -1.0
+Value -1.3052 Predicted -1.0 Actual -1.0
+Value -1.0070 Predicted -1.0 Actual -1.0
+Value -1.2271 Predicted -1.0 Actual -1.0
+Value -1.0803 Predicted -1.0 Actual -1.0
+Value -0.5370 Predicted -1.0 Actual -1.0
+Value -1.6701 Predicted -1.0 Actual -1.0
+Value -0.7338 Predicted -1.0 Actual -1.0
+Value -0.0517 Predicted -1.0 Actual -1.0
+Value -0.7360 Predicted -1.0 Actual -1.0
+Value 0.0440 Predicted 1.0 Actual -1.0
+Value -0.9357 Predicted -1.0 Actual -1.0
+Value -0.9228 Predicted -1.0 Actual -1.0
+Value -0.5351 Predicted -1.0 Actual -1.0
+Value -0.6743 Predicted -1.0 Actual -1.0
+Value -0.9956 Predicted -1.0 Actual -1.0
+Value -0.8955 Predicted -1.0 Actual -1.0
+Value -1.5215 Predicted -1.0 Actual -1.0
+Error Rate: 0.037 Train Interval: (-0.004, 0.077)
+
