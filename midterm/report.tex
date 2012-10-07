@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{verbatim}
+
+\begin{document}
+
+\title{SVM Handwriting Classification\\
+       Midterm Exam}
+\author{Geoffrey Ulman\\
+        CSI747}
+\date{October 2012}
+\maketitle
+
+\section{Primal Soft-Margin SVM}\label{model1}
+
+\begin{equation}\label{svm}
+\begin{split}
+\min 0.5\left( \vec{w} \cdot \vec{w} \right) + C \sum_{i=1}^l \xi_i \\
+s.t. \\
+\xi_i \ge 0 \\
+y_i \left( \left( \vec{x_i} \cdot \vec{w} \right) - b \right) \ge 1 , i = 1,2,...,l
+\end{split}
+\end{equation}
+
+\end{document}
