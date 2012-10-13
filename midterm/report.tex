@@ -18,7 +18,9 @@
 
 \section{Primal Soft-Margin SVM}\label{model1}
 
-\begin{equation}\label{svm}
+The primal soft-margin SVM classifier was built using the optimization problem in Equation \ref{svm1}.
+
+\begin{equation}\label{svm1}
 \begin{split}
 \min 0.5\left( \vec{w} \cdot \vec{w} \right) + C \sum_{i=1}^l \xi_i \\
 s.t. \\
@@ -26,5 +28,686 @@ s.t. \\
 y_i \left( \left( \vec{x_i} \cdot \vec{w} \right) - b \right) \ge 1 , i = 1,2,...,l
 \end{split}
 \end{equation}
+
+\subsection{Primal Soft-Margin AMPL Model}
+
+\begin{verbatim}
+
+model;
+
+# number of training examples
+param l;
+
+# number of input parameters
+# (number of pixels in the handwriting digit images)
+param n;
+
+# weight on xi penalty coefficient in primal problem
+param C;
+
+# output vector (1 or -1)
+param y { 1..l };
+
+# input data
+param x { 1..l, 1..n };
+
+# hyperplane parameters
+var w { 1..n };
+var b;
+
+# relaxation allowing for non-separable problems
+var xi { 1..l };
+
+minimize obj: 0.5 * ( sum { i in 1..n } w[i]^2 ) +
+                C * ( sum { i in 1..l } xi[i] ) ;
+
+s.t. nonneg { i in 1..l }: xi[i] >= 0;
+
+s.t. hplane { i in 1..l }: y[i] *
+              ( ( sum { k in 1..n }
+                   x[i,k] * w[k] ) - b ) >= 1 - xi[i] ;
+
+option solver loqo;
+
+\end{verbatim}
+
+\subsection{Primal Soft-Margin Results}
+
+\begin{verbatim}
+
+LOQO 6.07: optimal solution (25 QP iterations, 25 evaluations)
+primal objective 11.79795849
+  dual objective 11.79795826
+
+"option abs_boundtol 1.9472136191672977e-12;"
+will change deduced dual values.
+
+w [*] :=
+ 1  2.48033e-29   17  4.42975e-08   33 -1.64565e-05   49 -1.64574e-05
+ 2  0.91785       18  0.325352      34 -0.640034      50  0.454448
+ 3  0.211619      19  0.609637      35 -0.467492      51  0.383593
+ 4  0.0630853     20  0.281687      36 -0.11335       52 -1.16524
+ 5  0.124078      21  1.93283       37 -0.258944      53 -0.256678
+ 6  0.100893      22  0.895166      38  0.129931      54  0.332975
+ 7 -0.275574      23  1.27126       39 -0.976491      55  0.063559
+ 8  2.48033e-29   24 -0.226985      40 -0.117339      56 -0.117339
+ 9  2.93981e-10   25 -1.64563e-05   41 -1.64577e-05   57  0.094597
+10  0.890951      26 -0.0936621     42 -1.54311       58 -0.200094
+11  0.638951      27 -0.625778      43 -0.877845      59 -0.0772785
+12  1.38568       28 -0.0939475     44 -0.207297      60  0.385914
+13 -0.143056      29  0.795483      45 -0.0939475     61 -0.923445
+14 -0.282612      30  0.586034      46 -0.771029      62  0.898336
+15 -1.08685       31  0.482269      47 -0.744631      63  2.72687e-07
+16  2.48033e-29   32  2.48033e-29   48 -0.0727345     64  2.48033e-29
+;
+
+xi [*] :=
+  1 1.94883e-12    48 1.94899e-12    95 1.9491e-12    142 1.94896e-12
+  2 1.9488e-12     49 1.96205e-12    96 1.94882e-12   143 1.95059e-12
+  3 1.99438e-12    50 1.94867e-12    97 1.95209e-12   144 1.9489e-12
+  4 1.94897e-12    51 1.9489e-12     98 1.96899e-12   145 1.94885e-12
+  5 1.94901e-12    52 1.94901e-12    99 1.94884e-12   146 1.94896e-12
+  6 1.94884e-12    53 1.95276e-12   100 2.00205e-12   147 1.95381e-12
+  7 1.94839e-12    54 1.94893e-12   101 1.94853e-12   148 1.94886e-12
+  8 1.94894e-12    55 1.94903e-12   102 1.94879e-12   149 1.94898e-12
+  9 1.95992e-12    56 1.96944e-12   103 1.95293e-12   150 1.94891e-12
+ 10 1.94763e-12    57 1.94887e-12   104 1.94872e-12   151 1.94899e-12
+ 11 1.94896e-12    58 1.94881e-12   105 1.94773e-12   152 1.96623e-12
+ 12 1.94902e-12    59 1.94901e-12   106 1.94896e-12   153 1.95512e-12
+ 13 1.94948e-12    60 1.94884e-12   107 1.949e-12     154 1.94795e-12
+ 14 1.94893e-12    61 1.94887e-12   108 1.94891e-12   155 1.94882e-12
+ 15 1.94897e-12    62 1.94893e-12   109 1.94859e-12   156 1.94881e-12
+ 16 1.94884e-12    63 1.94867e-12   110 1.94862e-12   157 1.94899e-12
+ 17 1.94859e-12    64 1.95764e-12   111 1.94867e-12   158 1.94887e-12
+ 18 1.94883e-12    65 1.95231e-12   112 1.94906e-12   159 1.94889e-12
+ 19 1.9476e-12     66 1.94879e-12   113 1.94888e-12   160 1.94887e-12
+ 20 1.94895e-12    67 1.94876e-12   114 1.94889e-12   161 1.96048e-12
+ 21 1.94904e-12    68 1.9489e-12    115 1.94892e-12   162 1.9484e-12
+ 22 1.94907e-12    69 1.96043e-12   116 1.96225e-12   163 1.94899e-12
+ 23 1.94721e-12    70 1.94885e-12   117 1.94902e-12   164 1.94886e-12
+ 24 1.94796e-12    71 1.9488e-12    118 1.94889e-12   165 1.97556e-12
+ 25 1.94898e-12    72 1.94883e-12   119 1.94859e-12   166 1.95493e-12
+ 26 1.94836e-12    73 1.96299e-12   120 1.94882e-12   167 1.94874e-12
+ 27 1.94886e-12    74 1.95295e-12   121 1.949e-12     168 1.94874e-12
+ 28 1.95809e-12    75 1.9597e-12    122 1.94899e-12   169 1.95936e-12
+ 29 1.96172e-12    76 1.94884e-12   123 1.94874e-12   170 1.95934e-12
+ 30 1.94891e-12    77 1.94876e-12   124 1.94894e-12   171 1.94832e-12
+ 31 1.94887e-12    78 1.94834e-12   125 1.94888e-12   172 1.94903e-12
+ 32 1.94864e-12    79 1.94887e-12   126 1.94874e-12   173 1.9487e-12
+ 33 1.94882e-12    80 1.94848e-12   127 1.96742e-12   174 1.94883e-12
+ 34 1.94896e-12    81 1.94878e-12   128 1.94882e-12   175 1.95525e-12
+ 35 1.96704e-12    82 1.94891e-12   129 1.94874e-12   176 1.94873e-12
+ 36 1.94888e-12    83 1.94862e-12   130 1.94882e-12   177 1.94885e-12
+ 37 1.94899e-12    84 1.94895e-12   131 1.94984e-12   178 1.94882e-12
+ 38 1.95152e-12    85 1.94903e-12   132 1.94888e-12   179 1.96088e-12
+ 39 1.94895e-12    86 1.94879e-12   133 1.94907e-12   180 1.94749e-12
+ 40 1.94766e-12    87 1.94869e-12   134 1.9511e-12    181 1.9479e-12
+ 41 1.94889e-12    88 1.96757e-12   135 1.94902e-12   182 1.94901e-12
+ 42 1.94881e-12    89 1.98073e-12   136 1.94881e-12   183 1.949e-12
+ 43 1.94905e-12    90 1.94873e-12   137 1.94885e-12   184 1.94872e-12
+ 44 1.94891e-12    91 1.94904e-12   138 1.94855e-12   185 1.94782e-12
+ 45 1.94901e-12    92 1.94898e-12   139 1.96951e-12   186 1.94895e-12
+ 46 1.9489e-12     93 1.94898e-12   140 1.94885e-12
+ 47 1.95788e-12    94 1.94864e-12   141 1.94902e-12
+;
+
+b = 0.489299
+
+\end{verbatim}
+
+Java was used to parse the AMPL results and the input data files. The hyperplane defined by \(\vec{w}\) and \(b\) was then used to classify the testing data and calculate the misclassification error rate. The following Java snippet calculates the classifier output \(y\) for a set of test data (data parsing and support code omitted for brevity):
+
+\begin{verbatim}
+
+public static double[] calculate_y_predicted_primal(
+                            List<TrainingExample> dataListTest,
+                            List<TrainingExample> dataListTrain,
+                            OutputGenerator out, double[] w, double b )
+{
+    double[] y_predicted = new double[dataListTest.size( )];
+
+    // iterate over the training examples
+    for ( int i = 0; i < dataListTest.size( ); i++ )
+    {
+        TrainingExample x_i = dataListTest.get( i );
+
+        double sum = 0;
+        double[] x = x_i.getInputs( );
+        for ( int j = 0 ; j < x.length ; j++ )
+        {
+            sum += x[j] * w[j];
+        }
+
+        y_predicted[i] = sum - b;
+    }
+
+    return y_predicted;
+}
+
+\end{verbatim}
+
+\begin{table}\label{table1}
+\caption{Primal Soft-Margin Digit 3 vs 6 Error}
+\begin{center}
+\begin{tabular}{llcc}
+\toprule
+Data Set & Error & \multicolumn{2}{c}{95\% Confidence Interval} \\
+\cmidrule(r){3-4}
+& & Lower Bound & Upper Bound \\
+\midrule
+Training & 0.000 & 0.000 & 0.000 \\
+Testing & 0.098 & 0.033 & 0.162 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Table \ref{table1} indicates that the primal soft-margin SVM classifier perfectly classified the training data set and acheived a \(0.098\) misclassification error rate for the testing data set for digits ''3`` and ''6``.
+
+\section{Dual Soft-Margin SVM}\label{model2}
+
+The dual soft-margin SVM classifier was built using the optimization problem in Equation \ref{svm2}.
+
+\begin{equation}\label{svm2}
+\begin{split}
+\max \sum_{i=1}^l \alpha_i - 0.5 \sum_{i,j}^l \alpha_i \alpha_j y_i y_j \left( \vec{x_i} \cdot \vec{x_j} \right) \\
+s.t. \\
+0 \ge \alpha_i \ge C , i = 1,2,...,l \\
+\sum{i=1}^l \alpha_i y_i = 0 , i = 1,2,...,l
+\end{split}
+\end{equation}
+
+\subsection{Dual Soft-Margin AMPL Model}
+
+\begin{verbatim}
+
+model;
+
+# number of training examples
+param l;
+
+# number of input parameters (number of pixels in the handwriting digit images)
+param n;
+
+# weight on xi penalty coefficient in primal problem
+param C;
+
+# output vector (1 or -1)
+param y { 1..l };
+
+# input data
+param x { 1..l, 1..n };
+
+# dual problem variables and simple constraints
+var a { 1..l } >= 0, <= C ;
+
+maximize obj: ( sum { i in 1..l } a[i] ) - 0.5 * sum { i in 1..l, j in 1..l } ( a[i] * a[j] * y[i] * y[j] * sum { k in 1..n } ( x[i,k] * x[j,k] ) ) ;
+
+s.t. const: sum { i in 1..l } a[i] * y[i] = 0 ;
+
+option solver loqo;
+
+\end{verbatim}
+
+\subsection{Dual Soft-Margin Results}
+
+\begin{verbatim}
+
+LOQO 6.07: optimal solution (27 QP iterations, 27 evaluations)
+primal objective 11.79795836
+  dual objective 11.79795849
+a [*] :=
+  1 1.9976e-10     48 7.20426e-11    95 5.91104e-11   142 6.79106e-11
+  2 1.27001e-10    49 0.589472       96 1.98828e-10   143 0.107625
+  3 2.2073         50 3.0997e-10     97 0.177339      144 1.18584e-10
+  4 1.1979e-10     51 1.68386e-10    98 0.882663      145 1.64166e-10
+  5 6.48215e-11    52 6.57317e-11    99 1.40616e-10   146 8.28181e-11
+  6 1.59864e-10    53 0.164194      100 2.54049       147 0.251072
+  7 3.63985e-10    54 1.2575e-10    101 2.97498e-10   148 1.45562e-10
+  8 7.66275e-11    55 7.49007e-11   102 1.95441e-10   149 9.70925e-11
+  9 0.535794       56 0.917851      103 0.157023      150 1.76263e-10
+ 10 9.23772e-09    57 1.24877e-10   104 3.33413e-10   151 6.39504e-11
+ 11 9.36826e-11    58 2.31782e-10   105 0.0688523     152 0.800829
+ 12 6.56015e-11    59 5.43169e-11   106 8.39285e-11   153 0.32975
+ 13 0.0446074      60 1.15747e-10   107 6.6022e-11    154 2.20037e-09
+ 14 8.29934e-11    61 8.20516e-11   108 9.85636e-11   155 2.87449e-10
+ 15 6.93563e-11    62 1.18503e-10   109 3.30952e-10   156 1.96334e-10
+ 16 1.72574e-10    63 3.23511e-10   110 2.55377e-10   157 6.93557e-11
+ 17 8.41272e-10    64 0.478371      111 2.75346e-10   158 1.71022e-10
+ 18 1.90058e-10    65 0.207781      112 5.29101e-11   159 1.49685e-10
+ 19 1.61131e-08    66 1.36269e-10   113 1.99511e-10   160 1.19925e-10
+ 20 1.01319e-10    67 2.79201e-10   114 8.34089e-11   161 0.455275
+ 21 6.07639e-11    68 9.00848e-11   115 9.80581e-11   162 7.32281e-10
+ 22 5.67325e-11    69 0.598027      116 0.744559      163 7.09092e-11
+ 23 2.30412e-08    70 1.17194e-10   117 6.36505e-11   164 1.52059e-10
+ 24 3.88004e-09    71 1.66061e-10   118 8.21563e-11   165 1.04669
+ 25 7.83271e-11    72 1.39506e-10   119 4.60396e-10   166 0.296604
+ 26 0.0833737      73 0.650229      120 1.98776e-10   167 3.39772e-10
+ 27 1.41541e-10    74 0.354643      121 7.78976e-11   168 2.22992e-10
+ 28 0.25833        75 0.389362      122 6.92345e-11   169 0.608202
+ 29 0.545924       76 1.50777e-10   123 2.64229e-10   170 0.407781
+ 30 1.21571e-10    77 2.26633e-10   124 1.10743e-10   171 2.84462e-09
+ 31 1.10958e-10    78 6.2839e-10    125 2.1568e-10    172 8.71846e-11
+ 32 4.02429e-10    79 9.16963e-11   126 5.19841e-10   173 4.46608e-10
+ 33 1.58059e-10    80 6.70356e-10   127 0.950716      174 1.59352e-10
+ 34 6.54409e-11    81 2.88238e-10   128 2.07806e-10   175 0.22699
+ 35 0.84129        82 7.92356e-11   129 2.78683e-10   176 3.56063e-10
+ 36 1.29483e-10    83 3.26451e-10   130 1.93225e-10   177 1.54245e-10
+ 37 8.2379e-11     84 9.693e-11     131 0.0586039     178 1.72984e-10
+ 38 0.0945982      85 5.95996e-11   132 1.26735e-10   179 0.53314
+ 39 8.40886e-11    86 2.59713e-10   133 5.67888e-11   180 2.6983e-09
+ 40 8.31644e-08    87 4.7611e-10    134 0.117343      181 1.8018e-09
+ 41 2.90003e-10    88 0.839255      135 5.4567e-11    182 4.83902e-11
+ 42 1.8237e-10     89 1.56632       136 1.95172e-10   183 7.09831e-11
+ 43 4.82581e-11    90 3.49813e-10   137 1.75019e-10   184 3.84511e-10
+ 44 1.03927e-10    91 4.99832e-11   138 9.10471e-10   185 6.26339e-06
+ 45 7.33129e-11    92 7.82871e-11   139 1.0364        186 1.06007e-10
+ 46 1.13071e-10    93 7.70651e-11   140 2.21336e-10
+ 47 0.43124        94 6.9625e-10    141 4.93902e-11
+;
+
+\end{verbatim}
+
+The value of \(b\) was calculated for all support vectors (those with \(0 < \alpha_i < C\)) as a check on the correctness of the solution. The table below displays the calculated \(b\) values for each such \(\alpha\). The final \(b\) value used in the classification of the testing data was the average of these \(b\) values.
+
+\begin{verbatim}
+
+#alpha index, alpha value, calculated b
+2 2.2073 0.489359470530
+8 0.5358 0.489342244707
+12 0.0446 0.489352229235
+25 0.0834 0.489321874750
+27 0.2583 0.489340402111
+28 0.5459 0.489313208511
+34 0.8413 0.489354952717
+37 0.0946 0.489357078408
+46 0.4312 0.489370838373
+48 0.5895 0.489351846873
+52 0.1642 0.489345982647
+55 0.9179 0.489340291918
+63 0.4784 0.489350434978
+64 0.2078 0.489360781074
+68 0.5980 0.489359352524
+72 0.6502 0.489364796970
+73 0.3546 0.489354535040
+74 0.3894 0.489345701934
+87 0.8393 0.489357037101
+88 1.5663 0.489378658051
+96 0.1773 0.489347052712
+97 0.8827 0.489356109730
+99 2.5405 0.489380927888
+102 0.1570 0.489336299179
+104 0.0689 0.489342778264
+115 0.7446 0.489338976209
+126 0.9507 0.489354731848
+130 0.0586 0.489331827843
+133 0.1173 0.489363777234
+138 1.0364 0.489358857171
+142 0.1076 0.489355972548
+146 0.2511 0.489363515355
+151 0.8008 0.489358797912
+152 0.3298 0.489354717593
+160 0.4553 0.489348269770
+164 1.0467 0.489327661539
+165 0.2966 0.489326174068
+168 0.6082 0.489343398834
+169 0.4078 0.489342179544
+174 0.2270 0.489345274282
+178 0.5331 0.489354172543
+
+\end{verbatim}
+
+\begin{table}\label{table2}
+\caption{Dual Soft-Margin Digit 3 vs 6 Error}
+\begin{center}
+\begin{tabular}{llcc}
+\toprule
+Data Set & Error & \multicolumn{2}{c}{95\% Confidence Interval} \\
+\cmidrule(r){3-4}
+& & Lower Bound & Upper Bound \\
+\midrule
+Training & 0.000 & 0.000 & 0.000 \\
+Testing & 0.098 & 0.033 & 0.162 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Table \ref{table2} indicates that the dual soft-margin SVM classifier perfectly classified the training data set and acheived a \(0.098\) misclassification error rate for the testing data set for digits ''3`` and ''6``. This is identical to the results achieved for the primal problem (which makes sense because the formulations should be equivalent).
+
+\section{Dual Polynomial SVM}\label{model3}
+
+The dual polynomial SVM classifier was built using the optimization problem in Equation \ref{svm3}.
+
+\begin{equation}\label{svm3}
+\begin{split}
+\max \sum_{i=1}^l \alpha_i - 0.5 \sum_{i,j}^l \alpha_i \alpha_j y_i y_j \left( \alpha \left( \vec{x_i} \cdot \vec{x_j} \right) + \beta \right)^d \\
+s.t. \\
+0 \ge \alpha_i \ge C , i = 1,2,...,l \\
+\sum{i=1}^l \alpha_i y_i = 0 , i = 1,2,...,l
+\end{split}
+\end{equation}
+
+\subsection{Dual Polynomial AMPL Model}
+
+\begin{verbatim}
+
+model;
+
+# number of training examples
+param l;
+
+# number of input parameters (number of pixels in the handwriting digit images)
+param n;
+
+# weight on xi penalty coefficient in primal problem
+param C;
+
+# parameters for polynomial machine kernel
+param alpha;
+param beta;
+param delta;
+
+# output vector (1 or -1)
+param y { 1..l };
+
+# input data
+param x { 1..l, 1..n };
+
+# dual problem variables and simple constraints
+var a {1..l} >= 0, <= C;
+
+maximize obj: sum { i in 1..l } a[i] - 0.5 * sum { i in 1..l, j in 1..l } a[i] * a[j] * y[i] * y[j] * ( alpha * ( sum { k in 1..n } x[i,k] * x[j,k] ) + beta ) ^ delta;
+
+s.t. const: sum { i in 1..l } a[i] * y[i] = 0;
+
+option solver loqo;
+
+\end{verbatim}
+
+\subsection{Dual Polynomial Results}
+
+\begin{verbatim}
+
+LOQO 6.07: optimal solution (22 QP iterations, 22 evaluations)
+primal objective 2867.882418
+  dual objective 2867.882425
+a [*] :=
+  1   1.02531e-07    48   8.61577e-09    95   2.10839e-08   142   1.48999e-08
+  2  98.4474         49   4.61188e-07    96  34.9011        143  27.6442
+  3 100              50  30.4183         97  37.7857        144   4.66503
+  4   6.5328e-08     51   1.86643e-06    98  10.8704        145   2.7213e-08
+  5   1.2032e-07     52   1.11213e-07    99  25.9701        146   1.4305e-08
+  6  12.9816         53  97.8993        100 100             147  25.5623
+  7  28.3116         54   4.77467e-08   101  23.6605        148   9.86569e-09
+  8   6.33472e-08    55   7.64781e-09   102   2.27673e-08   149   1.32595e-08
+  9  44.7894         56   8.51246       103   5.24267e-07   150   2.33402e-08
+ 10  26.3581         57   1.39012e-08   104  10.3686        151   1.542e-08
+ 11  36.7381         58   4.29743e-07   105  39.3451        152   2.82917
+ 12   1.07092e-07    59   2.05962e-08   106   4.16072e-07   153 100
+ 13  74.2736         60 100             107   2.71187e-08   154 100
+ 14  11.9111         61   8.48449e-08   108   4.24606       155  39.1819
+ 15   1.82933e-08    62   3.15818e-08   109 100             156   8.86615
+ 16   1.35129e-07    63  16.6566        110  36.8726        157   3.07667e-08
+ 17  41.4348         64  63.5389        111  53.4906        158   1.05893e-07
+ 18  20.8818         65  36.6983        112   7.23013       159   2.16737e-05
+ 19   4.30859e-06    66 100             113  19.614         160   3.15004e-08
+ 20   3.23797        67   0.000156624   114  10.0767        161  67.9115
+ 21   1.43615e-08    68  89.4563        115 100             162   1.16297e-07
+ 22 100              69 100             116 100             163   8.37258e-09
+ 23 100              70   2.0411e-08    117   8.08354e-09   164   1.87303e-08
+ 24 100              71   1.68419e-08   118 100             165  22.6818
+ 25   1.75544e-08    72  36.2032        119 100             166  96.2878
+ 26 100              73  52.5948        120  67.3897        167   1.95622e-07
+ 27 100              74  59.7171        121 100             168  57.8253
+ 28  40.8574         75   2.47863       122   2.3803e-08    169  17.8739
+ 29 100              76  15.1736        123  25.873         170   6.14482
+ 30   2.16068e-07    77   3.22647e-06   124   7.29567e-08   171   1.25933
+ 31   2.03066e-06    78  49.6606        125   4.94565e-08   172   1.04854e-07
+ 32   3.85756e-08    79   8.19333       126  48.5045        173   9.48377e-08
+ 33  59.5537         80   1.37222       127 100             174  18.5993
+ 34   1.50233e-08    81   4.01854e-08   128   1.81162e-07   175  37.0473
+ 35   1.54028e-07    82   4.6698e-08    129  37.4749        176 100
+ 36   1.62842e-08    83  40.1234        130   5.07964e-08   177   2.07399e-08
+ 37   1.49206e-08    84   3.85788e-08   131  34.2697        178   3.55846e-08
+ 38  16.7662         85  51.4942        132   7.80473e-08   179 100
+ 39   1.98667e-08    86  17.3654        133   6.14671e-09   180 100
+ 40   2.53905e-07    87  81.9708        134   2.76429e-08   181  73.9895
+ 41   0.103716       88 100             135   1.61786e-08   182   4.9928e-08
+ 42   5.10616e-08    89 100             136   2.2634e-07    183   1.38181e-08
+ 43   3.01842e-08    90   4.56927e-08   137   1.14858e-08   184   5.57055e-07
+ 44   1.19128e-08    91   1.29279e-08   138   2.34395e-08   185  25.356
+ 45   1.11601e-08    92   9.98219       139  82.4303        186   1.12149e-08
+ 46   2.1805e-08     93  12.6638        140   1.308e-08
+ 47  13.8354         94  68.5562        141   1.34735e-08
+;
+
+\end{verbatim}
+
+The value of \(b\) was calculated for all support vectors (those with \(0 < \alpha_i < C\)) in the same manner as for the dual soft-margin problem in Section \ref{model2}.
+
+\begin{verbatim}
+
+#alpha value, calculated b
+98.4474 0.003688057498
+12.9816 0.003688219777
+28.3116 0.003689360280
+44.7894 0.003688990222
+26.3581 0.003688019794
+36.7381 0.003689233929
+74.2736 0.003688981995
+11.9111 0.003688561909
+41.4348 0.003689095055
+20.8818 0.003689023799
+3.2380 0.003688472784
+40.8574 0.003688865371
+59.5537 0.003688906990
+16.7662 0.003688761357
+0.1037 0.003695737907
+13.8354 0.003688425517
+30.4183 0.003688270055
+97.8993 0.003688426899
+8.5125 0.003688976897
+16.6566 0.003689144953
+63.5389 0.003689011298
+36.6983 0.003688580128
+89.4563 0.003688441483
+36.2032 0.003688147806
+52.5948 0.003688233328
+59.7171 0.003689335758
+2.4786 0.003688938989
+15.1736 0.003689095760
+49.6606 0.003688668794
+8.1933 0.003688627345
+1.3722 0.003688150932
+40.1234 0.003689538042
+51.4942 0.003688334140
+17.3654 0.003688354074
+81.9708 0.003688425479
+9.9822 0.003688209154
+12.6638 0.003687213091
+68.5562 0.003688553410
+34.9011 0.003690060290
+37.7857 0.003690222677
+10.8704 0.003691053320
+25.9701 0.003689453009
+23.6605 0.003688199671
+10.3686 0.003689730633
+39.3451 0.003689168432
+4.2461 0.003689282127
+36.8726 0.003688797655
+53.4906 0.003688706942
+7.2301 0.003688278618
+19.6140 0.003687876768
+10.0767 0.003687977832
+67.3897 0.003688923886
+25.8730 0.003688569845
+48.5045 0.003689123141
+37.4749 0.003688113516
+34.2697 0.003689853627
+82.4303 0.003688933590
+27.6442 0.003690255237
+4.6650 0.003689246088
+25.5623 0.003689210145
+2.8292 0.003689643357
+39.1819 0.003689726944
+8.8662 0.003689347001
+67.9115 0.003688349042
+22.6818 0.003688557541
+96.2878 0.003688524804
+57.8253 0.003689285044
+17.8739 0.003688683644
+6.1448 0.003689311403
+1.2593 0.003688751264
+18.5993 0.003689598874
+37.0473 0.003688764178
+73.9895 0.003688189170
+25.3560 0.003688246100
+
+\end{verbatim}
+
+\begin{table}\label{table3}
+\caption{Dual Polynomial Digit 3 vs 6 Error}
+\begin{center}
+\begin{tabular}{llcc}
+\toprule
+Data Set & Error & \multicolumn{2}{c}{95\% Confidence Interval} \\
+\cmidrule(r){3-4}
+& & Lower Bound & Upper Bound \\
+\midrule
+Training & 0.000 & 0.000 & 0.000 \\
+Testing & 0.037 & -0.004 & 0.077 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Table \ref{table3} indicates that the dual polynomial SVM classifier perfectly classified the training data set and acheived a \(0.037\) misclassification error rate for the testing data set for digits ''3`` and ''6``.
+
+\section{Dual Radial SVM}\label{model4}
+
+The dual radial SVM classifier was built using the optimization problem in Equation \ref{svm4}.
+
+\begin{equation}\label{svm4}
+\begin{split}
+\max \sum_{i=1}^l \alpha_i - 0.5 \sum_{i,j}^l \alpha_i \alpha_j y_i y_j e^{-\gamma \| x - x_i \|^2 } \\
+s.t. \\
+0 \ge \alpha_i \ge C , i = 1,2,...,l \\
+\sum{i=1}^l \alpha_i y_i = 0 , i = 1,2,...,l
+\end{split}
+\end{equation}
+
+\subsection{Dual Radial AMPL Model}
+
+\begin{verbatim}
+
+model;
+
+# number of training examples
+param l;
+
+# number of input parameters (number of pixels in the handwriting digit images)
+param n;
+
+# weight on xi penalty coefficient in primal problem
+param C;
+
+# parameters for radial basis function kernel
+param gamma;
+
+# output vector (1 or -1)
+param y { 1..l };
+
+# input data
+param x { 1..l, 1..n };
+
+# dual problem variables and simple constraints
+var a {1..l} >= 0, <= C;
+
+maximize obj: sum { i in 1..l } a[i] - 0.5 * sum { i in 1..l, j in 1..l } ( a[i] * a[j] * y[i] * y[j] * exp( -gamma * ( sum { k in 1..n } ( ( x[i,k] - x[j,k] )^2 ) ) ) );
+
+s.t. const: sum { i in 1..l } a[i] * y[i] = 0;
+
+option solver loqo;
+
+\end{verbatim}
+
+\subsection{Dual Radial Results}
+
+\begin{verbatim}
+
+LOQO 6.07: optimal solution (26 QP iterations, 26 evaluations)
+primal objective 60.01665461
+  dual objective 60.01665488
+a [*] :=
+  1 3.16707e-08    48 1.70355e-09    95 5.49085e-10   142 1.05146e-09
+  2 1.18067        49 0.868939       96 0.864484      143 1.21452
+  3 5.58637        50 1.04674        97 1.69305       144 0.206086
+  4 1.03344e-09    51 0.0535025      98 0.930714      145 1.01719e-09
+  5 1.26604e-09    52 7.75998e-10    99 0.967807      146 7.6497e-10
+  6 0.798701       53 1.81665       100 5.45732       147 1.67891
+  7 0.779093       54 1.4995e-09    101 1.66102       148 3.67459e-09
+  8 2.31206e-09    55 7.02855e-10   102 2.65541e-09   149 8.94347e-10
+  9 2.16352        56 1.25845       103 0.733869      150 2.06099e-09
+ 10 0.553355       57 7.93768e-10   104 0.268584      151 2.48027e-09
+ 11 0.24533        58 0.199458      105 0.60435       152 1.51394
+ 12 1.26222e-09    59 8.87674e-10   106 1.69988e-09   153 3.63688
+ 13 1.55436        60 1.191         107 8.83217e-10   154 2.89767
+ 14 5.96262e-09    61 8.97172e-09   108 9.48199e-09   155 2.80291e-09
+ 15 7.91864e-10    62 8.80557e-10   109 1.07512e-08   156 2.41843e-06
+ 16 2.39761e-08    63 0.0286478     110 1.16225       157 7.2857e-10
+ 17 1.50561        64 1.69873       111 1.26532       158 1.65738e-09
+ 18 0.227814       65 2.97351e-07   112 1.6898e-09    159 1.04711e-07
+ 19 5.62155e-09    66 1.96522       113 0.0303951     160 6.60597e-09
+ 20 2.00563e-09    67 6.01402e-09   114 0.169084      161 0.748281
+ 21 6.54948e-10    68 2.76958e-09   115 1.14146e-09   162 5.06856e-09
+ 22 4.87895e-10    69 4.10865       116 2.46          163 8.29155e-10
+ 23 0.931043       70 1.82056e-09   117 6.56501e-10   164 0.0557784
+ 24 0.905486       71 0.141962      118 9.49124e-10   165 0.808062
+ 25 5.37478e-10    72 0.614427      119 1.83812       166 0.319832
+ 26 3.617          73 3.43688       120 6.58821e-09   167 0.67577
+ 27 1.63219e-08    74 2.79481       121 1.07336e-09   168 2.02057
+ 28 1.45319e-08    75 0.322135      122 4.62182e-10   169 1.19308
+ 29 0.97809        76 6.00011e-07   123 2.02153e-09   170 0.436734
+ 30 1.67667e-09    77 0.72499       124 2.11181e-09   171 2.10647
+ 31 2.41782e-09    78 3.88469       125 1.6707e-09    172 0.575735
+ 32 8.35868e-07    79 1.14933       126 9.42607e-09   173 0.097306
+ 33 9.17644e-07    80 0.24544       127 5.05721       174 0.197485
+ 34 1.16409e-09    81 2.87338e-09   128 4.00419e-08   175 0.352128
+ 35 1.16857        82 1.59776e-09   129 2.3046e-09    176 0.135637
+ 36 7.94503e-10    83 1.72584       130 2.90361e-09   177 1.60422e-09
+ 37 7.79545e-10    84 2.12031e-09   131 1.30882       178 6.29554e-09
+ 38 0.807104       85 8.67285e-10   132 2.46798e-09   179 2.02892
+ 39 2.58067e-09    86 2.80611e-09   133 1.01686e-09   180 3.55015
+ 40 0.84768        87 3.60788e-08   134 0.815431      181 1.00169e-08
+ 41 0.150547       88 2.10957       135 6.25167e-10   182 5.82264e-10
+ 42 2.58486e-07    89 3.02445       136 0.511569      183 8.27788e-10
+ 43 7.28255e-10    90 2.02706e-09   137 1.09742e-09   184 0.490051
+ 44 1.5882e-09     91 5.1347e-10    138 1.09432e-08   185 1.26176
+ 45 7.3457e-10     92 4.73949e-09   139 2.71389       186 1.02046e-09
+ 46 1.21012e-09    93 0.244813      140 1.44809e-09
+ 47 1.36097        94 1.30161       141 1.02309e-09
+;
+
+\end{verbatim}
+
+\begin{table}\label{table4}
+\caption{Dual Radial Digit 3 vs 6 Error}
+\begin{center}
+\begin{tabular}{llcc}
+\toprule
+Data Set & Error & \multicolumn{2}{c}{95\% Confidence Interval} \\
+\cmidrule(r){3-4}
+& & Lower Bound & Upper Bound \\
+\midrule
+Training & 0.000 & 0.000 & 0.000 \\
+Testing & 0.037 & -0.004 & 0.077 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+Table \ref{table4} indicates that the dual radial SVM classifier perfectly classified the training data set and acheived a \(0.037\) misclassification error rate for the testing data set for digits ''3`` and ''6``. This means that the radial and polynomial kernels actuall performed identically well (but better than the dot product kernel machine). The radial kernel was chosen for the full problem.
+
 
 \end{document}
