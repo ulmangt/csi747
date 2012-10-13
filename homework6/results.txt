@@ -1,0 +1,66 @@
+Gradient Method:
+
+Iteration: 1 F(x): 19.472462 Gradient Norm: 13.788651 a_s: 0.015625
+
+Iteration: 2 F(x): -4.126646 Gradient Norm: 9.258221 a_s: 0.125000
+
+Iteration: 3 F(x): -5.889664 Gradient Norm: 6.223527 a_s: 0.031250
+
+Iteration: 4 F(x): -6.297973 Gradient Norm: 3.191976 a_s: 0.015625
+
+Iteration: 5 F(x): -6.489883 Gradient Norm: 0.656369 a_s: 0.031250
+
+Iteration: 6 F(x): -6.494595 Gradient Norm: 0.305701 a_s: 0.015625
+
+Iteration: 7 F(x): -6.496115 Gradient Norm: 0.017764 a_s: 0.031250
+
+Iteration: 8 F(x): -6.496118 Gradient Norm: 0.006170 a_s: 0.015625
+
+Iteration: 9 F(x): -6.496119 Gradient Norm: 0.000550 a_s: 0.031250
+
+Total Iterations: 9
+
+Solution:  x1      = -1.1421
+           x2      =  0.5434
+          min F(x) = -6.496119
+
+The Hessian of the function at the critical point ( -1.1421, 0.5434 ) is:
+
+   66.2574    2.0000
+    2.0000   31.2583
+
+This matrix is positive definite because its smallest eigenvalue is positive. Its
+eigenvalues are:
+
+   31.1443
+   66.3713
+
+Therefore, by definition the critical point must be a minima.
+
+Further, the contours of the function plotted on the next page provide a visual confirmation.
+
+
+
+
+Newton's Method:
+
+
+Iteration: 1 F(x): 18.574578 Gradient Norm: 14.800651 a_s: 1.000000 lambda: 0.000100
+
+Iteration: 2 F(x): -2.195429 Gradient Norm: 17.891218 a_s: 0.250000 lambda: 0.000100
+
+Iteration: 3 F(x): -6.378839 Gradient Norm: 2.921523 a_s: 0.500000 lambda: 0.000100
+
+Iteration: 4 F(x): -6.495154 Gradient Norm: 0.246989 a_s: 1.000000 lambda: 0.000100
+
+Iteration: 5 F(x): -6.496119 Gradient Norm: 0.002382 a_s: 1.000000 lambda: 0.000100
+
+Iteration: 6 F(x): -6.496119 Gradient Norm: 0.000000 a_s: 1.000000 lambda: 0.000100
+
+Total Iterations: 6
+
+Solution:  x1      = -1.1421
+           x2      =  0.5434
+          min F(x) = -6.496119
+
+The logic confirming that this critical point is indeed a minima of F(x) is the same as above.
