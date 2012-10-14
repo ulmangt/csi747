@@ -35,11 +35,10 @@ y_i \left( \left( \vec{x_i} \cdot \vec{w} \right) - b \right) \ge 1 , i = 1,2,..
 
 model;
 
-# number of training examples
+# lines in file (number of training images)
 param l;
 
-# number of input parameters
-# (number of pixels in the handwriting digit images)
+# pixels per image (size of training vector)
 param n;
 
 # weight on xi penalty coefficient in primal problem
@@ -223,10 +222,10 @@ s.t. \\
 
 model;
 
-# number of training examples
+# lines in file (number of training images)
 param l;
 
-# number of input parameters (number of pixels in the handwriting digit images)
+# pixels per image (size of training vector)
 param n;
 
 # weight on xi penalty coefficient in primal problem
@@ -394,16 +393,16 @@ s.t. \\
 
 model;
 
-# number of training examples
+# lines in file (number of training images)
 param l;
 
-# number of input parameters (number of pixels in the handwriting digit images)
+# pixels per image (size of training vector)
 param n;
 
 # weight on xi penalty coefficient in primal problem
 param C;
 
-# parameters for polynomial machine kernel
+# polynomial machine kernel parameters
 param alpha;
 param beta;
 param delta;
@@ -417,7 +416,10 @@ param x { 1..l, 1..n };
 # dual problem variables and simple constraints
 var a {1..l} >= 0, <= C;
 
-maximize obj: sum { i in 1..l } a[i] - 0.5 * sum { i in 1..l, j in 1..l } a[i] * a[j] * y[i] * y[j] * ( alpha * ( sum { k in 1..n } x[i,k] * x[j,k] ) + beta ) ^ delta;
+maximize obj: sum { i in 1..l } a[i] -
+              0.5 * sum { i in 1..l, j in 1..l }
+                           a[i] * a[j] * y[i] * y[j] * ( alpha * (
+                           sum { k in 1..n } x[i,k] * x[j,k] ) + beta ) ^ delta;
 
 s.t. const: sum { i in 1..l } a[i] * y[i] = 0;
 
@@ -603,10 +605,10 @@ s.t. \\
 
 model;
 
-# number of training examples
+# lines in file (number of training images)
 param l;
 
-# number of input parameters (number of pixels in the handwriting digit images)
+# pixels per image (size of training vector)
 param n;
 
 # weight on xi penalty coefficient in primal problem
@@ -624,7 +626,10 @@ param x { 1..l, 1..n };
 # dual problem variables and simple constraints
 var a {1..l} >= 0, <= C;
 
-maximize obj: sum { i in 1..l } a[i] - 0.5 * sum { i in 1..l, j in 1..l } ( a[i] * a[j] * y[i] * y[j] * exp( -gamma * ( sum { k in 1..n } ( ( x[i,k] - x[j,k] )^2 ) ) ) );
+maximize obj: sum { i in 1..l } a[i] -
+              0.5 * sum { i in 1..l, j in 1..l }
+                      ( a[i] * a[j] * y[i] * y[j] * exp( -gamma * ( 
+                      sum { k in 1..n } ( ( x[i,k] - x[j,k] )^2 ) ) ) );
 
 s.t. const: sum { i in 1..l } a[i] * y[i] = 0;
 
