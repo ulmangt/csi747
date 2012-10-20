@@ -1,7 +1,7 @@
 data;
 param l := 186;
 param n := 64;
-param C := 100.000000;
+param C := 2.00000;
 param gamma := 0.052100;
 param y :=
  1 1.0
