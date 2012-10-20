@@ -16,8 +16,12 @@ f_x  =  f( x )
 df_x = df( x )
 hf_x = hf( x )
 
-% number of constraints
-nc = length( g_x )
+% number of constraints / dual variables
+dg_x_size = size( dg_x )
+nc = dg_x_size(1)
+
+% number of primal variables
+np = length( x )
 
 % initial values for dual variable
 y = zeros( nc, 1 )
@@ -25,14 +29,8 @@ y = zeros( nc, 1 )
 % build left hand side matrix
 lhs = [ hf_x, -dg_x' ; dg_x, zeros( nc ) ] 
 
--df_x
-
-dg_x' * y
-
--g_x
-
 % build right hand side vector
-rhs = [ -df_x + dg_x' * y , -g_x ]
+rhs = [ -df_x' + dg_x' * y ; -g_x ]
 
 
 end
