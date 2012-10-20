@@ -26,8 +26,22 @@ np = length( x )
 % initial values for dual variable
 y = zeros( nc, 1 )
 
+% dual regularization
+beta = 0.0001;
+
+while ( rank( [ dg_x' ; beta * eye( nc ) ] ) ~= nc )
+   beta = beta * 10;
+end
+
+% primal regularization
+lambda = 0.0001;
+
+while ( min( eig( hf_x + lambda * eye( np ) ) ) < 0 )
+   lambda = lambda * 10; 
+end
+    
 % build left hand side matrix
-lhs = [ hf_x, -dg_x' ; dg_x, zeros( nc ) ] 
+lhs = [ hf_x + lambda * eye( np ), -dg_x' ; dg_x, beta * eye( nc ) ] 
 
 % build right hand side vector
 rhs = [ -df_x' + dg_x' * y ; -g_x ]
