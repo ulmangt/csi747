@@ -14,15 +14,8 @@ function [ xs iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilo
     % initial values for primal variable
     x = guess;
 
-    % evaluate function and constraints at x
-    g_x  =  g( x );
-    dg_x = dg( x );
-    f_x  =  f( x );
-    df_x = df( x );
-    hf_x = hf( x );
-
     % number of constraints / dual variables
-    dg_x_size = size( dg_x );
+    dg_x_size = size( dg( x ) );
     nc = dg_x_size(1);
 
     % number of primal variables
@@ -32,25 +25,43 @@ function [ xs iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilo
     y = zeros( nc, 1 );
 
     % stopping condition
-    norm_grad = inf
+    norm_grad = inf;
 
+    % iteration counter
+    iter = 0;
+    
     % store steps
     steps = x;
     
     while ( norm_grad >= epsilon )
 
+        % evaluate function and constraints at x
+        g_x  =  g( x );
+        dg_x = dg( x );
+        f_x  =  f( x );
+        df_x = df( x );
+        hf_x = hf( x );
+        
         % dual regularization
-        beta = 0.0001;
+        beta = 0;
 
         while ( rank( [ dg_x' ; beta * eye( nc ) ] ) ~= nc )
-           beta = beta * 10;
+           if beta == 0
+               beta = 0.0001;
+           else
+               beta = beta * 10;
+           end
         end
 
         % primal regularization
         lambda = 0.0001;
 
         while ( min( eig( hf_x + lambda * eye( np ) ) ) < 0 )
-           lambda = lambda * 10; 
+           if lambda == 0
+               lambda = 0.0001;
+           else
+               lambda = lambda * 10;
+           end
         end
 
         % build left hand side matrix
@@ -69,11 +80,17 @@ function [ xs iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilo
         dx = dxdy(1:np);
         dy = dxdy(np+1:np+nc);
 
-        x = x + dx;
-        y = y + dy;
+        x = x + dx';
+        y = y + dy';
         
         % store each step
         steps = [steps x];
+        
+        % update iteration counter and output status
+        iter = iter + 1;
+        
+        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f beta: %f lambda: %f\n', iter, f(x), norm_grad, beta, lambda );
+        disp( str );
 
     end
 
