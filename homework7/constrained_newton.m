@@ -1,4 +1,4 @@
-function [ xs iter steps ] = constrained_newton( f, df, hf, g, dg, guess )
+function [ xs iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilon )
 %CONSTRAINED_NEWTON Find minimum value of func subject to constraints
 % f: function to minimize
 % df: gradient of f
@@ -6,45 +6,75 @@ function [ xs iter steps ] = constrained_newton( f, df, hf, g, dg, guess )
 % g: constraints
 % dg: gradient of g
 
-% initial values for primal variable
-x = guess;
+    % if no epsilon was provided, set a default
+    if nargin < 7
+        epsilon = 0.001;
+    end
 
-% evaluate function and constraints at x
-g_x  =  g( x )
-dg_x = dg( x )
-f_x  =  f( x )
-df_x = df( x )
-hf_x = hf( x )
+    % initial values for primal variable
+    x = guess;
 
-% number of constraints / dual variables
-dg_x_size = size( dg_x )
-nc = dg_x_size(1)
+    % evaluate function and constraints at x
+    g_x  =  g( x );
+    dg_x = dg( x );
+    f_x  =  f( x );
+    df_x = df( x );
+    hf_x = hf( x );
 
-% number of primal variables
-np = length( x )
+    % number of constraints / dual variables
+    dg_x_size = size( dg_x );
+    nc = dg_x_size(1);
 
-% initial values for dual variable
-y = zeros( nc, 1 )
+    % number of primal variables
+    np = length( x );
 
-% dual regularization
-beta = 0.0001;
+    % initial values for dual variable
+    y = zeros( nc, 1 );
 
-while ( rank( [ dg_x' ; beta * eye( nc ) ] ) ~= nc )
-   beta = beta * 10;
-end
+    % stopping condition
+    norm_grad = inf
 
-% primal regularization
-lambda = 0.0001;
-
-while ( min( eig( hf_x + lambda * eye( np ) ) ) < 0 )
-   lambda = lambda * 10; 
-end
+    % store steps
+    steps = x;
     
-% build left hand side matrix
-lhs = [ hf_x + lambda * eye( np ), -dg_x' ; dg_x, beta * eye( nc ) ] 
+    while ( norm_grad >= epsilon )
 
-% build right hand side vector
-rhs = [ -df_x' + dg_x' * y ; -g_x ]
+        % dual regularization
+        beta = 0.0001;
 
+        while ( rank( [ dg_x' ; beta * eye( nc ) ] ) ~= nc )
+           beta = beta * 10;
+        end
+
+        % primal regularization
+        lambda = 0.0001;
+
+        while ( min( eig( hf_x + lambda * eye( np ) ) ) < 0 )
+           lambda = lambda * 10; 
+        end
+
+        % build left hand side matrix
+        lhs = [ hf_x + lambda * eye( np ), -dg_x' ; dg_x, beta * eye( nc ) ] ;
+
+        % build right hand side vector
+        rhs = [ -df_x' + dg_x' * y ; -g_x ];
+
+        % solve linear system ( quadratic aproximation to function)
+        % to find next step for primal and dual variables
+        dxdy = linsolve( lhs, rhs );
+        
+        % update stopping condition
+        norm_grad = norm( dxdy );
+        
+        dx = dxdy(1:np);
+        dy = dxdy(np+1:np+nc);
+
+        x = x + dx;
+        y = y + dy;
+        
+        % store each step
+        steps = [steps x];
+
+    end
 
 end
