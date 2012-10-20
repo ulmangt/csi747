@@ -1,4 +1,4 @@
-function [ xs iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilon )
+function [ x iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilon )
 %CONSTRAINED_NEWTON Find minimum value of func subject to constraints
 % f: function to minimize
 % df: gradient of f

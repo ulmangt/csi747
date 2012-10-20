@@ -1,0 +1,67 @@
+
+-----------------
+Problem 1 Part A
+-----------------
+
+Analytic Solution:
+
+x1 = - 10 / sqrt( 13 ) = -2.773500981126146
+x2 =   15 / sqrt( 13 ) =  4.160251471689219
+
+Calculated by Wolfram Alpha: http://www.wolframalpha.com/input/?i=min+2*x1+-+3*x2+subject+to+x1%5E2+%2B+x2%5E2+%3D+25
+See next page for visualization.
+
+The initial guess needed to be very close to the solution for convergence to occur.
+
+Inital Guess:
+
+x1 = -2.7735
+x2 =  4.16025 
+
+Two Newton steps were required to reach a norm gradient value of less than  0.001:
+
+Iteration: 1 F(x): -18.027756 Gradient: 0.360555 beta: 0.000000 lambda: 0.000100
+Iteration: 2 F(x): -18.027756 Gradient: 0.000000 beta: 0.000000 lambda: 0.000100
+
+The Final Result:
+
+x1 = -2.773500996679745 
+x2 =  4.160251461320152
+
+
+
+-----------------
+Problem 1 Part B
+-----------------
+
+Analytic Solution:
+
+x1 = -1.5
+x2 =  1.5
+
+or
+
+x1 =  1.5
+x2 = -1.5
+
+Calculated by Wolfram Alpha: http://www.wolframalpha.com/input/?i=minimize+x1%5E2%2B2*x1*x2%2Bx2%5E2+subject+to+3*x1%5E2%2Bx2%5E2%3D9
+See next page for visualization.
+
+The initial guess needed to be very close to the solution for convergence to occur.
+
+Inital Guess:
+
+x1 = -1.51
+x2 =  1.51 
+
+Two Newton steps were required to reach a norm gradient value of less than  0.001:
+
+Iteration: 1 F(x): 0.000000 Gradient: 0.014095 beta: 0.000000 lambda: 0.000100
+Iteration: 2 F(x): 0.000000 Gradient: 0.000047 beta: 0.000000 lambda: 0.000100
+
+The Final Result:
+
+x1 = -1.500000000156585
+x2 =  1.500000000992151
+
+
