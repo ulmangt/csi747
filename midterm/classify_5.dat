@@ -1,10 +1,8 @@
 data;
 param l := 930;
 param n := 64;
-param C := 100.000000;
-param alpha := 0.015600;
-param beta := 0.000000;
-param delta := 3.000000;
+param C := 2.000000;
+param gamma := 0.052100;
 param y :=
  1 -1.0
  2 -1.0
