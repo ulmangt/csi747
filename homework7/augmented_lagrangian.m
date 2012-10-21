@@ -37,29 +37,29 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, e
     iter = 0;
     
     % hessian of AL
-    function [ret] = hAL(x,y,k)
+    function [ret] = hAL(xi,yi,ki)
         sum1 = zeros(np);
     	for i=1:nc
-            sum1 = sum1 + hg(x,i)*y(i);
+            sum1 = sum1 + hg(xi,i)*yi(i);
         end
         
         sum2 = zeros(np);
-        g_x = g(x);
+        g_x = g(xi);
         for i=1:nc
-        	sum2 = sum2 + hg(x,i)*g_x(i);
+        	sum2 = sum2 + hg(xi,i)*g_x(i);
         end
         
-        ret = hf(x) - sum1 + k*sum2 + k*dg(x)'*dg(x);
+        ret = hf(xi) - sum1 + ki*sum2 + ki*dg(xi)'*dg(xi);
     end
     
     while ( norm_g >= epsilon )
         
         % augmented lagrangian
-    	AL  = @(x)(f(x)-dot(y,g(x))+(k/2.0)*norm(g(x))^2);
+    	AL  = @(xi)(f(xi)-dot(y,g(xi))+(k/2.0)*norm(g(xi))^2);
         % gradient of AL
-        gAL = @(x)(df(x)'-dg(x)'*y+k*dg(x)'*g(x)');
+        gAL = @(xi)(df(xi)'-dg(xi)'*y+k*dg(xi)'*g(xi)');
         % hessian of AL (with x as only parameter)
-        hAL_yk = @(x)(hAL(x,y,k));
+        hAL_yk = @(xi)(hAL(xi,y,k));
         
         x = newton( AL, gAL, hAL_yk, x, epsilon, eta );
         y = y - k * g(x)';
@@ -67,7 +67,7 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, e
         norm_g = norm( g(x) );
         
         iter = iter + 1;
-        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f Constraint Violation: %s\n', iter, f( x ), norm_g, num2str( g( x ) ) );
+        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f Constraint Violation: %s x:%s y:%s\n', iter, f( x ), norm_g, num2str( g( x ) ), num2str( x ), num2str( y' ) );
         disp( str );
     end
 
