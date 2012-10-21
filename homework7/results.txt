@@ -118,9 +118,9 @@ Inital Guess:
 x1 = 0.0
 x2 = 0.0
 
-Iteration: 1 F(x): -18.156377 Gradient: 0.358001 Constraint Violation: 0.358
-Iteration: 2 F(x): -18.028671 Gradient: 0.002536 Constraint Violation: 0.0025363
-Iteration: 3 F(x): -18.027763 Gradient: 0.000018 Constraint Violation: 1.7942e-05
+Iteration: 1 F(x): -18.156377 Norm G(x): 0.358001 Constraint Violation: 0.358
+Iteration: 2 F(x): -18.028671 Norm G(x): 0.002536 Constraint Violation: 0.0025363
+Iteration: 3 F(x): -18.027763 Norm G(x): 0.000018 Constraint Violation: 1.7942e-05
 
 Final Result:
 
@@ -139,7 +139,7 @@ Inital Guess:
 x1 = 1.0
 x2 = 1.0
 
-Iteration: 1 F(x): 0.000000 Gradient: 0.000032 Constraint Violation: 3.2388e-05
+Iteration: 1 F(x): 0.000000 Norm G(x): 0.000032 Constraint Violation: 3.2388e-05
 
 Final Result:
 
@@ -152,3 +152,54 @@ y1 = -3.238834080221409e-05
 -----------------
 Problem 2 Part C
 -----------------
+
+Inital Guess:
+
+x1 = -1.0
+x2 =  0.0
+x3 =  0.0
+x4 =  0.0
+
+The problem did not converge with k=1, so k=10 and eta=0.8 were used.
+
+Iteration: 1 
+             F(x): -26.674017 Norm G(x): 0.921881
+             Constraint Violation: 0.84889  -0.35952
+             x:-2.0786     0.19791     0.39582     0.57652
+             y:-8.4889      3.5952
+
+Iteration: 2
+             F(x): -17.665436 Norm G(x): 0.125860
+             Constraint Violation: -0.12193    0.031206
+             x:-1.8162     0.20797     0.41594     0.60254
+             y:-7.2696      3.2832
+
+Iteration: 3
+             F(x): -18.813476 Norm G(x): 0.018325
+             Constraint Violation: 0.016982  -0.0068859
+             x:-1.8541     0.20786     0.41573     0.60264
+             y:-7.4394       3.352
+
+Iteration: 4 
+             F(x): -18.643295 Norm G(x): 0.002601
+             Constraint Violation: -0.0024924  0.00074273
+             x:-1.8486     0.20804     0.41607     0.60306
+             y:-7.4145      3.3446
+
+Iteration: 5
+             F(x): -18.666859 Norm G(x): 0.000320
+             Constraint Violation: 0.00029908 -0.00011288
+             x:-1.8494     0.20803     0.41605     0.60305
+             y:-7.4175      3.3457
+
+
+Final Result:
+
+x1 = -1.8494
+x2 =  0.2080
+x3 =  0.4161
+x4 =  0.6030
+
+
+y1 = -7.4175
+y2 =  3.3457

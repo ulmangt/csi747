@@ -2,18 +2,18 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, e
 %AUGMENTED_LAGRANGIAN Find minimum value of func subject to constraints
 
     % if no epsilon was provided, set a default
-    if nargin < 9
+    if nargin < 8
         epsilon = 0.001;
     end
     
     % eta controls how much of a function value decrease newton requires
-    if nargin < 10
+    if nargin < 9
         eta = 0.2;
     end
     
     % if no penalty function constant k was provided, set a default
     % increase k to combat ill-conditioning in constraints
-    if nargin < 11
+    if nargin < 10
         k = 1;
     end
     
@@ -39,7 +39,7 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, e
     % hessian of AL
     function [ret] = hAL(xi,yi,ki)
         sum1 = zeros(np);
-    	for i=1:nc
+        for i=1:nc
             sum1 = sum1 + hg(xi,i)*yi(i);
         end
         
@@ -67,7 +67,7 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, e
         norm_g = norm( g(x) );
         
         iter = iter + 1;
-        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f Constraint Violation: %s x:%s y:%s\n', iter, f( x ), norm_g, num2str( g( x ) ), num2str( x ), num2str( y' ) );
+        str = sprintf( 'Iteration: %d F(x): %f Norm G(x): %f Constraint Violation: %s x:%s y:%s\n', iter, f( x ), norm_g, num2str( g( x ) ), num2str( x ), num2str( y' ) );
         disp( str );
     end
 
