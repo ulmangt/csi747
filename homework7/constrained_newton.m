@@ -89,7 +89,7 @@ function [ x iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilon
         % update iteration counter and output status
         iter = iter + 1;
         
-        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f beta: %f lambda: %f\n', iter, f(x), norm_grad, beta, lambda );
+        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f Constraint Violation: %s beta: %f lambda: %f\n', iter, f(x), norm_grad, num2str( g(x) ), beta, lambda );
         disp( str );
 
     end

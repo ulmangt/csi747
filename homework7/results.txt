@@ -20,10 +20,11 @@ x2 =  4.16025
 
 Two Newton steps were required to reach a norm gradient value of less than  0.001:
 
-Iteration: 1 F(x): -18.027756 Gradient: 0.360555 beta: 0.000000 lambda: 0.000100
-Iteration: 2 F(x): -18.027756 Gradient: 0.000000 beta: 0.000000 lambda: 0.000100
+Iteration: 1 F(x): -18.027756 Gradient: 0.360555 Constraint Violation: 3.1335e-12 beta: 0.000000 lambda: 0.000100
+Iteration: 2 F(x): -18.027756 Gradient: 0.000000 Constraint Violation: 0 beta: 0.000000 lambda: 0.000100
 
-The Final Result:
+
+Final Result:
 
 x1 = -2.773500996679745 
 x2 =  4.160251461320152
@@ -56,10 +57,11 @@ x2 =  1.51
 
 Two Newton steps were required to reach a norm gradient value of less than  0.001:
 
-Iteration: 1 F(x): 0.000000 Gradient: 0.014095 beta: 0.000000 lambda: 0.000100
-Iteration: 2 F(x): 0.000000 Gradient: 0.000047 beta: 0.000000 lambda: 0.000100
+Iteration: 1 F(x): 0.000000 Gradient: 0.014095 Constraint Violation: 0.00039736 beta: 0.000000 lambda: 0.000100
+Iteration: 2 F(x): 0.000000 Gradient: 0.000047 Constraint Violation: 4.3857e-09 beta: 0.000000 lambda: 0.000100
 
-The Final Result:
+
+Final Result:
 
 x1 = -1.500000000156585
 x2 =  1.500000000992151
@@ -93,13 +95,60 @@ x4 =  0.603
 
 Three Newton steps were required to reach a norm gradient value of less than  0.001:
 
-Iteration: 1 F(x): -18.664887 Gradient: 7.925658 beta: 0.000000 lambda: 100.000000
-Iteration: 2 F(x): -18.664248 Gradient: 0.211726 beta: 0.000000 lambda: 100.000000
-Iteration: 3 F(x): -18.664253 Gradient: 0.000523 beta: 0.000000 lambda: 100.000000
 
-The Final Result:
+Iteration: 1 F(x): -18.664887 Gradient: 7.925658 Constraint Violation: 8.7267e-05           0 beta: 0.000000 lambda: 100.000000
+Iteration: 2 F(x): -18.664248 Gradient: 0.211726 Constraint Violation: 7.5879e-08 -2.2204e-16 beta: 0.000000 lambda: 100.000000
+Iteration: 3 F(x): -18.664253 Gradient: 0.000523 Constraint Violation: 5.1979e-08           0 beta: 0.000000 lambda: 100.000000
+
+
+Final Result:
 
 x1 = -1.849306310985392
 x2 =  0.209104848381269
 x3 =  0.415905155749972
 x4 =  0.602797050368060
+
+
+-----------------
+Problem 2 Part A
+-----------------
+
+Inital Guess:
+
+x1 = 0.0
+x2 = 0.0
+
+Iteration: 1 F(x): -18.156377 Gradient: 0.358001 Constraint Violation: 0.358
+Iteration: 2 F(x): -18.028671 Gradient: 0.002536 Constraint Violation: 0.0025363
+Iteration: 3 F(x): -18.027763 Gradient: 0.000018 Constraint Violation: 1.7942e-05
+
+Final Result:
+
+x1 = -2.773501976374732
+x2 =  4.160252964562098
+
+y1 = -0.360555190936768
+
+
+-----------------
+Problem 2 Part B
+-----------------
+
+Inital Guess:
+
+x1 = 1.0
+x2 = 1.0
+
+Iteration: 1 F(x): 0.000000 Gradient: 0.000032 Constraint Violation: 3.2388e-05
+
+Final Result:
+
+x1 = 1.500010872099345
+x2 = -1.499978179538652
+
+y1 = -3.238834080221409e-05
+
+
+-----------------
+Problem 2 Part C
+-----------------

@@ -67,7 +67,7 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, e
         norm_g = norm( g(x) );
         
         iter = iter + 1;
-        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f\n', iter, f( x ), norm_g );
+        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f Constraint Violation: %s\n', iter, f( x ), norm_g, num2str( g( x ) ) );
         disp( str );
     end
 
