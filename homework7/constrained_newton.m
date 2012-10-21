@@ -68,7 +68,7 @@ function [ x iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilon
         lhs = [ hf_x + lambda * eye( np ), -dg_x' ; dg_x, beta * eye( nc ) ] ;
 
         % build right hand side vector
-        rhs = [ -df_x' + dg_x' * y ; -g_x ];
+        rhs = [ -df_x' + dg_x' * y ; -g_x' ];
 
         % solve linear system ( quadratic aproximation to function)
         % to find next step for primal and dual variables
@@ -81,7 +81,7 @@ function [ x iter steps ] = constrained_newton( f, df, hf, g, dg, guess, epsilon
         dy = dxdy(np+1:np+nc);
 
         x = x + dx';
-        y = y + dy';
+        y = y + dy;
         
         % store each step
         steps = [steps x];
