@@ -31,25 +31,43 @@ function [ xs iter steps ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, 
     iter = 0;
     
     AL  = @(x,y,k)(f(x)-y*g(x)+(k/2.0)*norm(g(x))^2);
-    
     % gradient of AL
     gAL = @(x,y,k)(df(x)'-dg(x)'*y+k*dg(x)'*g(x));
+    % hessian of AL
+    function [ret] = hAL(x,y,k)
+        sum1 = zeros(nc);
+        for i=1:nc
+            sum1 = sum1 + hg(x,i)*y(i);
+        end
+        
+        sum2 = zeros(nc);
+        g_x = g(x);
+        for i=1:nc
+            sum2 = sum2 + hg(x,i)*g_x(i);
+        end
+        
+        ret = hf(x) - sum1 + k*sum2 + k*dg(x)'*dg(x);
+    end
     
     % a helper function to return the ith index of vector
-    subindex = @(vec,i)(vec(i));
-    % inner statement in first summation in hessian AL
-    isum1 = @(x,y,i)(subindex(hg(x),i)*y(i));
+    %subindex = @(vec,i)(vec(i));
+    %uncell = @(cell)(cell{1});
     % first summation in hessian AL
-    sum1 = @(x,y)(sum(arrayfun(isum1,x*ones(nc,1),y*ones(nc,1),1:nc)));
-    % inner statement in second summation in hessian AL
-    isum2 = @(x,y,i)(subindex(hg(x),i)*subindex(g(x),i));
+    %sum1 = @(x,y)(cellfun(@sum,arrayfun(@(i){hg(x,i)*y(i)},1:nc),'UniformOutput',false));
     % second summation in hessian AL
-    sum2 = @(x,y)(sum(arrayfun(isum2,x*ones(nc,1),y*ones(nc,1),1:nc)));
+    %sum2 = @(x,y)(sum(arrayfun(@(i)(hg(x,i)*subindex(g(x),i)),1:nc)));
     % hessian of AL
-    hAL = @(x,y,k)(hf(x)-sum1(x,y)+k*sum2(x,y)+k*dg(x)'*g(x));
+    %hAL = @(x,y,k)(hf(x)-sum1(x,y)+k*sum2(x,y)+k*dg(x)'*g(x));
     
     AL(x,y,k)
     gAL(x,y,k)
+    
+    %hf(x)
+    %arrayfun(@(i){hg(x,i)*y(i)},1:nc)
+    %uncell(sum1(x,y))
+    %sum2(x,y)
+    %dg(x)'*dg(x)
+    
     hAL(x,y,k)
     
     %while ( norm_g >= epsilon )
