@@ -49,25 +49,8 @@ function [ xs iter steps ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, 
         ret = hf(x) - sum1 + k*sum2 + k*dg(x)'*dg(x);
     end
     
-    % a helper function to return the ith index of vector
-    %subindex = @(vec,i)(vec(i));
-    %uncell = @(cell)(cell{1});
-    % first summation in hessian AL
-    %sum1 = @(x,y)(cellfun(@sum,arrayfun(@(i){hg(x,i)*y(i)},1:nc),'UniformOutput',false));
-    % second summation in hessian AL
-    %sum2 = @(x,y)(sum(arrayfun(@(i)(hg(x,i)*subindex(g(x),i)),1:nc)));
-    % hessian of AL
-    %hAL = @(x,y,k)(hf(x)-sum1(x,y)+k*sum2(x,y)+k*dg(x)'*g(x));
-    
     AL(x,y,k)
     gAL(x,y,k)
-    
-    %hf(x)
-    %arrayfun(@(i){hg(x,i)*y(i)},1:nc)
-    %uncell(sum1(x,y))
-    %sum2(x,y)
-    %dg(x)'*dg(x)
-    
     hAL(x,y,k)
     
     %while ( norm_g >= epsilon )
