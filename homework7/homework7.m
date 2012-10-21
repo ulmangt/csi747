@@ -24,4 +24,6 @@ xs
 [x y] = augmented_lagrangian( @f_2, @df_2, @hf_2, @g_2, @dg_2, @hg_2, [ 1 1 ] )
 
 % problem 2 part c
-[x y] = augmented_lagrangian( @f_3, @df_3, @hf_3, @g_3, @dg_3, @hg_3, [ 0 0 0 0 ] )
+% [1 1 1 1] initial guess gets stuck in local minima 
+% [x y] = augmented_lagrangian( @f_3, @df_3, @hf_3, @g_3, @dg_3, @hg_3, [ 1 1 1 1 ], 0.0001, 10 )
+[x y] = augmented_lagrangian( @f_3, @df_3, @hf_3, @g_3, @dg_3, @hg_3, [ -1 0 0 0 ], 0.0001, 10 )

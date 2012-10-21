@@ -1,13 +1,19 @@
-function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, k )
+function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, eta, k )
 %AUGMENTED_LAGRANGIAN Find minimum value of func subject to constraints
 
     % if no epsilon was provided, set a default
-    if nargin < 8
+    if nargin < 9
         epsilon = 0.001;
     end
     
+    % eta controls how much of a function value decrease newton requires
+    if nargin < 10
+        eta = 0.2;
+    end
+    
     % if no penalty function constant k was provided, set a default
-    if nargin < 9
+    % increase k to combat ill-conditioning in constraints
+    if nargin < 11
         k = 1;
     end
     
@@ -27,14 +33,17 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, k
     % stopping condition
     norm_g = norm( g( x ) );
 
+    % iteration counter
+    iter = 0;
+    
     % hessian of AL
     function [ret] = hAL(x,y,k)
-        sum1 = zeros(nc);
+        sum1 = zeros(np);
     	for i=1:nc
             sum1 = sum1 + hg(x,i)*y(i);
         end
         
-        sum2 = zeros(nc);
+        sum2 = zeros(np);
         g_x = g(x);
         for i=1:nc
         	sum2 = sum2 + hg(x,i)*g_x(i);
@@ -46,16 +55,20 @@ function [ x y ] = augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, k
     while ( norm_g >= epsilon )
         
         % augmented lagrangian
-    	AL  = @(x)(f(x)-y*g(x)+(k/2.0)*norm(g(x))^2);
+    	AL  = @(x)(f(x)-dot(y,g(x))+(k/2.0)*norm(g(x))^2);
         % gradient of AL
-        gAL = @(x)(df(x)'-dg(x)'*y+k*dg(x)'*g(x));
+        gAL = @(x)(df(x)'-dg(x)'*y+k*dg(x)'*g(x)');
         % hessian of AL (with x as only parameter)
         hAL_yk = @(x)(hAL(x,y,k));
         
-        x = newton( AL, gAL, hAL_yk, x, epsilon );
-        y = y - k * g(x);
+        x = newton( AL, gAL, hAL_yk, x, epsilon, eta );
+        y = y - k * g(x)';
         
         norm_g = norm( g(x) );
+        
+        iter = iter + 1;
+        str = sprintf( 'Iteration: %d F(x): %f Gradient: %f\n', iter, f( x ), norm_g );
+        disp( str );
     end
 
 end
