@@ -2,12 +2,12 @@ function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta )
 %NEWTON Find minimum value of func
 
     % if no epsilon was provided, set a default
-    if nargin < 4
+    if nargin < 5
         epsilon = 0.001;
     end
 
     % if no eta was provided, set a default
-    if nargin < 5
+    if nargin < 6
         eta = 0.2;
     end
     
@@ -31,7 +31,7 @@ function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta )
         % (as determined by smallest eigenvalue being negative)
         relaxed_hessian = hessian + lambda_s * eye( dim );
         
-        while min( eig( relaxed_hessian ) ) < 0
+        while min( eig( relaxed_hessian ) ) <= 0
            lambda_s = lambda_s * 10;
            relaxed_hessian = hessian + lambda_s * eye( dim );
         end
@@ -45,12 +45,12 @@ function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta )
         
         % decrease step size until a sufficient decrease in function
         % value is achieved (how much is sufficient is controlled by eta
-        while func( xs + as * dxs ) - fsx >= eta * as * grad' * dxs
+        while func( xs' + as * dxs ) - fsx >= eta * as * grad' * dxs
            as = as / 2.0; 
         end
         
         % update guess
-        xs = xs + as * dxs;
+        xs = xs + as * dxs';
         
         % evaluate the function, gradient, and hessian at x_s
         grad = grad_func( xs );

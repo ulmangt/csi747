@@ -13,3 +13,5 @@ xs
 % solution: ( -1.84931, 0.20803, 0.416059, 0.603054 )
 [xs iterations steps] = constrained_newton( @f_3, @df_3, @hf_3, @g_3, @dg_3, [ -1.84, 0.21, 0.416, 0.603 ] );
 xs
+
+[x y] = augmented_lagrangian( @f_1, @df_1, @hf_1, @g_1, @dg_1, @hg_1, [ 0 0 ] )
