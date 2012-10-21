@@ -9,7 +9,7 @@ x1 = - 10 / sqrt( 13 ) = -2.773500981126146
 x2 =   15 / sqrt( 13 ) =  4.160251471689219
 
 Calculated by Wolfram Alpha: http://www.wolframalpha.com/input/?i=min+2*x1+-+3*x2+subject+to+x1%5E2+%2B+x2%5E2+%3D+25
-See next page for visualization.
+See following pages for visualization.
 
 The initial guess needed to be very close to the solution for convergence to occur.
 
@@ -45,7 +45,7 @@ x1 =  1.5
 x2 = -1.5
 
 Calculated by Wolfram Alpha: http://www.wolframalpha.com/input/?i=minimize+x1%5E2%2B2*x1*x2%2Bx2%5E2+subject+to+3*x1%5E2%2Bx2%5E2%3D9
-See next page for visualization.
+See following pages for visualization.
 
 The initial guess needed to be very close to the solution for convergence to occur.
 
@@ -65,3 +65,41 @@ x1 = -1.500000000156585
 x2 =  1.500000000992151
 
 
+
+-----------------
+Problem 1 Part C
+-----------------
+
+Analytic Solution:
+
+x1 = -1.84931
+x2 =  0.20803
+x3 =  0.416059
+x4 =  0.603054
+
+Calculated by Wolfram Alpha:
+http://www.wolframalpha.com/input/?i=minimize+3*x1%5E3%2B2*x2%5E3%2Bx3%5E3%2Bx4%5E3+subject+to+x1%5E2%2Bx2%5E2%2Bx3%5E2%2Bx4%5E2%3D4+and+x1%2Bx2%2B2*x3%2B3*x4%3D1
+
+Solution also verified via AMPL (see following pages for model).
+
+The initial guess needed to be very close to the solution for convergence to occur.
+
+Inital Guess:
+
+x1 = -1.84
+x2 =  0.21
+x3 =  0.416
+x4 =  0.603
+
+Three Newton steps were required to reach a norm gradient value of less than  0.001:
+
+Iteration: 1 F(x): -18.664887 Gradient: 7.925658 beta: 0.000000 lambda: 100.000000
+Iteration: 2 F(x): -18.664248 Gradient: 0.211726 beta: 0.000000 lambda: 100.000000
+Iteration: 3 F(x): -18.664253 Gradient: 0.000523 beta: 0.000000 lambda: 100.000000
+
+The Final Result:
+
+x1 = -1.849306310985392
+x2 =  0.209104848381269
+x3 =  0.415905155749972
+x4 =  0.602797050368060

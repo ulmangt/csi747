@@ -8,7 +8,6 @@ xs
 [xs iterations steps] = constrained_newton( @f_2, @df_2, @hf_2, @g_2, @dg_2, [ -1.51, 1.51 ] );
 xs
 
-
 % http://www.wolframalpha.com/input/?i=minimize+3*x1%5E3%2B2*x2%5E3%2Bx3%5E3%2Bx4%5E3+subject+to+x1%5E2%2Bx2%5E2%2Bx3%5E2%2Bx4%5E2%3D4+and+x1%2Bx2%2B2*x3%2B3*x4%3D1
 % solution also confirmed via AMPL model
 % solution: ( -1.84931, 0.20803, 0.416059, 0.603054 )
