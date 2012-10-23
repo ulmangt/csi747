@@ -20,13 +20,14 @@
 
 The primal soft-margin SVM classifier was built using the optimization problem in Equation \ref{svm1}.
 
-\begin{equation}\label{svm1}
+\begin{equation}
 \begin{split}
 \min 0.5\left( \vec{w} \cdot \vec{w} \right) + C \sum_{i=1}^l \xi_i \\
 s.t. \\
 \xi_i \ge 0 \\
 y_i \left( \left( \vec{x_i} \cdot \vec{w} \right) - b \right) \ge 1 , i = 1,2,...,l
 \end{split}
+\label{svm1}
 \end{equation}
 
 \subsection{Primal Soft-Margin AMPL Model}
@@ -189,13 +190,14 @@ public static double[] calculate_y_predicted_primal(
 
 The penalty constant \(C\) was set to \(0.1\) after testing a series of values, running the classifier, and observing the training error. Figure \ref{cvserror} shows the improvement of the testing data error rate as \(C\) approaches \(0.1\).
 
-\begin{figure}\label{cvserror}
+\begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{dual_c_vs_error_rate.png}
 \caption{Primal Penality Constant Versus Error Rate}
+\label{cvserror}
 \end{figure}
 
-\begin{table}\label{table1}
+\begin{table}
 \caption{Primal Soft-Margin Digit 3 vs 6 Error}
 \begin{center}
 \begin{tabular}{llcc}
@@ -209,6 +211,7 @@ Testing & 0.049 & 0.002 & 0.095 \\
 \bottomrule
 \end{tabular}
 \end{center}
+\label{table1}
 \end{table}
 
 Table \ref{table1} indicates that the primal soft-margin SVM classifier perfectly classified the training data set and acheived a \(0.049\) misclassification error rate for the testing data set for digits ''3`` and ''6``.
@@ -217,13 +220,14 @@ Table \ref{table1} indicates that the primal soft-margin SVM classifier perfectl
 
 The dual soft-margin SVM classifier was built using the optimization problem in Equation \ref{svm2}.
 
-\begin{equation}\label{svm2}
+\begin{equation}
 \begin{split}
 \max \sum_{i=1}^l \alpha_i - 0.5 \sum_{i,j}^l \alpha_i \alpha_j y_i y_j \left( \vec{x_i} \cdot \vec{x_j} \right) \\
 s.t. \\
 0 \ge \alpha_i \ge C , i = 1,2,...,l \\
 \sum{i=1}^l \alpha_i y_i = 0 , i = 1,2,...,l
 \end{split}
+\label{svm2}
 \end{equation}
 
 \subsection{Dual Soft-Margin AMPL Model}
@@ -409,7 +413,7 @@ public static double[] calculate_y_predicted( List<TrainingExample> dataListTest
 \end{verbatim}
 \end{samepage}
 
-\begin{table}\label{table2}
+\begin{table}
 \caption{Dual Soft-Margin Digit 3 vs 6 Error}
 \begin{center}
 \begin{tabular}{llcc}
@@ -423,6 +427,7 @@ Testing & 0.049 & 0.002 & 0.095 \\
 \bottomrule
 \end{tabular}
 \end{center}
+\label{table2}
 \end{table}
 
 Table \ref{table2} indicates that the dual soft-margin SVM classifier perfectly classified the training data set and acheived a \(0.049\) misclassification error rate for the testing data set for digits ''3`` and ''6``. This is identical to the results achieved for the primal problem (which makes sense because the formulations should be equivalent). The same penality constant value \(C=0.1\) was the best value for the dual problem as well as the primal problem.
@@ -431,13 +436,14 @@ Table \ref{table2} indicates that the dual soft-margin SVM classifier perfectly 
 
 The dual polynomial SVM classifier was built using the optimization problem in Equation \ref{svm3}.
 
-\begin{equation}\label{svm3}
+\begin{equation}
 \begin{split}
 \max \sum_{i=1}^l \alpha_i - 0.5 \sum_{i,j}^l \alpha_i \alpha_j y_i y_j \left( \alpha \left( \vec{x_i} \cdot \vec{x_j} \right) + \beta \right)^d \\
 s.t. \\
 0 \ge \alpha_i \ge C , i = 1,2,...,l \\
 \sum{i=1}^l \alpha_i y_i = 0 , i = 1,2,...,l
 \end{split}
+\label{svm3}
 \end{equation}
 
 \subsection{Dual Polynomial AMPL Model}
@@ -621,7 +627,7 @@ The value of \(b\) was calculated for all support vectors (those with \(0 < \alp
 
 \end{verbatim}
 
-\begin{table}\label{table3}
+\begin{table}
 \caption{Dual Polynomial Digit 3 vs 6 Error}
 \begin{center}
 \begin{tabular}{llcc}
@@ -635,6 +641,7 @@ Testing & 0.037 & -0.004 & 0.077 \\
 \bottomrule
 \end{tabular}
 \end{center}
+\label{table3}
 \end{table}
 
 Table \ref{table3} indicates that the dual polynomial SVM classifier perfectly classified the training data set and acheived a \(0.037\) misclassification error rate for the testing data set for digits ''3`` and ''6`` with penalty constant \(C=100\).
@@ -643,13 +650,14 @@ Table \ref{table3} indicates that the dual polynomial SVM classifier perfectly c
 
 The dual radial SVM classifier was built using the optimization problem in Equation \ref{svm4}.
 
-\begin{equation}\label{svm4}
+\begin{equation}
 \begin{split}
 \max \sum_{i=1}^l \alpha_i - 0.5 \sum_{i,j}^l \alpha_i \alpha_j y_i y_j e^{-\gamma \| x - x_i \|^2 } \\
 s.t. \\
 0 \ge \alpha_i \ge C , i = 1,2,...,l \\
 \sum{i=1}^l \alpha_i y_i = 0 , i = 1,2,...,l
 \end{split}
+\label{svm4}
 \end{equation}
 
 \subsection{Dual Radial AMPL Model}
@@ -836,13 +844,14 @@ The value of \(b\) was calculated for all support vectors (those with \(0 < \alp
 
 The penalty constant \(C\) was set to \(2.0\) after testing a series of values, running the classifier, and observing the training error. Figure \ref{cvserror2} shows the best testing data error rate was observed for \(C\) between \(0.25\) and \(4.0\).
 
-\begin{figure}\label{cvserror2}
+\begin{figure}
 \centering
 \includegraphics[width=0.9\textwidth]{radial_c_vs_error_rate.png}
 \caption{Dual Radial Penality Constant Versus Error Rate}
+\label{cvserror2}
 \end{figure}
 
-\begin{table}\label{table4}
+\begin{table}
 \caption{Dual Radial Digit 3 vs 6 Error}
 \begin{center}
 \begin{tabular}{llcc}
@@ -856,6 +865,7 @@ Testing & 0.024 & -0.009 & 0.058 \\
 \bottomrule
 \end{tabular}
 \end{center}
+\label{table4}
 \end{table}
 
 Table \ref{table4} indicates that the dual radial SVM classifier perfectly classified the training data set and achieved a \(0.024\) misclassification error rate for the testing data set for digits ''3`` and ''6``. Because the radial kernel performed better than the polynomial kernel, it was chosen for the full problem.
@@ -1252,7 +1262,7 @@ The above results contain 102 support vectors from among the 930 input data elem
 
 \end{verbatim}
 
-\begin{table}\label{tablefull}
+\begin{table}
 \caption{Dual Radial All Digits Error}
 \begin{center}
 \begin{tabular}{llcc}
@@ -1266,6 +1276,7 @@ Testing & 0.222 & 0.182 & 0.262 \\
 \bottomrule
 \end{tabular}
 \end{center}
+\label{tablefull}
 \end{table}
 
 As indicated in Table \ref{tablefull}, the overall testing misclassification error achieved by the radial SVM classifier was \(0.222\). This is significantly better than the \(0.9\) misclassification error that we would expect to achieve by random guessing.
