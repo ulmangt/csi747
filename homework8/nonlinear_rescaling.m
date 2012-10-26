@@ -30,4 +30,12 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, g, dg, hg, guess, epsilon, et
     % initial values for dual variable
     y = zeros( nc, 1 );
     
+    stop = inf;
+    
+    while ( stop >= epsilon )
+        
+        
+        
+        
+    end
 end
