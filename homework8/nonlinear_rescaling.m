@@ -33,6 +33,17 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;
     
+    % phi w.r.t. x
+    function [ret] = phi( xi, yi, ki )
+        sum1 = 0;
+        
+        for i=1:nc
+           yi(i)*psi(ki*c(i)) 
+        end
+        
+        ret = f(xi) - (1/ki) * sum1;
+    end
+    
     % hessian of phi w.r.t. x
     function [ret] = h_phi( xi, yi, ki )
        sum1 = 0;
@@ -41,16 +52,20 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
             sum1 = sum1 + hc(xi,i)*d_psi_diag(xi)*yi(i);
        end
        
-       ret = hf(xi)-sum1-k*dc(xi)'
+       ret = hf(xi)-sum1-k*dc(xi)'*(eye(nc)*yi)*dd_psi_diag(xi)*dc(xi);
     end
     
     while ( stop >= epsilon )
         
-        % gradient of phi w.r.t. x
-        d_phi = @(x)( df(x) - dc'*y*p_psi_diag(x) )
-       
-               % hessian of phi w.r.t. x
-        h_phi = @(x)( hf(x)  
+        % phi w.r.t x
+        phi_yk = @(x) ( phi( x, y, k ) ); 
         
+        % gradient of phi w.r.t. x
+        d_phi_yk = @(x)( df(x) - dc'*y*p_psi_diag(x) );
+       
+        % hessian of phi w.r.t. x
+        h_phi_yk = @(x)( h_phi( x, y, k ) );  
+        
+        x = newton( phi_yk, d_phi_yk, h_phi_yk, x, epsilon, eta );
     end
 end
