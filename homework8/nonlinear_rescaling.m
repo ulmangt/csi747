@@ -40,9 +40,9 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     function [ret] = phi( xi, yi, ki )
         sum1 = 0;
         
-        for i=1:nc
+        for j=1:nc
            c_x = c(x);
-           sum1 = sum1 + yi(i)*psi(ki*c_x(i)); 
+           sum1 = sum1 + yi(j)*psi(ki*c_x(j)); 
         end
         
         ret = f(xi) - (1/ki) * sum1;
@@ -52,8 +52,9 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     function [ret] = h_phi( xi, yi, ki )
        sum1 = 0;
        
-       for i=1:nc
-            sum1 = sum1 + hc(xi,i)*d_psi_diag(xi,ki,c)*yi(i);
+       for j=1:nc
+           c_x = c(xi); 
+           sum1 = sum1 + hc(xi,j)*d_psi(ki*c_x(j))*yi(j);
        end
        
        ret = hf(xi)-sum1-ki*dc(xi)'*(eye(nc)*yi)*dd_psi_diag(xi,ki,c)*dc(xi);
