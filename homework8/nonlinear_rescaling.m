@@ -33,6 +33,9 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;
     
+    % iteration counter
+    iter = 0;
+    
     % phi w.r.t. x
     function [ret] = phi( xi, yi, ki )
         sum1 = 0;
@@ -75,6 +78,14 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
            y(i) = y(i)*d_psi(k*c_x(i)); 
         end
         
+        stop1 = phi( x, y, k );
+        stop2 = (eye(nc)*y)*c(x);
+        stop3 = max( -c(x) );
+        stop = max( [stop1,stop2,stop3] );
+        
+        iter = iter + 1;
+        str = sprintf( 'Iteration: %d F(x): %f Stop Criteria: %f x:%s y:%s\n', iter, f( x ), stop, num2str( x ), num2str( y' ) );
+        disp( str );
         
     end
 end
