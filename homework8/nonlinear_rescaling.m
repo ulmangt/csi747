@@ -1,4 +1,4 @@
-function [ x y ] = nonlinear_rescaling( f, df, hf, g, dg, hg, guess, epsilon, eta, k )
+function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, eta, k )
 %NONLINEAR_RESCALING Find minimum value of func subject to constraints
 
     % if no epsilon was provided, set a default
@@ -30,12 +30,27 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, g, dg, hg, guess, epsilon, et
     % initial values for dual variable
     y = zeros( nc, 1 );
     
+    % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;
+    
+    % hessian of phi w.r.t. x
+    function [ret] = h_phi( xi, yi, ki )
+       sum1 = 0;
+       
+       for i=1:nc
+            sum1 = sum1 + hc(xi,i)*d_psi_diag(xi)*yi(i);
+       end
+       
+       ret = hf(xi)-sum1-k*dc(xi)'
+    end
     
     while ( stop >= epsilon )
         
-        
-        
+        % gradient of phi w.r.t. x
+        d_phi = @(x)( df(x) - dc'*y*p_psi_diag(x) )
+       
+               % hessian of phi w.r.t. x
+        h_phi = @(x)( hf(x)  
         
     end
 end
