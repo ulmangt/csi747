@@ -47,6 +47,10 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
         
         ret = f(xi) - (1/ki) * sum1;
     end
+
+    function [ret] = d_phi( xi, yi, ki )
+        ret = df(xi) - dc(xi)'*d_psi_diag(xi,ki,c)*yi;
+    end
     
     % hessian of phi w.r.t. x
     function [ret] = h_phi( xi, yi, ki )
@@ -57,7 +61,7 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
            sum1 = sum1 + hc(xi,j)*d_psi(ki*c_x(j))*yi(j);
        end
        
-       ret = hf(xi)-sum1-ki*dc(xi)'*(eye(nc)*yi)*dd_psi_diag(xi,ki,c)*dc(xi);
+       ret = hf(xi)-sum1-ki*dc(xi)'*diag(yi)*dd_psi_diag(xi,ki,c)*dc(xi);
     end
     
     while ( stop >= epsilon )
@@ -66,7 +70,7 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
         phi_yk = @(x) ( phi( x, y, k ) ); 
         
         % gradient of phi w.r.t. x
-        d_phi_yk = @(x)( df(x) - dc(x)'*d_psi_diag(x,k,c)*y );
+        d_phi_yk = @(x)( d_phi( x, y, k ) );
        
         % hessian of phi w.r.t. x
         h_phi_yk = @(x)( h_phi( x, y, k ) );  
@@ -83,8 +87,8 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
            y(i) = y(i)*d_psi(k*c_x(i)); 
         end
         
-        stop1 = phi( x, y, k );
-        stop2 = (eye(nc)*y)*c(x);
+        stop1 = norm( d_phi( x, y, k ) );
+        stop2 = norm( diag(y)*c(x)' );
         stop3 = max( -c(x) );
         stop = max( [stop1,stop2,stop3] );
         

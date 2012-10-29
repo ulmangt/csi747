@@ -296,3 +296,13 @@ Problem 1 Part C
 
 Analytic Solution:
 
+x1 = -1.84931
+x2 =  0.20803
+x3 =  0.416059
+x4 =  0.603054
+
+
+
+Calculated by Wolfram Alpha:
+http://www.wolframalpha.com/input/?i=minimize+3*x1%5E3%2B2*x2%5E3%2Bx3%5E3%2Bx4%5E3+subject+to+x1%5E2%2Bx2%5E2%2Bx3%5E2%2Bx4%5E2%3C%3D4+and+x1%2Bx2%2B2*x3%2B3*x4%3E%3D1
+

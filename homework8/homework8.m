@@ -3,3 +3,6 @@
 
 % problem 2 part b
 [x,y] = nonlinear_rescaling( @f_2, @df_2, @hf_2, @g_2, @dg_2, @hg_2, [ 0 1 ], 1e-7, 0.8, 1 )
+
+% problem 2 part c
+[x,y] = nonlinear_rescaling( @f_3, @df_3, @hf_3, @g_3, @dg_3, @hg_3, [ 0 1 1 1 ], 1e-7, 0.8, 1 )
