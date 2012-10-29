@@ -1,4 +1,4 @@
-function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta )
+function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta, stop_func )
 %NEWTON Find minimum value of func
 
     % if no epsilon was provided, set a default
@@ -28,7 +28,7 @@ function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta )
     % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;
     
-    while stop >= max( [epsilon, (1/k)*norm(y-d_psi(k*c(x))*y)] )
+    while stop >= stop_func(x)
         
         % initial value of lambda (normalization constant for hessian)
         lambda_s = 0.0001;
