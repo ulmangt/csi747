@@ -40,8 +40,8 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     function [ret] = phi( xi, yi, ki )
         sum1 = 0;
         
+        c_x = c(x);
         for j=1:nc
-           c_x = c(x);
            sum1 = sum1 + yi(j)*psi(ki*c_x(j)); 
         end
         
@@ -52,8 +52,8 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     function [ret] = h_phi( xi, yi, ki )
        sum1 = 0;
        
+       c_x = c(xi);
        for j=1:nc
-           c_x = c(xi); 
            sum1 = sum1 + hc(xi,j)*d_psi(ki*c_x(j))*yi(j);
        end
        
@@ -72,7 +72,7 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
         h_phi_yk = @(x)( h_phi( x, y, k ) );  
         
         % stop criteria function
-        stop = @(x)( max( [epsilon, (1/k)*norm(y-d_psi(k*c(x))*y)] ) );
+        stop = @(x)( max( [epsilon, (1/k)*norm(y-d_psi_diag(x,k,c)*y)] ) );
         
         % update x
         x = newton( phi_yk, d_phi_yk, h_phi_yk, x, eta, stop );
