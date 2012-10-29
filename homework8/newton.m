@@ -1,14 +1,13 @@
-function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta, stop_func )
+function xs = newton( func, grad_func, hessian_func, guess, eta, stop_func )
 %NEWTON Find minimum value of func
 
-    % if no epsilon was provided, set a default
-    if nargin < 5
-        epsilon = 1e-7;
-    end
-
     % if no eta was provided, set a default
-    if nargin < 6
+    if nargin < 5
         eta = 0.2;
+    end
+    
+    if nargin < 6
+       stop_func = @(x)(1e-7);
     end
     
     % set the current solution to the initial guess
@@ -28,7 +27,7 @@ function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta, stop_f
     % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;
     
-    while stop >= stop_func(x)
+    while stop >= stop_func(xs)
         
         % initial value of lambda (normalization constant for hessian)
         lambda_s = 0.0001;
@@ -64,7 +63,7 @@ function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta, stop_f
         fsx = func( xs );
    
         % update stopping criteria
-        stop = norm( grad )
+        stop = norm( grad );
         
         % count number of steps
         iter = iter + 1;
