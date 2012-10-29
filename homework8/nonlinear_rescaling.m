@@ -21,8 +21,8 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     x = guess;
     
     % number of constraints / dual variables
-    dg_x_size = size( dg( x ) );
-    nc = dg_x_size(1);
+    dc_x_size = size( dc( x ) );
+    nc = dc_x_size(1);
     
     % number of primal variables
     np = length( x );
@@ -64,7 +64,7 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
         phi_yk = @(x) ( phi( x, y, k ) ); 
         
         % gradient of phi w.r.t. x
-        d_phi_yk = @(x)( df(x) - dc'*y*p_psi_diag(x) );
+        d_phi_yk = @(x)( df(x) - dc(x)'*y*p_psi_diag(x) );
        
         % hessian of phi w.r.t. x
         h_phi_yk = @(x)( h_phi( x, y, k ) );  

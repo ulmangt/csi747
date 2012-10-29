@@ -3,7 +3,7 @@ function xs = newton( func, grad_func, hessian_func, guess, epsilon, eta )
 
     % if no epsilon was provided, set a default
     if nargin < 5
-        epsilon = 10e-7;
+        epsilon = 1e-7;
     end
 
     % if no eta was provided, set a default
