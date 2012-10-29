@@ -28,7 +28,8 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     np = length( x );
 
     % initial values for dual variable
-    y = ones( nc, 1 );
+    %y = ones( nc, 1 );
+    y = [ 1 ; 1 ];
     
     % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;
