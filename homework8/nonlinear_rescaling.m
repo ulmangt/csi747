@@ -66,6 +66,15 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
         % hessian of phi w.r.t. x
         h_phi_yk = @(x)( h_phi( x, y, k ) );  
         
+        % update x
         x = newton( phi_yk, d_phi_yk, h_phi_yk, x, epsilon, eta );
+        
+        % update y
+        for i=1:nc
+           c_x = c(x);
+           y(i) = y(i)*d_psi(k*c_x(i)); 
+        end
+        
+        
     end
 end
