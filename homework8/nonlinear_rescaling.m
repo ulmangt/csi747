@@ -28,8 +28,7 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     np = length( x );
 
     % initial values for dual variable
-    %y = ones( nc, 1 );
-    y = [ 1 ; 1 ];
+    y = ones( nc, 1 );
     
     % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;
@@ -41,7 +40,7 @@ function [ x y ] = nonlinear_rescaling( f, df, hf, c, dc, hc, guess, epsilon, et
     function [ret] = phi( xi, yi, ki )
         sum1 = 0;
         
-        c_x = c(x);
+        c_x = c(xi);
         for j=1:nc
            sum1 = sum1 + yi(j)*psi(ki*c_x(j)); 
         end
