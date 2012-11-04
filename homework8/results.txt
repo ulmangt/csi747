@@ -77,45 +77,46 @@ x2 = 1.0
 y1 = 1.0
 
 
-Newton Steps: 10.000000
+Newton Steps: 1.000000
 
-Iteration: 1 F(x): 0.070455 Stop Criteria: 0.899246 x:-0.0077539     0.27319 y:0.10075
+Iteration: 1 F(x): 0.000257 Stop Criteria: 0.899889 x:-0.048086    0.064117 y:0.10011
 
-Newton Steps: 8.000000
+Newton Steps: 1.000000
 
-Iteration: 2 F(x): 0.000706 Stop Criteria: 0.090678 x:-0.00095269    0.027531 y:0.010076
+Iteration: 2 F(x): 0.000000 Stop Criteria: 0.090100 x:-0.00025347  0.00025552 y:0.010011
 
-Newton Steps: 8.000000
+Newton Steps: 1.000000
 
-Iteration: 3 F(x): 0.000007 Stop Criteria: 0.009069 x:-0.00019009   0.0028512 y:0.0010076
+Iteration: 3 F(x): 0.000000 Stop Criteria: 0.009010 x:-6.199e-06  6.2052e-06 y:0.0010011
 
-Newton Steps: 8.000000
+Newton Steps: 1.000000
 
-Iteration: 4 F(x): 0.000000 Stop Criteria: 0.000907 x:-0.00012114  0.00038758 y:0.00010076
+Iteration: 4 F(x): 0.000000 Stop Criteria: 0.000901 x:-1.2393e-06  1.2394e-06 y:0.00010011
 
-Newton Steps: 8.000000
+Newton Steps: 1.000000
 
-Iteration: 5 F(x): 0.000000 Stop Criteria: 0.000091 x:-0.00012679  0.00015346 y:1.0076e-05
+Iteration: 5 F(x): 0.000000 Stop Criteria: 0.000090 x:-8.8496e-07  8.8497e-07 y:1.0011e-05
 
-Newton Steps: 8.000000
+Newton Steps: 1.000000
 
-Iteration: 6 F(x): 0.000000 Stop Criteria: 0.000009 x:-0.00012829  0.00013096 y:1.0076e-06
+Iteration: 6 F(x): 0.000000 Stop Criteria: 0.000009 x:-8.5089e-07  8.5089e-07 y:1.0011e-06
 
-Newton Steps: 8.000000
+Newton Steps: 1.000000
 
-Iteration: 7 F(x): 0.000000 Stop Criteria: 0.000001 x:-0.00012846  0.00012872 y:1.0076e-07
+Iteration: 7 F(x): 0.000000 Stop Criteria: 0.000001 x:-8.475e-07   8.475e-07 y:1.0011e-07
 
-Newton Steps: 8.000000
+Newton Steps: 1.000000
 
-Iteration: 8 F(x): 0.000000 Stop Criteria: 0.000000 x:-0.00012847   0.0001285 y:1.0076e-08
+Iteration: 8 F(x): 0.000000 Stop Criteria: 0.000000 x:-8.4716e-07  8.4716e-07 y:1.0011e-08
+
 
 
 Final Result:
 
-x1 = -1.284743095162594e-04
-x2 =  1.285010856666081e-04
+x1 = -0.847161227192503e-06
+x2 =  0.847161235675395e-06
 
-y  =  1.007615048579068e-08
+y  =  1.001106010939437e-08
 
 
 -----------------
@@ -133,173 +134,86 @@ Calculated by Wolfram Alpha:
 http://www.wolframalpha.com/input/?i=minimize+3*x1%5E3%2B2*x2%5E3%2Bx3%5E3%2Bx4%5E3+subject+to+x1%5E2%2Bx2%5E2%2Bx3%5E2%2Bx4%5E2%3C%3D4+and+x1%2Bx2%2B2*x3%2B3*x4%3E%3D1
 
 
-(guess of x = [ 0 1 1 1 ] y = [ 1 1 ] converges to local minima )
-[x,y] = nonlinear_rescaling( @f_3, @df_3, @hf_3, @g_3, @dg_3, @hg_3, [ 0 1 1 1 ], 1e-7, 0.5, 1.0 )
+Inital Guess:
 
-Newton Steps: 2.000000
+x1 = -1.0
+x2 =  0.0
+x3 =  0.0
+x4 =  0.0
 
-Iteration: 1 F(x): 0.304459 Stop Criteria: 1.015781 x:0.17175     0.31267     0.44313     0.52062 y:0.227       0.341
+y1 = 1.0
+y2 = 1.0
 
-Newton Steps: 1.000000
 
-Iteration: 2 F(x): 0.113446 Stop Criteria: 0.339053 x:0.12981     0.19114     0.32162     0.39072 y:0.048395     0.15962
+Newton Steps: 9.000000
 
-Newton Steps: 1.000000
+Iteration: 1 F(x): -46.978684 Stop Criteria: 561.463383 x:-2.5055     0.18022     0.36043     0.52897 y:10.879      4.06999
 
-Iteration: 3 F(x): 0.053780 Stop Criteria: 0.154109 x:0.10299      0.1341     0.25256     0.30923 y:0.010057    0.095586
+Newton Steps: 4.000000
 
-Newton Steps: 1.000000
+Iteration: 2 F(x): -15.049353 Stop Criteria: 5.349000 x:-1.7243     0.21298     0.42597     0.61745 y:7.669      3.4118
 
-Iteration: 4 F(x): 0.032025 Stop Criteria: 0.077588 x:0.087072     0.10798     0.21322     0.26126 y:0.0020664    0.068019
+Newton Steps: 4.000000
 
-Newton Steps: 1.000000
-
-Iteration: 5 F(x): 0.022713 Stop Criteria: 0.042897 x:0.077719    0.095326     0.19034     0.23316 y:0.0004222    0.054276
-
-Newton Steps: 1.000000
-
-Iteration: 6 F(x): 0.018103 Stop Criteria: 0.025332 x:0.072064    0.088268     0.17651     0.21619 y:8.6004e-05    0.046711
+Iteration: 3 F(x): -18.277300 Stop Criteria: 1.167408 x:-1.8368     0.20884     0.41768      0.6052 y:7.3601       3.335
 
 Newton Steps: 1.000000
 
-Iteration: 7 F(x): 0.015574 Stop Criteria: 0.015603 x:0.068538    0.083942     0.16788     0.20562 y:1.7488e-05    0.042269
+Iteration: 4 F(x): -18.783908 Stop Criteria: 0.505760 x:-1.8532     0.20787     0.41573     0.60266 y:7.4605      3.3547
 
 Newton Steps: 1.000000
 
-Iteration: 8 F(x): 0.014091 Stop Criteria: 0.009876 x:0.06629    0.081188     0.16238     0.19887 y:3.5523e-06    0.039547
+Iteration: 5 F(x): -18.605185 Stop Criteria: 0.177313 x:-1.8474     0.20813     0.41625     0.60331 y:7.412      3.3441
 
 Newton Steps: 1.000000
 
-Iteration: 9 F(x): 0.013183 Stop Criteria: 0.006362 x:0.064834    0.079405     0.15881      0.1945 y:7.2107e-07     0.03783
+Iteration: 6 F(x): -18.673334 Stop Criteria: 0.030782 x:-1.8496     0.20801     0.41602       0.603 y:7.4192       3.346
 
 Newton Steps: 1.000000
 
-Iteration: 10 F(x): 0.012610 Stop Criteria: 0.004146 x:0.063882    0.078239     0.15648     0.19165 y:1.463e-07    0.036728
+Iteration: 7 F(x): -18.661567 Stop Criteria: 0.008993 x:-1.8492     0.20803     0.41607     0.60306 y:7.4169      3.3456
 
 Newton Steps: 1.000000
 
-Iteration: 11 F(x): 0.012243 Stop Criteria: 0.002723 x:0.063255    0.077472     0.15494     0.18977 y:2.9676e-08    0.036011
+Iteration: 8 F(x): -18.664876 Stop Criteria: 0.001943 x:-1.8493     0.20803     0.41606     0.60305 y:7.4174      3.3457
 
 Newton Steps: 1.000000
 
-Iteration: 12 F(x): 0.012004 Stop Criteria: 0.001797 x:0.062841    0.076964     0.15393     0.18852 y:6.0184e-09    0.035541
+Iteration: 9 F(x): -18.664126 Stop Criteria: 0.000461 x:-1.8493     0.20803     0.41606     0.60305 y:7.4173      3.3457
 
 Newton Steps: 1.000000
 
-Iteration: 13 F(x): 0.011847 Stop Criteria: 0.001190 x:0.062566    0.076628     0.15326      0.1877 y:1.2204e-09    0.035231
+Iteration: 10 F(x): -18.664295 Stop Criteria: 0.000101 x:-1.8493     0.20803     0.41606     0.60305 y:7.4173      3.3457
 
 Newton Steps: 1.000000
 
-Iteration: 14 F(x): 0.011744 Stop Criteria: 0.000790 x:0.062384    0.076404     0.15281     0.18715 y:2.4745e-10    0.035026
+Iteration: 11 F(x): -18.664256 Stop Criteria: 0.000024 x:-1.8493     0.20803     0.41606     0.60305 y:7.4173      3.3457
 
 Newton Steps: 1.000000
 
-Iteration: 15 F(x): 0.011675 Stop Criteria: 0.000525 x:0.062262    0.076256     0.15251     0.18679 y:5.0171e-11    0.034889
+Iteration: 12 F(x): -18.664265 Stop Criteria: 0.000005 x:-1.8493     0.20803     0.41606     0.60305 y:7.4173      3.3457
 
 Newton Steps: 1.000000
 
-Iteration: 16 F(x): 0.011630 Stop Criteria: 0.000349 x:0.062182    0.076157     0.15231     0.18654 y:1.0172e-11    0.034799
+Iteration: 13 F(x): -18.664263 Stop Criteria: 0.000001 x:-1.8493     0.20803     0.41606     0.60305 y:7.4173      3.3457
 
 Newton Steps: 1.000000
 
-Iteration: 17 F(x): 0.011600 Stop Criteria: 0.000233 x:0.062128    0.076091     0.15218     0.18638 y:2.0622e-12    0.034739
+Iteration: 14 F(x): -18.664263 Stop Criteria: 0.000000 x:-1.8493     0.20803     0.41606     0.60305 y:7.4173      3.3457
 
 Newton Steps: 1.000000
 
-Iteration: 18 F(x): 0.011580 Stop Criteria: 0.000155 x:0.062092    0.076047     0.15209     0.18628 y:4.1809e-13    0.034699
-
-Newton Steps: 1.000000
-
-Iteration: 19 F(x): 0.011566 Stop Criteria: 0.000103 x:0.062068    0.076018     0.15204      0.1862 y:8.4761e-14    0.034672
-
-Newton Steps: 1.000000
-
-Iteration: 20 F(x): 0.011557 Stop Criteria: 0.000069 x:0.062052    0.075998       0.152     0.18616 y:1.7184e-14    0.034654
-
-Newton Steps: 1.000000
-
-Iteration: 21 F(x): 0.011551 Stop Criteria: 0.000046 x:0.062042    0.075985     0.15197     0.18612 y:3.4837e-15    0.034642
-
-Newton Steps: 1.000000
-
-Iteration: 22 F(x): 0.011547 Stop Criteria: 0.000031 x:0.062035    0.075976     0.15195      0.1861 y:7.0625e-16    0.034635
-
-Newton Steps: 1.000000
-
-Iteration: 23 F(x): 0.011545 Stop Criteria: 0.000020 x:0.06203    0.075971     0.15194     0.18609 y:1.4318e-16    0.034629
-
-Newton Steps: 1.000000
-
-Iteration: 24 F(x): 0.011543 Stop Criteria: 0.000014 x:0.062027    0.075967     0.15193     0.18608 y:2.9026e-17    0.034626
-
-Newton Steps: 1.000000
-
-Iteration: 25 F(x): 0.011542 Stop Criteria: 0.000009 x:0.062025    0.075964     0.15193     0.18607 y:5.8845e-18    0.034623
-
-Newton Steps: 1.000000
-
-Iteration: 26 F(x): 0.011541 Stop Criteria: 0.000006 x:0.062023    0.075963     0.15193     0.18607 y:1.193e-18    0.034622
-
-Newton Steps: 1.000000
-
-Iteration: 27 F(x): 0.011541 Stop Criteria: 0.000004 x:0.062022    0.075961     0.15192     0.18607 y:2.4185e-19    0.034621
-
-Newton Steps: 1.000000
-
-Iteration: 28 F(x): 0.011540 Stop Criteria: 0.000003 x:0.062022    0.075961     0.15192     0.18606 y:4.903e-20     0.03462
-
-Newton Steps: 1.000000
-
-Iteration: 29 F(x): 0.011540 Stop Criteria: 0.000002 x:0.062021     0.07596     0.15192     0.18606 y:9.9398e-21     0.03462
-
-Newton Steps: 1.000000
-
-Iteration: 30 F(x): 0.011540 Stop Criteria: 0.000001 x:0.062021     0.07596     0.15192     0.18606 y:2.0151e-21    0.034619
-
-Newton Steps: 1.000000
-
-Iteration: 31 F(x): 0.011540 Stop Criteria: 0.000001 x:0.062021     0.07596     0.15192     0.18606 y:4.0852e-22    0.034619
-
-Newton Steps: 1.000000
-
-Iteration: 32 F(x): 0.011540 Stop Criteria: 0.000001 x:0.062021    0.075959     0.15192     0.18606 y:8.2819e-23    0.034619
-
-Newton Steps: 1.000000
-
-Iteration: 33 F(x): 0.011540 Stop Criteria: 0.000000 x:0.062021    0.075959     0.15192     0.18606 y:1.679e-23    0.034619
-
-Newton Steps: 1.000000
-
-Iteration: 34 F(x): 0.011540 Stop Criteria: 0.000000 x:0.062021    0.075959     0.15192     0.18606 y:3.4038e-24    0.034619
-
-Newton Steps: 1.000000
-
-Iteration: 35 F(x): 0.011540 Stop Criteria: 0.000000 x:0.06202    0.075959     0.15192     0.18606 y:6.9005e-25    0.034619
-
-Newton Steps: 1.000000
-
-Iteration: 36 F(x): 0.011540 Stop Criteria: 0.000000 x:0.06202    0.075959     0.15192     0.18606 y:1.3989e-25    0.034619
-
-Newton Steps: 1.000000
-
-Iteration: 37 F(x): 0.011540 Stop Criteria: 0.000000 x:0.06202    0.075959     0.15192     0.18606 y:2.836e-26    0.034619
+Iteration: 15 F(x): -18.664263 Stop Criteria: 0.000000 x:-1.8493     0.20803     0.41606     0.60305 y:7.4173      3.3457
 
 
-x =
 
-  Columns 1 through 3
+Final Result:
 
-   0.062020442554196   0.075959218940087   0.151918437880173
+x1 = -1.849309224888277
+x2 =  0.208029607904429
+x3 =  0.416059215808857
+x4 =  0.603053728727923
 
-  Column 4
-
-   0.186061327662589
-
-
-y =
-
-   0.000000000000000
-   0.034618817649952
-
-
+y1 =  7.417310918905435
+y2 =  3.345698470919516
 
