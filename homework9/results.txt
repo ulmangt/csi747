@@ -19,3 +19,19 @@ x [*] :=
 ;
 
 
+-----------------
+Problem 2
+-----------------
+
+
+LOQO 6.07: optimal solution (13 iterations, 13 evaluations)
+primal objective 1.938316465
+  dual objective 1.93831646
+x [*] :=
+1  -1.59881
+2  -1.2006
+3   1.5
+4   0.5
+5   0.556184
+;
+
