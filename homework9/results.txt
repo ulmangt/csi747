@@ -1,0 +1,21 @@
+
+-----------------
+Problem 1
+-----------------
+
+LOQO 6.07: optimal solution (10 iterations, 10 evaluations)
+primal objective -1.74341609
+  dual objective -1.743416055
+
+"option abs_boundtol 1.121174708629269e-08;"
+or "option rel_boundtol 1.121174708629269e-08;"
+will change deduced dual values.
+
+x [*] :=
+1   1
+2  -2.84605
+3  -1.10162e-08
+4   0.948683
+;
+
+
