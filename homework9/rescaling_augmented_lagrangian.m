@@ -1,4 +1,4 @@
-function [ x y ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, guess, epsilon, eta, k )
+function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, epsilon, eta, k )
 %RESCALING_AUGMENTED_LAGRANGIAN Find minimum value of func subject to constraints
 
     % if no epsilon was provided, set a default
@@ -107,6 +107,12 @@ function [ x y ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, guess, 
         for i=1:nc
            c_x = c(x);
            y(i) = y(i)*d_psi(k*c_x(i)); 
+        end
+        
+        % update z
+        for i=1:ng
+           g_x = g(x);
+           z(i) = z(i) - k * g_x(i);
         end
         
         stop1 = norm( d_phi( x, y, z, k ) );

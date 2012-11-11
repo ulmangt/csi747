@@ -50,12 +50,12 @@ function xs = newton( func, grad_func, hessian_func, guess, eta, stop_func )
         
         % decrease step size until a sufficient decrease in function
         % value is achieved (how much is sufficient is controlled by eta
-        while func( xs' + as * dxs ) - fsx >= eta * as * grad' * dxs && as < 1e-20
+        while func( xs + as * dxs ) - fsx >= eta * as * grad' * dxs && as < 1e-20
            as = as / 2.0; 
         end
         
         % update guess
-        xs = xs + as * dxs';
+        xs = xs + as * dxs;
         
         % evaluate the function, gradient, and hessian at x_s
         grad = grad_func( xs );
