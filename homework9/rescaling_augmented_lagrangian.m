@@ -122,7 +122,7 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
         stop = max( [stop1,stop2,stop3,stop4] );
         
         iter = iter + 1;
-        str = sprintf( 'Iteration: %d F(x): %f Stop Criteria: %f x:%s y:%s\n', iter, f( x ), stop, num2str( x ), num2str( y' ) );
+        str = sprintf( 'Iteration: %d F(x): %f Stop Criteria: %f x:%s y:%s\n', iter, f( x ), stop, num2str( x' ), num2str( y' ) );
         disp( str );
         
     end

@@ -19,6 +19,103 @@ x [*] :=
 ;
 
 
+
+Newton Steps: 1.000000
+
+Iteration: 1 F(x): 0.198803 Stop Criteria: 26.775229 x:0.018503   0.0065333    0.049652    0.080576 y:2.5357
+
+Newton Steps: 11.000000
+
+Iteration: 2 F(x): 1.711623 Stop Criteria: 87.986293 x:0.58877     -2.4329      1.5001      3.3111 y:0.22866
+
+Newton Steps: 5.000000
+
+Iteration: 3 F(x): -3.372591 Stop Criteria: 2.678879 x:0.51153     -2.9333  -0.0069063     0.96624 y:0.49101
+
+Newton Steps: 3.000000
+
+Iteration: 4 F(x): -2.022316 Stop Criteria: 0.215759 x:0.90929     -2.8647   0.0091356     0.97014 y:0.50451
+
+Newton Steps: 1.000000
+
+Iteration: 5 F(x): -1.837940 Stop Criteria: 0.044093 x:0.96813     -2.8538   0.0052626     0.96004 y:0.50201
+
+Newton Steps: 1.000000
+
+Iteration: 6 F(x): -1.785153 Stop Criteria: 0.022868 x:0.98551     -2.8489   0.0024635     0.95375 y:0.50063
+
+Newton Steps: 1.000000
+
+Iteration: 7 F(x): -1.759213 Stop Criteria: 0.005358 x:0.99464     -2.8473  0.00087844     0.95056 y:0.50024
+
+Newton Steps: 1.000000
+
+Iteration: 8 F(x): -1.749621 Stop Criteria: 0.002098 x:0.9979     -2.8465  0.00034165     0.94942 y:0.50009
+
+Newton Steps: 1.000000
+
+Iteration: 9 F(x): -1.745817 Stop Criteria: 0.000810 x:0.99919     -2.8462  0.00013146     0.94897 y:0.50003
+
+Newton Steps: 1.000000
+
+Iteration: 10 F(x): -1.744345 Stop Criteria: 0.000313 x:0.99969     -2.8461  5.0721e-05     0.94879 y:0.50001
+
+Newton Steps: 1.000000
+
+Iteration: 11 F(x): -1.743775 Stop Criteria: 0.000121 x:0.99988     -2.8461  1.9585e-05     0.94873 y:0.50001
+
+Newton Steps: 1.000000
+
+Iteration: 12 F(x): -1.743555 Stop Criteria: 0.000047 x:0.99995     -2.8461  7.5646e-06      0.9487 y:0.5
+
+Newton Steps: 1.000000
+
+Iteration: 13 F(x): -1.743470 Stop Criteria: 0.000018 x:0.99998     -2.8461  2.9223e-06     0.94869 y:0.5
+
+Newton Steps: 1.000000
+
+Iteration: 14 F(x): -1.743437 Stop Criteria: 0.000007 x:0.99999     -2.8461   1.129e-06     0.94869 y:0.5
+
+Newton Steps: 1.000000
+
+Iteration: 15 F(x): -1.743424 Stop Criteria: 0.000003 x:1     -2.8461  4.3616e-07     0.94868 y:0.5
+
+Newton Steps: 1.000000
+
+Iteration: 16 F(x): -1.743420 Stop Criteria: 0.000001 x:1     -2.8461   1.685e-07     0.94868 y:0.5
+
+Newton Steps: 1.000000
+
+Iteration: 17 F(x): -1.743418 Stop Criteria: 0.000000 x:1      -2.846    6.51e-08     0.94868 y:0.5
+
+Newton Steps: 1.000000
+
+Iteration: 18 F(x): -1.743417 Stop Criteria: 0.000000 x:1      -2.846  2.5151e-08     0.94868 y:0.5
+
+Newton Steps: 1.000000
+
+Iteration: 19 F(x): -1.743417 Stop Criteria: 0.000000 x:1      -2.846  9.7167e-09     0.94868 y:0.5
+
+
+x =
+
+    1.0000
+   -2.8460
+    0.0000
+    0.9487
+
+
+y =
+
+    0.5000
+
+
+z =
+
+    0.2635
+    3.0270
+
+
 -----------------
 Problem 2
 -----------------
