@@ -3,6 +3,10 @@
 Problem 1
 -----------------
 
+-----------------
+AMPL Solution
+-----------------
+
 LOQO 6.07: optimal solution (10 iterations, 10 evaluations)
 primal objective -1.74341609
   dual objective -1.743416055
@@ -18,27 +22,25 @@ x [*] :=
 4   0.948683
 ;
 
+-----------------
+Matlab Solution
+-----------------
 
+Newton Steps: 25.000000
 
-Newton Steps: 35.000000
+Iteration: 1 F(x): -1.756421 Stop Criteria: 6.391974 x:0.99244     -2.8431   0.0017932     0.95069 y:0.26377       3.023
 
-Iteration: 1 F(x): -1.797343 Stop Criteria: 5.547055 x:0.97986      -2.849   0.0042994     0.95684 y:0.5012
+Newton Steps: 6.000000
 
-Newton Steps: 5.000000
-
-Iteration: 2 F(x): -1.743787 Stop Criteria: 0.011713 x:0.99987     -2.8461  2.1393e-05     0.94873 y:0.50001
+Iteration: 2 F(x): -1.743452 Stop Criteria: 0.004708 x:0.99999     -2.8461  2.5969e-06     0.94869 y:0.26352       3.027
 
 Newton Steps: 2.000000
 
-Iteration: 3 F(x): -1.743419 Stop Criteria: 0.000080 x:1     -2.8461  1.5147e-07     0.94868 y:0.5
+Iteration: 3 F(x): -1.743417 Stop Criteria: 0.000008 x:1      -2.846  4.8792e-09     0.94868 y:0.26352       3.027
 
 Newton Steps: 1.000000
 
-Iteration: 4 F(x): -1.743417 Stop Criteria: 0.000000 x:1      -2.846  8.2787e-10     0.94868 y:0.5
-
-Newton Steps: 1.000000
-
-Iteration: 5 F(x): -1.743416 Stop Criteria: 0.000000 x:1      -2.846   5.969e-12     0.94868 y:0.5
+Iteration: 4 F(x): -1.743416 Stop Criteria: 0.000000 x:1      -2.846  1.0113e-11     0.94868 y:0.26352       3.027
 
 
 x =
@@ -51,18 +53,21 @@ x =
 
 y =
 
-    0.5000
+    0.2635
+    3.0270
 
 
 z =
 
-    0.2635
-    3.0270
+    0.5000
 
 -----------------
 Problem 2
 -----------------
 
+-----------------
+AMPL Solution
+-----------------
 
 LOQO 6.07: optimal solution (13 iterations, 13 evaluations)
 primal objective 1.938316465
@@ -75,37 +80,37 @@ x [*] :=
 5   0.556184
 ;
 
+-----------------
+Matlab Solution
+-----------------
 
+Newton Steps: 15.000000
 
-
-
-Newton Steps: 9.000000
-
-Iteration: 1 F(x): 1.557408 Stop Criteria: 112.749331 x:-1.5954     -1.0729      1.4391     0.47097     0.55008 y:0.00331029     0.673188      11.6112
+Iteration: 1 F(x): 1.556818 Stop Criteria: 113.330104 x:-1.5937     -1.0735      1.4389      0.4709     0.54523 y:0.00330514     0.651636      11.6383
 
 Newton Steps: 4.000000
 
-Iteration: 2 F(x): 1.925091 Stop Criteria: 0.267005 x:-1.5988     -1.1964      1.4979     0.49924     0.55583 y:1.30852e-05     0.686902      12.5712
+Iteration: 2 F(x): 1.925235 Stop Criteria: 0.252475 x:-1.5989     -1.1964      1.4979     0.49926     0.55582 y:1.30683e-05     0.687151      12.5717
 
 Newton Steps: 3.000000
 
-Iteration: 3 F(x): 1.937862 Stop Criteria: 0.008241 x:-1.5988     -1.2005      1.4999     0.49997     0.55617 y:5.20705e-08     0.688154      12.6036
+Iteration: 3 F(x): 1.937871 Stop Criteria: 0.008118 x:-1.5988     -1.2005      1.4999     0.49997     0.55617 y:5.20037e-08     0.688155      12.6036
 
 Newton Steps: 2.000000
 
-Iteration: 4 F(x): 1.938301 Stop Criteria: 0.000282 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:2.07254e-10     0.688198      12.6047
+Iteration: 4 F(x): 1.938301 Stop Criteria: 0.000277 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:2.06988e-10     0.688198      12.6047
 
 Newton Steps: 1.000000
 
-Iteration: 5 F(x): 1.938316 Stop Criteria: 0.000010 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:8.24928e-13       0.6882      12.6048
+Iteration: 5 F(x): 1.938316 Stop Criteria: 0.000010 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:8.2387e-13       0.6882      12.6048
 
 Newton Steps: 1.000000
 
-Iteration: 6 F(x): 1.938316 Stop Criteria: 0.000000 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:3.28345e-15       0.6882      12.6048
+Iteration: 6 F(x): 1.938316 Stop Criteria: 0.000000 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:3.27924e-15       0.6882      12.6048
 
 Newton Steps: 1.000000
 
-Iteration: 7 F(x): 1.938316 Stop Criteria: 0.000000 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:1.30691e-17       0.6882      12.6048
+Iteration: 7 F(x): 1.938316 Stop Criteria: 0.000000 x:-1.5988     -1.2006         1.5         0.5     0.55618 y:1.30523e-17       0.6882      12.6048
 
 
 x =
