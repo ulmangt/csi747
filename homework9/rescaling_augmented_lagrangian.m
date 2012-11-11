@@ -55,7 +55,7 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
 
     % gradient phi w.r.t x
     function [ret] = d_phi( xi, yi, zi, ki )
-        ret = df(xi) - dc(xi)'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+k*dg(xi)'*g(xi)';
+        ret = df(xi) - dc(xi)'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+k*dg(xi)'*g(xi);
     end
 
     % hessian of phi w.r.t. x
@@ -116,7 +116,7 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
         end
         
         stop1 = norm( d_phi( x, y, z, k ) );
-        stop2 = norm( diag(y)*c(x)' );
+        stop2 = norm( diag(y)*c(x) );
         stop3 = max( -c(x) );
         stop4 = norm( g(x) );
         stop = max( [stop1,stop2,stop3,stop4] );
