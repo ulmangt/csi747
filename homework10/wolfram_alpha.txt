@@ -1,0 +1,38 @@
+Problem 1 i:
+
+Maxima
+
+http://www.wolframalpha.com/input/?i=maximize+2*x1+-+3+*+x2+subject+to+x1%5E2+%2B+x2%5E2+%3D+25
+
+Minima
+
+http://www.wolframalpha.com/input/?i=minimize+2*x1+-+3+*+x2+subject+to+x1%5E2+%2B+x2%5E2+%3D+25
+
+
+Problem 1 ii:
+
+Maxima
+
+http://www.wolframalpha.com/input/?i=maximize+x1%5E2+%2B+2*x1*x2+%2B+x2%5E2+subject+to+3*x1%5E2%2Bx2%5E2+%3D+9
+
+Minima
+
+http://www.wolframalpha.com/input/?i=minimize+x1%5E2+%2B+2*x1*x2+%2B+x2%5E2+subject+to+3*x1%5E2%2Bx2%5E2+%3D+9
+
+
+
+Problem 4:
+
+http://www.wolframalpha.com/input/?i=maximize+x1*x2*x3+subject+to+x1+%2B+x2++%2B+x3+%3D+1
+
+http://www.wolframalpha.com/input/?i=minimize+x1%5E2+%2B+2*x1*x2+%2B+x2%5E2+subject+to+3*x1%5E2%2Bx2%5E2+%3D+9
+
+http://www.wolframalpha.com/input/?i=eigenvalues+%7B%7B2%2C2%7D%2C%7B2%2C2%7D%7D
+
+http://www.wolframalpha.com/input/?i=determinant+%7B%7B0+%2C3+%2C2%7D%2C%7B3+%2C0%2C+1%7D%2C%7B2%2C+1%2C+0%7D%7D
+
+http://www.wolframalpha.com/input/?i=minimize+x1+%2B+x2+subject+to+log%28x1%29+%2B+4+*+log%28x2%29+%3D+1
+
+http://www.wolframalpha.com/input/?i=minimize+x1+%2B+x2+subject+to+log%28x1%29+%2B+4+*+log%28x2%29+%3E%3D+1&a=*FunClash.log-_*Log10.Log-
+
+http://www.wolframalpha.com/input/?i=minimize+x1+%2B+x2+subject+to+%28+x1+-+1+%29%5E2+%2B+x2%5E2+%3C%3D+2%2C+%28+x1+%2B+1+%29%5E2+%2B+x2%5E2+%3E%3D+2
