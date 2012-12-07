@@ -3,5 +3,5 @@ function [ ret ] = hg_1( a, i )
 % 0 <= ai
 % 0 <= C - ai
 % hessian is zero vector for any i
-    ret = zeros( size( a ) );
+    ret = zeros( length( a ) );
 end

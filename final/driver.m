@@ -16,13 +16,13 @@ K = @( x1, x2 ) ( polynomial_kernel( x1, x2, 0.0156, 0, 3 ) );
 
 f = @( a ) ( f_1( a, x, y, K ) );
 df = @( a ) ( df_1( a, x, y, K ) );
-hf = @( a, i ) ( hf_1( a, i, x, y, K ) );
+hf = @( a ) ( hf_1( a, x, y, K ) );
 
 c = @( a ) ( c_1( a, y ) );
 dc = @( a ) ( dc_1( a, y ) );
 hc = @( a, i ) ( hc_1( a, i ) );
 
-g = @( a ) ( g_1( a ) );
+g = @( a ) ( g_1( a, 100 ) );
 dg = @( a ) ( dg_1( a ) );
 hg = @( a, i ) ( hg_1( a, i ) );
 

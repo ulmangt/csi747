@@ -2,5 +2,5 @@ function [ ret ] = hc_1( a, i )
 %HC_1 hessian of equality constraints
 % sum( a * y ) = 0
 % hessian is zero vector for any i
-    ret = zeros( size( a ) );
+    ret = zeros( length( a ) );
 end
