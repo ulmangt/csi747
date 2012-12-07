@@ -32,4 +32,4 @@ hg = @( a, i ) ( hg_1( a, i ) );
 % initial guess vector
 guess = C * rand( length( y ), 1 );
 
-[x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-7, 0.1, 100 );
+[x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-7, 0.8, 100 );
