@@ -1,4 +1,4 @@
-function [ y ] = dd_psi_diag( x, k, c )
+function [ y ] = dd_psi_diag( a, k, c )
 %DD_PSI_DIAG diagonalized DD_PSI
-    y = diag( arrayfun( @dd_psi, k*c(x) ) );
+    y = diag( arrayfun( @dd_psi, k*c(a) ) );
 end

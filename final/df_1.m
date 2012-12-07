@@ -1,7 +1,7 @@
-function [ ret ] = gf_1( a, x, y, K )
+function [ ret ] = df_1( a, x, y, K )
 %GF_1 gradient of function to minimize
 % sum[i]( ai ) - 0.5 * sum[i,j](ai*aj*yi*yj*K(xi,xj))
-    ret = zeros( size( a ), 1 );
+    ret = zeros( length( a ), 1 );
 
     for i=1:size( a )
        sum = 0;
