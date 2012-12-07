@@ -22,7 +22,7 @@ for i=1:length(y)
    end
 end
 
-C = 2;
+C = 100;
 
 f = @( a ) ( f_1( a, x, y, K ) );
 df = @( a ) ( df_1( a, x, y, K ) );

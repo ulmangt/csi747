@@ -50,12 +50,12 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
            sum1 = sum1 + yi(j)*psi(ki*c_x(j)); 
         end
         
-        ret = f(xi) - (1/ki) * sum1 - dot(zi,g(xi))+(k/2.0)*norm(g(xi))^2;
+        ret = f(xi) - (1/ki) * sum1 - dot(zi,g(xi))+(ki/2.0)*norm(g(xi))^2;
     end
 
     % gradient phi w.r.t x
     function [ret] = d_phi( xi, yi, zi, ki )
-        ret = df(xi) - dc(xi)'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+k*dg(xi)'*g(xi);
+        ret = df(xi) - dc(xi)'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+ki*dg(xi)'*g(xi);
     end
 
     % hessian of phi w.r.t. x
@@ -71,14 +71,14 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
        
        
        sum2 = zeros(np);
-       for i=1:ng
-           sum2 = sum2 + hg(xi,i)*zi(i);
+       for j=1:ng
+           sum2 = sum2 + hg(xi,j)*zi(j);
        end
         
        sum3 = zeros(np);
        g_x = g(xi);
-       for i=1:ng
-           sum3 = sum3 + hg(xi,i)*g_x(i);
+       for j=1:ng
+           sum3 = sum3 + hg(xi,j)*g_x(j);
        end
         
        al = -sum2 + ki*sum3 + ki*dg(xi)'*dg(xi);
