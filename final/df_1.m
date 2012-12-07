@@ -4,15 +4,12 @@ function [ ret ] = df_1( a, x, y, K )
     ret = zeros( length( a ), 1 );
 
     for i=1:size( a )
-       sum = 0;
+       sum1 = 0;
+       
        for j=1:size( a )
-          if i==j
-             sum = sum + 2*a(i)*a(j)*y(j)*y(i)*K(x(i),x(j));
-          else
-             sum = sum + a(j)*y(j)*y(i)*K(x(i),x(j));
-          end
+          sum1 = sum1 + 2*a(j)*y(j)*y(i)*K(x(i),x(j));
        end
         
-       ret(i) = 1 - 0.5*sum;
+       ret(i) = 1 - 0.5*sum1;
     end
 end
