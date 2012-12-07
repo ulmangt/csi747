@@ -13,7 +13,13 @@ y  = [ ones( size3(2), 1 ); -ones( size6(2), 1 ) ];
 % curry functions to build input functions to
 % rescaling_augmented_lagrangian with correct arguments
 %K = @( x1, x2 ) ( polynomial_kernel( x1, x2, 0.0156, 0, 3 ) );
-K = @( x1, x2 ) ( radial_kernel( x1, x2, 0.0521 ) );
+
+K = zeros( length( y ) );
+for i=1:length(y)
+   for j=1:length(y)
+       K(i,j) = radial_kernel(x(:,i),x(:,j),0.0521);
+   end
+end
 
 C = 100;
 

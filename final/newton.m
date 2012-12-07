@@ -67,6 +67,9 @@ function xs = newton( func, grad_func, hessian_func, guess, eta, stop_func )
         
         % count number of steps
         iter = iter + 1;
+        
+        str = sprintf( 'Step: %f\n', iter);
+        disp( str );
     end
    
     str = sprintf( 'Newton Steps: %f\n', iter);
