@@ -33,7 +33,7 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
 
     % initial values for dual variable
     y = ones( nc, 1 );
-    z = ones( ng, 1 );
+    z = zeros( ng, 1 );
 
     % stopping value (initally infinite -- we do at least one iteration)
     stop = inf;

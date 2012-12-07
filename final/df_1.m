@@ -10,6 +10,6 @@ function [ ret ] = df_1( a, x, y, K )
           sum1 = sum1 + 2*a(j)*y(j)*y(i)*K(x(:,i),x(:,j));
        end
         
-       ret(i) = 1 - 0.5*sum1;
+       ret(i) = -1 + 0.5*sum1;
     end
 end

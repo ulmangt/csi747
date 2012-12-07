@@ -8,5 +8,5 @@ function [ ret ] = f_1( a, x, y, K )
        end
     end
 
-    ret = sum( a ) - 0.5 * sum1;
+    ret = - sum( a ) + 0.5 * sum1;
 end
