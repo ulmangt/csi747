@@ -25,3 +25,8 @@ hc = @( a, i ) ( hc_1( a, i ) );
 g = @( a ) ( g_1( a ) );
 dg = @( a ) ( dg_1( a ) );
 hg = @( a, i ) ( hg_1( a, i ) );
+
+% initial guess vector
+guess = zeros( length( y ) );
+
+[x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-7, 0.1, 100 );
