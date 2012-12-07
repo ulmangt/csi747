@@ -4,7 +4,7 @@ function [ ret ] = hf_1( a, x, y, K )
     ret = zeros( length( a ) );
     for j=1:size( a )
         for i=1:size( a )
-            ret(i,j) = -y(i)*y(j)*K(x(i),x(j));
+            ret(i,j) = -y(i)*y(j)*K(x(:,i),x(:,j));
         end
     end
 end
