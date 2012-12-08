@@ -41,8 +41,23 @@ hc = @( a, i ) ( hc_1( a, i ) );
 % initial guess vector
 guess = zeros( length( y ), 1 );
 
+% build SVM
 [ a l1 l2 ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-7, 0.8, 100 );
-
 b = calculate_b( a, y, K, C );
+
+% calculate error rate on training data
+disp( 'Error Rate Training Data: 3 vs 6' );
 y_predicted = calculate_y_predicted( a, b, x, x, y, kernel );
 calculate_error_rate( y_predicted, y, @digit_picker_36 );
+
+% calculate error rate on testing data
+x3_test = readFile( 'test3.txt' );
+x6_test = readFile( 'test6.txt' );
+size3 = size( x3_test );
+size6 = size( x6_test );
+x_test  = [ x3_test x6_test ];
+y_test  = [ ones( size3(2), 1 ); -ones( size6(2), 1 ) ];
+
+disp( 'Error Rate Testing Data: 3 vs 6' );
+y_predicted_test = calculate_y_predicted( a, b, x_test, x, y, kernel );
+calculate_error_rate( y_predicted_test, y_test, @digit_picker_36 );

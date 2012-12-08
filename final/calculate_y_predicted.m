@@ -3,7 +3,7 @@ function [ y_predicted ] = calculate_y_predicted( a, b, x_test, x_train, y_train
     [ np ntrain ] = size( x_train );
     [ np ntest ] = size( x_test );
 
-    y_predicted = zeros( length( a ), 1 );
+    y_predicted = zeros( ntest, 1 );
   
     for j=1:ntest        
         sum1 = 0;
