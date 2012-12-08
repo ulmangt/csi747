@@ -59,7 +59,7 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
     end
 
     % hessian of phi w.r.t. x
-    function [ret] = h_phi( xi, yi, zi, ki )
+    function [ret] = h_phi_old( xi, yi, zi, ki )
        sum1 = 0;
        
        c_x = c(xi);
@@ -84,6 +84,10 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
        al = -sum2 + ki*sum3 + ki*dg(xi)'*dg(xi);
        
        ret = hf(xi) + nr + al;
+    end
+
+    function [ret] = h_phi( xi, yi, zi, ki )
+        ret = hf(xi) -ki*dc(xi)'*diag(yi)*dd_psi_diag(xi,ki,c)*dc(xi) + ki*dg(xi)'*dg(xi) ;
     end
 
     while ( stop >= epsilon )

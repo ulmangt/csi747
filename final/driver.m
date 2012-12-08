@@ -11,9 +11,9 @@ size6 = size( x6 );
 y  = [ ones( size3(2), 1 ); -ones( size6(2), 1 ) ];
 
 % pre-calculate kernel values for all i,j
-%kernel = @(x1,x2) (radial_kernel(x1,x2,0.0521));
+kernel = @(x1,x2) (radial_kernel(x1,x2,0.0521));
 %kernel = @(x1,x2) (polynomial_kernel(x1,x2,0.0156,0,3));
-kernel = @(x1,x2) (dot(x1,x2));
+%kernel = @(x1,x2) (dot(x1,x2));
 K = precalculate_kernel( x, kernel );
 
 C = 100;
