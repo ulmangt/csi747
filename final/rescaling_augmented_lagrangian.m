@@ -88,6 +88,9 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
 
     while ( stop >= epsilon )
         
+        iter = iter + 1;
+        str = sprintf( 'Iteration: %d', iter ); disp( str );
+        
         % phi w.r.t x
         phi_yk = @(x) ( phi( x, y, z, k ) ); 
         
@@ -101,7 +104,7 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
         stop = @(x)( max( [epsilon, norm(g(x)), (1/k)*norm(y-d_psi_diag(x,k,c)*y)] ) );
         
         % update x
-        x = newton( phi_yk, d_phi_yk, h_phi_yk, x, eta, stop );
+        [ x n_iter ] = newton( phi_yk, d_phi_yk, h_phi_yk, x, eta, stop );
         
         % update y
         for i=1:nc
@@ -121,10 +124,15 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
         stop4 = norm( g(x) );
         stop = max( [stop1,stop2,stop3,stop4] );
         
-        iter = iter + 1;
-        str = sprintf( 'Iteration: %d\nF(x): %f\nStop Criteria: %f\nx:%s\nz:%s\ny:%s\n', iter, f( x ), stop, num2str( x' ), num2str( z' ), num2str( y' ) );
-        disp( str );
+        L = df(x) - dc(x)'*y - dg(x)'*z;
         
+        str = sprintf( 'Newton Steps: %d', n_iter ); disp( str );
+        str = sprintf( 'Equality Constraints Infeasibility: %d', stop4 ); disp( str );
+        str = sprintf( 'Inequality Constraints Infeasibility: %d', stop3 ); disp( str );
+        str = sprintf( 'Complementarity: %d', max( c(x).*y ) ); disp( str );
+        str = sprintf( 'Norm of Gradient of Lagrangian: %d',norm( L ) ); disp( str );
+        str = sprintf( 'Max Stop Criteria: %d', stop ); disp( str );
+        disp( '---------------------------------------------------------' );
     end
 
 end

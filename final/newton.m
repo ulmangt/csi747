@@ -1,4 +1,4 @@
-function xs = newton( func, grad_func, hessian_func, guess, eta, stop_func )
+function [ xs iter ] = newton( func, grad_func, hessian_func, guess, eta, stop_func )
 %NEWTON Find minimum value of func
 
     % if no eta was provided, set a default
@@ -68,11 +68,7 @@ function xs = newton( func, grad_func, hessian_func, guess, eta, stop_func )
         % count number of steps
         iter = iter + 1;
         
-        str = sprintf( 'Step: %f\n', iter);
-        disp( str );
+        str = sprintf( '* Newton Step: %d Norm Gradient Phi: %d', iter, stop ); disp( str );
     end
-   
-    str = sprintf( 'Newton Steps: %f\n', iter);
-    disp( str );
 end
 
