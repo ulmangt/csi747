@@ -16,7 +16,7 @@ kernel = @(x1,x2) (radial_kernel(x1,x2,0.0521));
 %kernel = @(x1,x2) (dot(x1,x2));
 K = precalculate_kernel( x, kernel );
 
-C = 100;
+C = 2;
 
 % curry functions to build input functions to
 % rescaling_augmented_lagrangian with correct arguments
@@ -36,7 +36,7 @@ hc = @( a, i ) ( hc_1( a, i ) );
 guess = C/2.0 *ones( length( y ), 1 );
 
 % build SVM
-[ a l1 l2 ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-7, 0.8, 100 );
+[ a l1 l2 ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-5, 0.8, 100 );
 b = calculate_b( a, y, K, C );
 
 % calculate error rate on training data

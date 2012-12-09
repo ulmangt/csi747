@@ -12,7 +12,6 @@ function [ ret ] = calculate_b( a, y, K, C )
     count1 = 0;
     for j=1:length( a )
        if a(j) > 1e-4 && a(j) < C-1e-4
-           disp( b(j) )
            sum1 = sum1 + b(j);
            count1 = count1 + 1;
        end

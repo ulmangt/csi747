@@ -1,127 +1,451 @@
 =============================================
-=========== Radial Kernel 3 vs 6 ============
+=========== Radial Kernel 3 vs 6 C=100 ======
 =============================================
-
 Iteration: 1
-* Newton Step: 1 Norm Gradient Phi: 1.780385e+01
-* Newton Step: 2 Norm Gradient Phi: 1.226660e+01
-* Newton Step: 3 Norm Gradient Phi: 3.724661e+01
-* Newton Step: 4 Norm Gradient Phi: 1.965355e+03
-* Newton Step: 5 Norm Gradient Phi: 7.442532e+01
-* Newton Step: 6 Norm Gradient Phi: 3.194593e+00
-* Newton Step: 7 Norm Gradient Phi: 1.346886e+00
-* Newton Step: 8 Norm Gradient Phi: 5.407110e-01
-* Newton Step: 9 Norm Gradient Phi: 2.073495e-01
-* Newton Step: 10 Norm Gradient Phi: 6.577666e-02
-Newton Steps: 10
-Equality Constraints Infeasibility: 1.286932e-04
-Inequality Constraints Infeasibility: -3.554181e-03
+* Newton Step: 1 Norm Gradient Phi: 7.017994e+03
+* Newton Step: 2 Norm Gradient Phi: 2.110626e+03
+* Newton Step: 3 Norm Gradient Phi: 1.583672e+02
+* Newton Step: 4 Norm Gradient Phi: 2.820811e+00
+* Newton Step: 5 Norm Gradient Phi: 1.207266e+00
+* Newton Step: 6 Norm Gradient Phi: 4.798095e-01
+* Newton Step: 7 Norm Gradient Phi: 1.613325e-01
+Newton Steps: 7
+Objective Value: -5.956487e+01
+Equality Constraints Infeasibility: 1.026272e-04
+Inequality Constraints Infeasibility: 1.461072e-03
 Complementarity: 9.999000e-03
-Norm of Gradient of Lagrangian: 6.577666e-02
-Max Stop Criteria: 1.585932e+00
+Norm of Gradient of Lagrangian: 1.613325e-01
+Max Stop Criteria: 1.837724e+00
 ---------------------------------------------------------
 Iteration: 2
-* Newton Step: 1 Norm Gradient Phi: 4.468568e+01
-* Newton Step: 2 Norm Gradient Phi: 8.463452e-01
-* Newton Step: 3 Norm Gradient Phi: 1.910063e-01
-* Newton Step: 4 Norm Gradient Phi: 2.113287e-02
-* Newton Step: 5 Norm Gradient Phi: 1.744981e-03
+* Newton Step: 1 Norm Gradient Phi: 3.095329e+01
+* Newton Step: 2 Norm Gradient Phi: 9.970849e-01
+* Newton Step: 3 Norm Gradient Phi: 2.440984e-01
+* Newton Step: 4 Norm Gradient Phi: 3.200653e-02
+* Newton Step: 5 Norm Gradient Phi: 2.926546e-03
 Newton Steps: 5
-Equality Constraints Infeasibility: 9.056745e-06
-Inequality Constraints Infeasibility: -1.986898e-04
-Complementarity: 5.824382e-04
-Norm of Gradient of Lagrangian: 1.744981e-03
-Max Stop Criteria: 1.690535e-01
+Objective Value: -5.997201e+01
+Equality Constraints Infeasibility: 2.554650e-05
+Inequality Constraints Infeasibility: -2.915931e-04
+Complementarity: 1.067875e-03
+Norm of Gradient of Lagrangian: 2.926546e-03
+Max Stop Criteria: 3.760220e-01
 ---------------------------------------------------------
 Iteration: 3
-* Newton Step: 1 Norm Gradient Phi: 2.963486e-01
-* Newton Step: 2 Norm Gradient Phi: 4.465507e-02
-* Newton Step: 3 Norm Gradient Phi: 9.424922e-03
-* Newton Step: 4 Norm Gradient Phi: 6.939296e-04
-* Newton Step: 5 Norm Gradient Phi: 9.315980e-06
+* Newton Step: 1 Norm Gradient Phi: 5.925091e-01
+* Newton Step: 2 Norm Gradient Phi: 8.074392e-02
+* Newton Step: 3 Norm Gradient Phi: 1.736469e-02
+* Newton Step: 4 Norm Gradient Phi: 1.350338e-03
+* Newton Step: 5 Norm Gradient Phi: 1.591475e-05
 Newton Steps: 5
-Equality Constraints Infeasibility: 3.608030e-07
-Inequality Constraints Infeasibility: -3.016725e-06
-Complementarity: 4.287421e-05
-Norm of Gradient of Lagrangian: 9.315980e-06
-Max Stop Criteria: 1.036372e-02
+Objective Value: -6.001292e+01
+Equality Constraints Infeasibility: 3.850654e-07
+Inequality Constraints Infeasibility: -9.212220e-06
+Complementarity: 9.993395e-05
+Norm of Gradient of Lagrangian: 1.591475e-05
+Max Stop Criteria: 4.011331e-02
 ---------------------------------------------------------
 Iteration: 4
-* Newton Step: 1 Norm Gradient Phi: 1.605643e-03
-* Newton Step: 2 Norm Gradient Phi: 1.647595e-04
-* Newton Step: 3 Norm Gradient Phi: 2.812584e-06
+* Newton Step: 1 Norm Gradient Phi: 4.298502e-03
+* Newton Step: 2 Norm Gradient Phi: 3.332207e-04
+* Newton Step: 3 Norm Gradient Phi: 3.305940e-06
 Newton Steps: 3
-Equality Constraints Infeasibility: 4.208195e-08
-Inequality Constraints Infeasibility: 7.144418e-07
-Complementarity: 8.608467e-06
-Norm of Gradient of Lagrangian: 2.812584e-06
-Max Stop Criteria: 1.178875e-03
+Objective Value: -6.001624e+01
+Equality Constraints Infeasibility: 5.967392e-07
+Inequality Constraints Infeasibility: 1.017744e-05
+Complementarity: 2.162314e-05
+Norm of Gradient of Lagrangian: 3.305940e-06
+Max Stop Criteria: 5.747959e-03
 ---------------------------------------------------------
 Iteration: 5
-* Newton Step: 1 Norm Gradient Phi: 9.409695e-05
-* Newton Step: 2 Norm Gradient Phi: 9.502352e-07
+* Newton Step: 1 Norm Gradient Phi: 2.343069e-04
+* Newton Step: 2 Norm Gradient Phi: 2.512844e-06
 Newton Steps: 2
-Equality Constraints Infeasibility: 8.856541e-10
-Inequality Constraints Infeasibility: 8.319682e-07
-Complementarity: 2.044501e-06
-Norm of Gradient of Lagrangian: 9.502352e-07
-Max Stop Criteria: 2.548608e-04
+Objective Value: -6.001659e+01
+Equality Constraints Infeasibility: 2.448429e-07
+Inequality Constraints Infeasibility: 4.805526e-06
+Complementarity: 5.361956e-06
+Norm of Gradient of Lagrangian: 2.512844e-06
+Max Stop Criteria: 1.166411e-03
 ---------------------------------------------------------
 Iteration: 6
-* Newton Step: 1 Norm Gradient Phi: 5.830766e-06
-* Newton Step: 2 Norm Gradient Phi: 5.237575e-09
+* Newton Step: 1 Norm Gradient Phi: 1.617247e-05
+* Newton Step: 2 Norm Gradient Phi: 1.649713e-08
 Newton Steps: 2
-Equality Constraints Infeasibility: 1.264138e-09
-Inequality Constraints Infeasibility: 5.966387e-07
-Complementarity: 5.131558e-07
-Norm of Gradient of Lagrangian: 5.237575e-09
-Max Stop Criteria: 6.209408e-05
+Objective Value: -6.001664e+01
+Equality Constraints Infeasibility: 7.590450e-08
+Inequality Constraints Infeasibility: 1.619316e-06
+Complementarity: 1.403848e-06
+Norm of Gradient of Lagrangian: 1.649713e-08
+Max Stop Criteria: 2.743425e-04
 ---------------------------------------------------------
 Iteration: 7
-* Newton Step: 1 Norm Gradient Phi: 3.665115e-07
-* Newton Step: 2 Norm Gradient Phi: 2.389802e-10
+* Newton Step: 1 Norm Gradient Phi: 1.157752e-06
+* Newton Step: 2 Norm Gradient Phi: 1.990369e-10
 Newton Steps: 2
-Equality Constraints Infeasibility: 4.420884e-10
-Inequality Constraints Infeasibility: 1.818380e-07
-Complementarity: 1.322393e-07
-Norm of Gradient of Lagrangian: 2.389802e-10
-Max Stop Criteria: 1.528464e-05
+Objective Value: -6.001665e+01
+Equality Constraints Infeasibility: 2.186758e-08
+Inequality Constraints Infeasibility: 2.134740e-06
+Complementarity: 3.670600e-07
+Norm of Gradient of Lagrangian: 1.990369e-10
+Max Stop Criteria: 6.836852e-05
 ---------------------------------------------------------
 Iteration: 8
-* Newton Step: 1 Norm Gradient Phi: 2.144805e-08
+* Newton Step: 1 Norm Gradient Phi: 7.788941e-08
 Newton Steps: 1
-Equality Constraints Infeasibility: 1.226432e-10
-Inequality Constraints Infeasibility: 5.137960e-08
-Complementarity: 3.593019e-08
-Norm of Gradient of Lagrangian: 2.144805e-08
-Max Stop Criteria: 3.774737e-06
+Objective Value: -6.001665e+01
+Equality Constraints Infeasibility: 5.995201e-09
+Inequality Constraints Infeasibility: 8.251807e-07
+Complementarity: 9.578625e-08
+Norm of Gradient of Lagrangian: 7.788941e-08
+Max Stop Criteria: 1.732893e-05
 ---------------------------------------------------------
 Iteration: 9
-* Newton Step: 1 Norm Gradient Phi: 1.355406e-09
+* Newton Step: 1 Norm Gradient Phi: 4.772625e-09
 Newton Steps: 1
-Equality Constraints Infeasibility: 2.928586e-11
-Inequality Constraints Infeasibility: 1.454684e-08
-Complementarity: 9.774240e-09
-Norm of Gradient of Lagrangian: 1.355406e-09
-Max Stop Criteria: 9.640008e-07
+Objective Value: -6.001665e+01
+Equality Constraints Infeasibility: 1.594682e-09
+Inequality Constraints Infeasibility: 2.539629e-07
+Complementarity: 2.572455e-08
+Norm of Gradient of Lagrangian: 4.772625e-09
+Max Stop Criteria: 4.478936e-06
 ---------------------------------------------------------
 Iteration: 10
-* Newton Step: 1 Norm Gradient Phi: 2.967663e-10
+* Newton Step: 1 Norm Gradient Phi: 3.376285e-10
 Newton Steps: 1
-Equality Constraints Infeasibility: 7.550080e-12
-Inequality Constraints Infeasibility: 4.044210e-09
-Complementarity: 2.659806e-09
-Norm of Gradient of Lagrangian: 2.967663e-10
-Max Stop Criteria: 2.445008e-07
+Objective Value: -6.001665e+01
+Equality Constraints Infeasibility: 4.293496e-10
+Inequality Constraints Infeasibility: 7.194552e-08
+Complementarity: 6.787791e-09
+Norm of Gradient of Lagrangian: 3.376285e-10
+Max Stop Criteria: 1.167655e-06
 ---------------------------------------------------------
 Iteration: 11
-* Newton Step: 1 Norm Gradient Phi: 9.349001e-11
+* Newton Step: 1 Norm Gradient Phi: 8.656509e-11
 Newton Steps: 1
-Equality Constraints Infeasibility: 1.765056e-12
-Inequality Constraints Infeasibility: 1.131505e-09
-Complementarity: 7.238623e-10
-Norm of Gradient of Lagrangian: 9.349001e-11
-Max Stop Criteria: 6.201072e-08
+Objective Value: -6.001665e+01
+Equality Constraints Infeasibility: 1.133764e-10
+Inequality Constraints Infeasibility: 1.955965e-08
+Complementarity: 1.782874e-09
+Norm of Gradient of Lagrangian: 8.656509e-11
+Max Stop Criteria: 3.032099e-07
+---------------------------------------------------------
+Iteration: 12
+* Newton Step: 1 Norm Gradient Phi: 3.044651e-11
+Newton Steps: 1
+Objective Value: -6.001665e+01
+Equality Constraints Infeasibility: 2.964669e-11
+Inequality Constraints Infeasibility: 5.200108e-09
+Complementarity: 4.673983e-10
+Norm of Gradient of Lagrangian: 3.044651e-11
+Max Stop Criteria: 7.863582e-08
+---------------------------------------------------------
+
+Error Rate Training Data: 3 vs 6
+Error Rate: 0.000000
+Train Interval: 0.000000 0.000000
+
+Error Rate Testing Data: 3 vs 6
+Error Rate: 0.036585
+Train Interval: -0.004050 0.077221
+
+
+=============================================
+=========== Radial Kernel 3 vs 6 C=2 ========
+=============================================
+
+
+Iteration: 1
+* Newton Step: 1 Norm Gradient Phi: 6.931331e+03
+* Newton Step: 2 Norm Gradient Phi: 2.484910e+03
+* Newton Step: 3 Norm Gradient Phi: 1.432481e+03
+* Newton Step: 4 Norm Gradient Phi: 4.175104e+02
+* Newton Step: 5 Norm Gradient Phi: 1.604049e+02
+* Newton Step: 6 Norm Gradient Phi: 1.159400e+02
+* Newton Step: 7 Norm Gradient Phi: 1.808279e+00
+* Newton Step: 8 Norm Gradient Phi: 7.984806e-01
+* Newton Step: 9 Norm Gradient Phi: 3.144736e-01
+* Newton Step: 10 Norm Gradient Phi: 9.388754e-02
+Newton Steps: 10
+Objective Value: -5.325819e+01
+Equality Constraints Infeasibility: 8.085655e-05
+Inequality Constraints Infeasibility: 5.797742e-04
+Complementarity: 9.950263e-03
+Norm of Gradient of Lagrangian: 9.388754e-02
+Max Stop Criteria: 1.911769e+00
+---------------------------------------------------------
+Iteration: 2
+* Newton Step: 1 Norm Gradient Phi: 4.161087e+01
+* Newton Step: 2 Norm Gradient Phi: 1.028650e+00
+* Newton Step: 3 Norm Gradient Phi: 2.475090e-01
+* Newton Step: 4 Norm Gradient Phi: 3.003328e-02
+* Newton Step: 5 Norm Gradient Phi: 1.824418e-03
+Newton Steps: 5
+Objective Value: -5.379403e+01
+Equality Constraints Infeasibility: 3.654177e-05
+Inequality Constraints Infeasibility: 1.475506e-03
+Complementarity: 9.879219e-04
+Norm of Gradient of Lagrangian: 1.824418e-03
+Max Stop Criteria: 3.905918e-01
+---------------------------------------------------------
+Iteration: 3
+* Newton Step: 1 Norm Gradient Phi: 2.292880e-01
+* Newton Step: 2 Norm Gradient Phi: 5.735189e-02
+* Newton Step: 3 Norm Gradient Phi: 1.169970e-02
+* Newton Step: 4 Norm Gradient Phi: 9.913998e-04
+* Newton Step: 5 Norm Gradient Phi: 1.363580e-05
+Newton Steps: 5
+Objective Value: -5.383408e+01
+Equality Constraints Infeasibility: 2.965729e-06
+Inequality Constraints Infeasibility: 6.034579e-04
+Complementarity: 1.478299e-04
+Norm of Gradient of Lagrangian: 1.363580e-05
+Max Stop Criteria: 5.126194e-02
+---------------------------------------------------------
+Iteration: 4
+* Newton Step: 1 Norm Gradient Phi: 4.412096e-03
+* Newton Step: 2 Norm Gradient Phi: 2.943626e-04
+* Newton Step: 3 Norm Gradient Phi: 2.736765e-06
+Newton Steps: 3
+Objective Value: -5.383792e+01
+Equality Constraints Infeasibility: 1.896586e-06
+Inequality Constraints Infeasibility: 2.682708e-04
+Complementarity: 3.806888e-05
+Norm of Gradient of Lagrangian: 2.736765e-06
+Max Stop Criteria: 9.680553e-03
+---------------------------------------------------------
+Iteration: 5
+* Newton Step: 1 Norm Gradient Phi: 4.640537e-04
+* Newton Step: 2 Norm Gradient Phi: 6.560533e-06
+Newton Steps: 2
+Objective Value: -5.383848e+01
+Equality Constraints Infeasibility: 7.127341e-07
+Inequality Constraints Infeasibility: 7.397461e-05
+Complementarity: 1.335408e-05
+Norm of Gradient of Lagrangian: 6.560533e-06
+Max Stop Criteria: 2.818255e-03
+---------------------------------------------------------
+Iteration: 6
+* Newton Step: 1 Norm Gradient Phi: 7.022949e-05
+* Newton Step: 2 Norm Gradient Phi: 1.932518e-07
+Newton Steps: 2
+Objective Value: -5.383860e+01
+Equality Constraints Infeasibility: 2.779462e-07
+Inequality Constraints Infeasibility: 2.328036e-05
+Complementarity: 6.320571e-06
+Norm of Gradient of Lagrangian: 1.932518e-07
+Max Stop Criteria: 1.109351e-03
+---------------------------------------------------------
+Iteration: 7
+* Newton Step: 1 Norm Gradient Phi: 1.243716e-05
+* Newton Step: 2 Norm Gradient Phi: 7.041632e-09
+Newton Steps: 2
+Objective Value: -5.383864e+01
+Equality Constraints Infeasibility: 1.233954e-07
+Inequality Constraints Infeasibility: 9.859381e-06
+Complementarity: 3.600585e-06
+Norm of Gradient of Lagrangian: 7.041632e-09
+Max Stop Criteria: 5.393950e-04
+---------------------------------------------------------
+Iteration: 8
+* Newton Step: 1 Norm Gradient Phi: 2.843813e-06
+Newton Steps: 1
+Objective Value: -5.383865e+01
+Equality Constraints Infeasibility: 6.282017e-08
+Inequality Constraints Infeasibility: 5.381736e-06
+Complementarity: 2.257747e-06
+Norm of Gradient of Lagrangian: 2.843813e-06
+Max Stop Criteria: 3.081614e-04
+---------------------------------------------------------
+Iteration: 9
+* Newton Step: 1 Norm Gradient Phi: 9.428880e-07
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 3.547164e-08
+Inequality Constraints Infeasibility: 3.339605e-06
+Complementarity: 1.525655e-06
+Norm of Gradient of Lagrangian: 9.428880e-07
+Max Stop Criteria: 1.984124e-04
+---------------------------------------------------------
+Iteration: 10
+* Newton Step: 1 Norm Gradient Phi: 4.186526e-07
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 2.303498e-08
+Inequality Constraints Infeasibility: 2.297566e-06
+Complementarity: 1.087752e-06
+Norm of Gradient of Lagrangian: 4.186526e-07
+Max Stop Criteria: 1.395656e-04
+---------------------------------------------------------
+Iteration: 11
+* Newton Step: 1 Norm Gradient Phi: 2.045800e-07
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 1.612770e-08
+Inequality Constraints Infeasibility: 1.674627e-06
+Complementarity: 8.088111e-07
+Norm of Gradient of Lagrangian: 2.045800e-07
+Max Stop Criteria: 1.033786e-04
+---------------------------------------------------------
+Iteration: 12
+* Newton Step: 1 Norm Gradient Phi: 1.060876e-07
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 1.196548e-08
+Inequality Constraints Infeasibility: 1.271092e-06
+Complementarity: 6.218835e-07
+Norm of Gradient of Lagrangian: 1.060876e-07
+Max Stop Criteria: 7.953896e-05
+---------------------------------------------------------
+Iteration: 13
+* Newton Step: 1 Norm Gradient Phi: 5.734159e-08
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 9.255843e-09
+Inequality Constraints Infeasibility: 9.952126e-07
+Complementarity: 4.913232e-07
+Norm of Gradient of Lagrangian: 5.734159e-08
+Max Stop Criteria: 6.299114e-05
+---------------------------------------------------------
+Iteration: 14
+* Newton Step: 1 Norm Gradient Phi: 3.194075e-08
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 7.381562e-09
+Inequality Constraints Infeasibility: 7.987023e-07
+Complementarity: 3.969559e-07
+Norm of Gradient of Lagrangian: 3.194075e-08
+Max Stop Criteria: 5.104040e-05
+---------------------------------------------------------
+Iteration: 15
+* Newton Step: 1 Norm Gradient Phi: 1.822726e-08
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 6.024922e-09
+Inequality Constraints Infeasibility: 6.540616e-07
+Complementarity: 3.267641e-07
+Norm of Gradient of Lagrangian: 1.822726e-08
+Max Stop Criteria: 4.213668e-05
+---------------------------------------------------------
+Iteration: 16
+* Newton Step: 1 Norm Gradient Phi: 1.066175e-08
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 5.008411e-09
+Inequality Constraints Infeasibility: 5.447012e-07
+Complementarity: 2.732712e-07
+Norm of Gradient of Lagrangian: 1.066175e-08
+Max Stop Criteria: 3.533335e-05
+---------------------------------------------------------
+Iteration: 17
+* Newton Step: 1 Norm Gradient Phi: 6.539583e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 4.226518e-09
+Inequality Constraints Infeasibility: 4.601386e-07
+Complementarity: 2.316487e-07
+Norm of Gradient of Lagrangian: 6.539583e-09
+Max Stop Criteria: 3.002438e-05
+---------------------------------------------------------
+Iteration: 18
+* Newton Step: 1 Norm Gradient Phi: 4.412573e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 3.611950e-09
+Inequality Constraints Infeasibility: 3.934905e-07
+Complementarity: 1.986761e-07
+Norm of Gradient of Lagrangian: 4.412573e-09
+Max Stop Criteria: 2.580669e-05
+---------------------------------------------------------
+Iteration: 19
+* Newton Step: 1 Norm Gradient Phi: 3.456332e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 3.120528e-09
+Inequality Constraints Infeasibility: 3.400896e-07
+Complementarity: 1.721440e-07
+Norm of Gradient of Lagrangian: 3.456332e-09
+Max Stop Criteria: 2.240378e-05
+---------------------------------------------------------
+Iteration: 20
+* Newton Step: 1 Norm Gradient Phi: 3.067153e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 2.721469e-09
+Inequality Constraints Infeasibility: 2.966841e-07
+Complementarity: 1.504992e-07
+Norm of Gradient of Lagrangian: 3.067153e-09
+Max Stop Criteria: 1.962085e-05
+---------------------------------------------------------
+Iteration: 21
+* Newton Step: 1 Norm Gradient Phi: 2.883678e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 2.393165e-09
+Inequality Constraints Infeasibility: 2.609539e-07
+Complementarity: 1.326255e-07
+Norm of Gradient of Lagrangian: 2.883678e-09
+Max Stop Criteria: 1.731761e-05
+---------------------------------------------------------
+Iteration: 22
+* Newton Step: 1 Norm Gradient Phi: 2.764939e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 2.120128e-09
+Inequality Constraints Infeasibility: 2.312101e-07
+Complementarity: 1.177052e-07
+Norm of Gradient of Lagrangian: 2.764939e-09
+Max Stop Criteria: 1.539103e-05
+---------------------------------------------------------
+Iteration: 23
+* Newton Step: 1 Norm Gradient Phi: 2.645183e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 1.890505e-09
+Inequality Constraints Infeasibility: 2.062003e-07
+Complementarity: 1.051290e-07
+Norm of Gradient of Lagrangian: 2.645183e-09
+Max Stop Criteria: 1.376410e-05
+---------------------------------------------------------
+Iteration: 24
+* Newton Step: 1 Norm Gradient Phi: 2.523492e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 1.695872e-09
+Inequality Constraints Infeasibility: 1.849808e-07
+Complementarity: 9.443553e-08
+Norm of Gradient of Lagrangian: 2.523492e-09
+Max Stop Criteria: 1.237838e-05
+---------------------------------------------------------
+Iteration: 25
+* Newton Step: 1 Norm Gradient Phi: 2.396222e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 1.529369e-09
+Inequality Constraints Infeasibility: 1.668300e-07
+Complementarity: 8.527081e-08
+Norm of Gradient of Lagrangian: 2.396222e-09
+Max Stop Criteria: 1.118891e-05
+---------------------------------------------------------
+Iteration: 26
+* Newton Step: 1 Norm Gradient Phi: 2.263485e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 1.385853e-09
+Inequality Constraints Infeasibility: 1.511892e-07
+Complementarity: 7.735961e-08
+Norm of Gradient of Lagrangian: 2.263485e-09
+Max Stop Criteria: 1.016067e-05
+---------------------------------------------------------
+Iteration: 27
+* Newton Step: 1 Norm Gradient Phi: 2.133584e-09
+Newton Steps: 1
+Objective Value: -5.383866e+01
+Equality Constraints Infeasibility: 1.261428e-09
+Inequality Constraints Infeasibility: 1.376203e-07
+Complementarity: 7.048552e-08
+Norm of Gradient of Lagrangian: 2.133584e-09
+Max Stop Criteria: 9.266044e-06
 ---------------------------------------------------------
 Error Rate Training Data: 3 vs 6
 Error Rate: 0.000000
@@ -132,98 +456,102 @@ Error Rate: 0.024390
 Train Interval: -0.008998 0.057779
 
 
-
 =============================================
 ========= Polynomial Kernel 3 vs 6 ==========
 =============================================
-
 Iteration: 1
-* Newton Step: 1 Norm Gradient Phi: 1.815102e+01
-* Newton Step: 2 Norm Gradient Phi: 1.431101e+01
-* Newton Step: 3 Norm Gradient Phi: 1.082305e+01
-* Newton Step: 4 Norm Gradient Phi: 1.329026e+05
-* Newton Step: 5 Norm Gradient Phi: 9.019274e+04
-* Newton Step: 6 Norm Gradient Phi: 2.728818e+04
-* Newton Step: 7 Norm Gradient Phi: 4.672129e+02
-* Newton Step: 8 Norm Gradient Phi: 2.703020e+00
-* Newton Step: 9 Norm Gradient Phi: 1.302541e+00
-* Newton Step: 10 Norm Gradient Phi: 6.611042e-01
-* Newton Step: 11 Norm Gradient Phi: 3.410822e-01
-* Newton Step: 12 Norm Gradient Phi: 1.588339e-01
-Newton Steps: 12
-Equality Constraints Infeasibility: 3.098087e-05
-Inequality Constraints Infeasibility: 5.249126e-03
+* Newton Step: 1 Norm Gradient Phi: 4.511742e+05
+* Newton Step: 2 Norm Gradient Phi: 9.508588e+04
+* Newton Step: 3 Norm Gradient Phi: 4.477677e+04
+* Newton Step: 4 Norm Gradient Phi: 3.464454e+03
+* Newton Step: 5 Norm Gradient Phi: 4.027516e+00
+* Newton Step: 6 Norm Gradient Phi: 7.521219e+03
+* Newton Step: 7 Norm Gradient Phi: 4.147790e+03
+* Newton Step: 8 Norm Gradient Phi: 2.103280e+00
+* Newton Step: 9 Norm Gradient Phi: 3.006746e+00
+* Newton Step: 10 Norm Gradient Phi: 2.619675e+01
+* Newton Step: 11 Norm Gradient Phi: 1.094282e+00
+* Newton Step: 12 Norm Gradient Phi: 5.322484e-01
+* Newton Step: 13 Norm Gradient Phi: 2.533789e-01
+* Newton Step: 14 Norm Gradient Phi: 1.156400e-01
+Newton Steps: 14
+Objective Value: -2.867301e+03
+Equality Constraints Infeasibility: 3.599239e-05
+Inequality Constraints Infeasibility: 5.251349e-03
 Complementarity: 9.999000e-03
-Norm of Gradient of Lagrangian: 1.588339e-01
-Max Stop Criteria: 3.436231e+00
+Norm of Gradient of Lagrangian: 1.156400e-01
+Max Stop Criteria: 3.435815e+00
 ---------------------------------------------------------
 Iteration: 2
-* Newton Step: 1 Norm Gradient Phi: 1.675859e+02
-* Newton Step: 2 Norm Gradient Phi: 8.729235e-01
-* Newton Step: 3 Norm Gradient Phi: 1.760894e-01
-* Newton Step: 4 Norm Gradient Phi: 1.779894e-02
-* Newton Step: 5 Norm Gradient Phi: 3.988045e-03
-* Newton Step: 6 Norm Gradient Phi: 1.072799e-03
-Newton Steps: 6
-Equality Constraints Infeasibility: 5.870951e-06
-Inequality Constraints Infeasibility: 1.484508e-03
-Complementarity: 6.588012e-04
-Norm of Gradient of Lagrangian: 1.072799e-03
-Max Stop Criteria: 1.086030e-01
+* Newton Step: 1 Norm Gradient Phi: 1.930837e+02
+* Newton Step: 2 Norm Gradient Phi: 8.607654e-01
+* Newton Step: 3 Norm Gradient Phi: 1.664946e-01
+* Newton Step: 4 Norm Gradient Phi: 1.008613e-02
+* Newton Step: 5 Norm Gradient Phi: 2.302110e-04
+Newton Steps: 5
+Objective Value: -2.867879e+03
+Equality Constraints Infeasibility: 9.871338e-07
+Inequality Constraints Infeasibility: 1.761014e-04
+Complementarity: 1.141530e-03
+Norm of Gradient of Lagrangian: 2.302110e-04
+Max Stop Criteria: 3.998835e-02
 ---------------------------------------------------------
 Iteration: 3
-* Newton Step: 1 Norm Gradient Phi: 8.871216e-01
-* Newton Step: 2 Norm Gradient Phi: 2.091180e-02
-* Newton Step: 3 Norm Gradient Phi: 4.252040e-03
-* Newton Step: 4 Norm Gradient Phi: 2.915984e-04
-* Newton Step: 5 Norm Gradient Phi: 6.187233e-06
+* Newton Step: 1 Norm Gradient Phi: 1.381383e+00
+* Newton Step: 2 Norm Gradient Phi: 8.925340e-03
+* Newton Step: 3 Norm Gradient Phi: 1.931712e-03
+* Newton Step: 4 Norm Gradient Phi: 1.412810e-04
+* Newton Step: 5 Norm Gradient Phi: 9.018316e-07
 Newton Steps: 5
-Equality Constraints Infeasibility: 2.856319e-08
-Inequality Constraints Infeasibility: 5.236890e-05
-Complementarity: 1.607388e-05
-Norm of Gradient of Lagrangian: 6.187233e-06
-Max Stop Criteria: 1.905133e-03
+Objective Value: -2.867882e+03
+Equality Constraints Infeasibility: 9.467532e-08
+Inequality Constraints Infeasibility: 9.492109e-05
+Complementarity: 1.521003e-05
+Norm of Gradient of Lagrangian: 9.018316e-07
+Max Stop Criteria: 2.033890e-03
 ---------------------------------------------------------
 Iteration: 4
-* Newton Step: 1 Norm Gradient Phi: 1.180174e-03
-* Newton Step: 2 Norm Gradient Phi: 2.688490e-04
-* Newton Step: 3 Norm Gradient Phi: 2.180303e-05
-* Newton Step: 4 Norm Gradient Phi: 1.755048e-07
-Newton Steps: 4
-Equality Constraints Infeasibility: 3.107677e-09
-Inequality Constraints Infeasibility: 3.746647e-06
-Complementarity: 1.208826e-06
-Norm of Gradient of Lagrangian: 1.755048e-07
-Max Stop Criteria: 8.625236e-05
+* Newton Step: 1 Norm Gradient Phi: 1.224375e-04
+* Newton Step: 2 Norm Gradient Phi: 1.181634e-06
+Newton Steps: 2
+Objective Value: -2.867882e+03
+Equality Constraints Infeasibility: 1.259770e-09
+Inequality Constraints Infeasibility: 1.825311e-06
+Complementarity: 1.259397e-06
+Norm of Gradient of Lagrangian: 1.181634e-06
+Max Stop Criteria: 7.692205e-05
 ---------------------------------------------------------
 Iteration: 5
-* Newton Step: 1 Norm Gradient Phi: 6.858532e-07
-* Newton Step: 2 Norm Gradient Phi: 1.729137e-09
-Newton Steps: 2
-Equality Constraints Infeasibility: 9.245289e-11
-Inequality Constraints Infeasibility: 1.269436e-07
-Complementarity: 1.062224e-07
-Norm of Gradient of Lagrangian: 1.729137e-09
-Max Stop Criteria: 5.997818e-06
+* Newton Step: 1 Norm Gradient Phi: 4.919975e-08
+Newton Steps: 1
+Objective Value: -2.867882e+03
+Equality Constraints Infeasibility: 1.381171e-12
+Inequality Constraints Infeasibility: 8.721423e-08
+Complementarity: 1.106558e-07
+Norm of Gradient of Lagrangian: 4.919975e-08
+Max Stop Criteria: 6.231704e-06
 ---------------------------------------------------------
 Iteration: 6
-* Newton Step: 1 Norm Gradient Phi: 2.118667e-09
+* Newton Step: 1 Norm Gradient Phi: 2.411842e-09
 Newton Steps: 1
-Equality Constraints Infeasibility: 9.154074e-13
-Inequality Constraints Infeasibility: 1.062020e-08
-Complementarity: 9.350139e-09
-Norm of Gradient of Lagrangian: 2.118667e-09
-Max Stop Criteria: 5.153210e-07
+Objective Value: -2.867882e+03
+Equality Constraints Infeasibility: 3.410386e-12
+Inequality Constraints Infeasibility: 1.090795e-08
+Complementarity: 9.740275e-09
+Norm of Gradient of Lagrangian: 2.411842e-09
+Max Stop Criteria: 5.690078e-07
 ---------------------------------------------------------
 Iteration: 7
-* Newton Step: 1 Norm Gradient Phi: 1.158923e-09
+* Newton Step: 1 Norm Gradient Phi: 6.539741e-10
 Newton Steps: 1
-Equality Constraints Infeasibility: 1.435693e-12
-Inequality Constraints Infeasibility: 1.024922e-09
-Complementarity: 8.231636e-10
-Norm of Gradient of Lagrangian: 1.158923e-09
-Max Stop Criteria: 4.575992e-08
+Objective Value: -2.867882e+03
+Equality Constraints Infeasibility: 1.253006e-12
+Inequality Constraints Infeasibility: 1.040678e-09
+Complementarity: 8.575097e-10
+Norm of Gradient of Lagrangian: 6.539741e-10
+Max Stop Criteria: 4.797539e-08
 ---------------------------------------------------------
+
 Error Rate Training Data: 3 vs 6
 Error Rate: 0.000000
 Train Interval: 0.000000 0.000000

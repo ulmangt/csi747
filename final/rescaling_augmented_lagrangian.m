@@ -53,9 +53,13 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
         ret = f(xi) - (1/ki) * sum1 - dot(zi,g(xi))+(ki/2.0)*norm(g(xi))^2;
     end
 
-    dc_const = [ eye( np ) ; -eye( np ) ];
+    % gradient phi w.r.t x
+%     function [ret] = d_phi( xi, yi, zi, ki )
+%         ret = df(xi) - dc(xi)'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+ki*dg(xi)'*g(xi);
+%     end
 
     % gradient phi w.r.t x
+    dc_const = [ eye( np ) ; -eye( np ) ];
     function [ret] = d_phi( xi, yi, zi, ki )
         ret = df(xi) - dc_const'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+ki*dg(xi)'*g(xi);
     end
