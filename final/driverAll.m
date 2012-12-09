@@ -35,7 +35,7 @@ for i=0:9
     i2 = (i+1)*size_train;
     y(i1:i2) = ones( size_train, 1 );
 
-    C = 2;
+    C = 100;
 
     % curry functions to build input functions to
     % rescaling_augmented_lagrangian with correct arguments
