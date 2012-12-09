@@ -20,15 +20,15 @@ end
 a_all = [];
 b_all = [];
 
+x = train_x;
+
 % pre-calculate kernel values for all i,j
 kernel = @(x1,x2) (radial_kernel(x1,x2,0.0521));
 %kernel = @(x1,x2) (polynomial_kernel(x1,x2,0.0156,0,3));
 %kernel = @(x1,x2) (dot(x1,x2));
 K = precalculate_kernel( x, kernel );
 
-for i=0:9
-    x = train_x;
-    
+for i=0:9    
     % build y vector
     y = -ones( size_train*10 , 1 );
     i1 = i*size_train+1;
@@ -58,6 +58,6 @@ for i=0:9
     [ a l1 l2 ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-7, 0.8, 100 );
     b = calculate_b( a, y, K, C );
     
-    a_all = [ a_all a ]
-    b_all = [ b_all b ]
+    a_all = [ a_all a ];
+    b_all = [ b_all b ];
 end
