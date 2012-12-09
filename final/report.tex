@@ -507,6 +507,8 @@ The radial kernel produced the best results for the 3 versus 6 case, so it was u
 
 For the full run, epsilon was set to \(1e-4\) because the calculation ran too slowly using \(1e-5\), which was used for the two digit case. This did not appear to affect the overall classifier performance (as compared to the AMPL results from the midterm).
 
+As indicated in Table \ref{table2}, the overall testing misclassification error achieved by the radial SVM classifier was \(0.197\) for \(C=100\) and \(0.222\) for \(C=2\). The \(C=2\) misclassification error matches the AMPL results from the midterm.
+
 \begin{table}
 \caption{Misclassification Error: All Digits}
 \begin{center}
@@ -516,6 +518,8 @@ Data Set & Error & \multicolumn{2}{c}{95\% Confidence Interval} \\
 \cmidrule(r){3-4}
 & & Lower Bound & Upper Bound \\
 \midrule
+Radial Training C=2 & 0.0526 & 0.038 & 0.067 \\
+Radial Training C=100 & 0.001 & -0.001 & 0.003 \\
 Radial Testing C=2 & 0.222 & 0.182 & 0.262 \\
 Radial Testing C=100 & 0.197 & 0.159 & 0.236 \\
 \bottomrule
