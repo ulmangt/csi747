@@ -4,7 +4,7 @@ function [ ret ] = calculate_b( a, y, K, C )
     
     % calculate b for all a
     for j=1:length( a )
-       b(j) = y(j) - sum( y.*a.*K(:,j) ); 
+       b(j) = sum( y.*a.*K(:,j) ) - y(j); 
     end
     
     % average all the b values corresponding to support vectors

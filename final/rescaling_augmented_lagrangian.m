@@ -133,6 +133,7 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
         L = df(x) - dc(x)'*y - dg(x)'*z;
         
         str = sprintf( 'Newton Steps: %d', n_iter ); disp( str );
+        str = sprintf( 'Objective Value: %d', f(x) ); disp( str );
         str = sprintf( 'Equality Constraints Infeasibility: %d', stop4 ); disp( str );
         str = sprintf( 'Inequality Constraints Infeasibility: %d', stop3 ); disp( str );
         str = sprintf( 'Complementarity: %d', max( c(x).*y ) ); disp( str );
