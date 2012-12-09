@@ -5,7 +5,7 @@ function [ y_predicted ] = calculate_y_predicted( a, b, x_test, x_train, y_train
 
     y_predicted = zeros( ntest, 1 );
   
-    for j=1:ntest        
+    for j=1:ntest
         sum1 = 0;
         for i=1:ntrain
             sum1 = sum1 + y_train(i) * a(i) * kernel(x_test(:,j),x_train(:,i));
