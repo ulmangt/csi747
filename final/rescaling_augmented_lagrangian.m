@@ -53,41 +53,43 @@ function [ x y z ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc
         ret = f(xi) - (1/ki) * sum1 - dot(zi,g(xi))+(ki/2.0)*norm(g(xi))^2;
     end
 
+    dc_const = [ eye( np ) ; -eye( np ) ];
+
     % gradient phi w.r.t x
     function [ret] = d_phi( xi, yi, zi, ki )
-        ret = df(xi) - dc(xi)'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+ki*dg(xi)'*g(xi);
+        ret = df(xi) - dc_const'*d_psi_diag(xi,ki,c)*yi - dg(xi)'*zi+ki*dg(xi)'*g(xi);
     end
 
     % hessian of phi w.r.t. x
-    function [ret] = h_phi_old( xi, yi, zi, ki )
-       sum1 = 0;
-       
-       c_x = c(xi);
-       for j=1:nc
-           sum1 = sum1 + hc(xi,j)*d_psi(ki*c_x(j))*yi(j);
-       end
-       
-       nr = -sum1-ki*dc(xi)'*diag(yi)*dd_psi_diag(xi,ki,c)*dc(xi);
-       
-       
-       sum2 = zeros(np);
-       for j=1:ng
-           sum2 = sum2 + hg(xi,j)*zi(j);
-       end
-        
-       sum3 = zeros(np);
-       g_x = g(xi);
-       for j=1:ng
-           sum3 = sum3 + hg(xi,j)*g_x(j);
-       end
-        
-       al = -sum2 + ki*sum3 + ki*dg(xi)'*dg(xi);
-       
-       ret = hf(xi) + nr + al;
-    end
+%     function [ret] = h_phi( xi, yi, zi, ki )
+%        sum1 = 0;
+%        
+%        c_x = c(xi);
+%        for j=1:nc
+%            sum1 = sum1 + hc(xi,j)*d_psi(ki*c_x(j))*yi(j);
+%        end
+%        
+%        nr = -sum1-ki*dc(xi)'*diag(yi)*dd_psi_diag(xi,ki,c)*dc(xi);
+%        
+%        
+%        sum2 = zeros(np);
+%        for j=1:ng
+%            sum2 = sum2 + hg(xi,j)*zi(j);
+%        end
+%         
+%        sum3 = zeros(np);
+%        g_x = g(xi);
+%        for j=1:ng
+%            sum3 = sum3 + hg(xi,j)*g_x(j);
+%        end
+%         
+%        al = -sum2 + ki*sum3 + ki*dg(xi)'*dg(xi);
+%        
+%        ret = hf(xi) + nr + al;
+%     end
 
     function [ret] = h_phi( xi, yi, zi, ki )
-        ret = hf(xi) -ki*dc(xi)'*diag(yi)*dd_psi_diag(xi,ki,c)*dc(xi) + ki*dg(xi)'*dg(xi) ;
+        ret = hf(xi) -ki*dc_const'*diag(yi)*dd_psi_diag(xi,ki,c)*dc_const + ki*dg(xi)'*dg(xi) ;
     end
 
     while ( stop >= epsilon )

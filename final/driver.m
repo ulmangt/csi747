@@ -33,7 +33,7 @@ dc = @( a ) ( dc_1( a ) );
 hc = @( a, i ) ( hc_1( a, i ) );
 
 % initial guess vector
-guess = zeros( length( y ), 1 );
+guess = C/2.0 *ones( length( y ), 1 );
 
 % build SVM
 [ a l1 l2 ] = rescaling_augmented_lagrangian( f, df, hf, g, dg, hg, c, dc, hc, guess, 1e-7, 0.8, 100 );
