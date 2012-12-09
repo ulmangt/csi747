@@ -1,4 +1,5 @@
 function [ K ] = precalculate_kernel( x, kernel )
+% precalculate kernel values for all combinations of input vectors x
     sizex = size( x );
     n = sizex( 2 );
     K = zeros( n );

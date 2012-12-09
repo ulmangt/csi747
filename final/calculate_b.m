@@ -1,4 +1,5 @@
 function [ ret ] = calculate_b( a, y, K, C )
+% given optimal a and y vector and kernel values K, calculate corresponding b
     
     b = zeros( length( a ), 1 );
     

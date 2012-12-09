@@ -1,5 +1,5 @@
 function [ y_predicted ] = calculate_y_predicted( a, b, x_test, x_train, y_train, kernel )
-    
+% given optimal a vector, calculate the predicted y values for a testing data set    
     [ np ntrain ] = size( x_train );
     [ np ntest ] = size( x_test );
 

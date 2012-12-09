@@ -1,4 +1,6 @@
 function [ error_rate ] = calculate_error_rate_all( digit_predicted, digit_all )
+% given a vector of predictions and actual values, return the classifier error rate
+
     size = length( digit_predicted );
     correct_sum = 0.0;
     for j=1:size
